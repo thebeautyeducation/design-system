@@ -294,13 +294,22 @@
         <span class="tbe-badge is-warning">Expiră curând</span>
         <span class="tbe-badge is-danger">Blocat</span>
       </div>
+      <div class="ds-sub"><h3 class="tbe-h4">Niveluri de loialitate</h3><p>Fiecare nivel are glifa lui, saturată. Progresia e intenționată: Bronze și Silver sunt calme, Gold și Diamond strălucesc — nivelul se vede de la distanță, ceea ce e tot rostul meritocrației.</p></div>
       <div class="ds-demo">
         <span class="tbe-badge is-bronze">Bronze</span>
         <span class="tbe-badge is-silver">Silver</span>
         <span class="tbe-badge is-gold">Gold</span>
         <span class="tbe-badge is-diamond">Diamond</span>
       </div>
-      <div class="ds-classlist"><b>.tbe-badge</b> + .is-action · .is-solid · .is-success · .is-warning · .is-danger · .is-bronze/silver/gold/diamond</div>
+      <div class="ds-sub"><h4 class="tbe-h4">Varianta plină — profil, certificat, antet de cont</h4></div>
+      <div class="ds-demo">
+        <span class="tbe-badge is-bronze is-tier-solid">Bronze</span>
+        <span class="tbe-badge is-silver is-tier-solid">Silver</span>
+        <span class="tbe-badge is-gold is-tier-solid">Gold</span>
+        <span class="tbe-badge is-diamond is-tier-solid">Diamond</span>
+      </div>
+      <p class="ds-note">Glifa poartă culoarea vie, textul poartă lizibilitatea. Așa poate străluci fără să scadă sub 4.5:1.</p>
+      <div class="ds-classlist"><b>.tbe-badge</b> + .is-action · .is-solid · .is-success · .is-warning · .is-danger · .is-bronze/silver/gold/diamond · .is-tier-solid</div>
     </section>
 
     <!-- 09 AVATARE -->
@@ -564,46 +573,75 @@
       <p class="ds-sec-intro">Aceleași clase, alți tokeni. Blocul de mai jos are <code>data-brand="harta"</code> — observă fundalul mai alb și colțurile mai strânse.</p>
 
       <div class="ds-demo is-grid" data-brand="harta">
-        <div class="tbe-card">
-          <div class="tbe-salon-card">
-            <div class="tbe-avatar" style="width:72px;height:72px;border-radius:var(--r-sm)">AM</div>
-            <div style="min-width:0;flex:1">
-              <div class="tbe-row is-between" style="margin-bottom:var(--sp-1)">
-                <h3 class="tbe-h4 tbe-mb-0">Ana Maria Popescu</h3>
-                <span class="tbe-score"><span class="tbe-score-value">4,9</span><span class="tbe-score-max">/5</span></span>
-              </div>
-              <p class="tbe-small tbe-muted" style="margin-bottom:var(--sp-3)">Cluj-Napoca · Colorimetrie, bucle</p>
-              <div class="tbe-row" style="gap:var(--sp-2)">
-                <span class="tbe-badge is-map">Disponibil azi</span>
-                <span class="tbe-badge is-gold">Gold</span>
-              </div>
+
+        <article class="tbe-salon">
+          <div class="tbe-salon-media" style="background:linear-gradient(150deg,#EDDDD3,#DCC4B4 45%,#C9AA95)">
+            <span class="tbe-badge-recomandat">Recomandat</span>
+            <div class="tbe-salon-dots"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="tbe-salon-body">
+            <h3 class="tbe-salon-name">Marioara Curteanu</h3>
+            <p class="tbe-salon-role">Profesionist independent</p>
+            <p class="tbe-salon-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Bdul Republicii 20, Reșița, Caraș-Severin, Romania
+            </p>
+            <div><span class="tbe-badge is-gold">Gold</span></div>
+            <div class="tbe-salon-tags">
+              <span class="tbe-tag">Coafuri</span>
+              <span class="tbe-tag">Tunsoare</span>
+            </div>
+            <p class="tbe-salon-brands">Branduri: <b>Milkshake</b></p>
+            <div class="tbe-salon-actions">
+              <a class="tbe-btn-contact" href="#harta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+                Contactează
+              </a>
+              <a class="tbe-social is-facebook" href="#harta" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+              <a class="tbe-social is-instagram" href="#harta" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3Zm0 11A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6Z"/></svg></a>
+              <a class="tbe-social is-maps" href="#harta" aria-label="Vezi pe hartă"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/></svg></a>
             </div>
           </div>
-          <div class="tbe-card-foot" style="margin-top:var(--sp-4)">
-            <span class="tbe-badge-recomandat">★ Recomandat de TBE</span>
-            <button class="tbe-btn is-primary is-sm">Contactează</button>
+        </article>
+
+        <article class="tbe-salon">
+          <div class="tbe-salon-media" style="background:linear-gradient(150deg,#DFC8D1,#A98192 55%,#8E6879)">
+            <div class="tbe-salon-dots"><span class="is-active"></span><span></span><span></span></div>
           </div>
-        </div>
-        <div class="tbe-card">
-          <div class="tbe-salon-card">
-            <div class="tbe-avatar" style="width:72px;height:72px;border-radius:var(--r-sm)">IC</div>
-            <div style="min-width:0;flex:1">
-              <div class="tbe-row is-between" style="margin-bottom:var(--sp-1)">
-                <h3 class="tbe-h4 tbe-mb-0">Ioana Constantin</h3>
-                <span class="tbe-score"><span class="tbe-score-value">4,6</span><span class="tbe-score-max">/5</span></span>
-              </div>
-              <p class="tbe-small tbe-muted" style="margin-bottom:var(--sp-3)">Timișoara · Tuns, coafat de seară</p>
-              <div class="tbe-row" style="gap:var(--sp-2)">
-                <span class="tbe-badge">Program plin</span>
-                <span class="tbe-badge is-silver">Silver</span>
-              </div>
+          <div class="tbe-salon-body">
+            <h3 class="tbe-salon-name">Ioana Constantin</h3>
+            <p class="tbe-salon-role">Salon Lumière</p>
+            <p class="tbe-salon-loc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Str. Alba Iulia 14, Timișoara, Timiș, Romania
+            </p>
+            <div class="tbe-row" style="gap:var(--sp-2)">
+              <span class="tbe-badge is-diamond">Diamond</span>
+              <span class="tbe-badge is-map">Disponibil azi</span>
+            </div>
+            <div class="tbe-salon-tags">
+              <span class="tbe-tag">Colorimetrie</span>
+              <span class="tbe-tag">Balayage</span>
+              <span class="tbe-tag">Coafat de seară</span>
+            </div>
+            <p class="tbe-salon-brands">Branduri: <b>Paul Mitchell</b>, <b>Milkshake</b></p>
+            <div class="tbe-salon-actions">
+              <a class="tbe-btn-contact" href="#harta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+                Contactează
+              </a>
+              <a class="tbe-social is-instagram" href="#harta" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3Zm0 11A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6Z"/></svg></a>
+              <a class="tbe-social is-maps" href="#harta" aria-label="Vezi pe hartă"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/></svg></a>
             </div>
           </div>
-          <div class="tbe-card-foot" style="margin-top:var(--sp-4)">
-            <span class="tbe-small tbe-muted">Răspunde în ~2h</span>
-            <button class="tbe-btn is-secondary is-sm">Contactează</button>
-          </div>
-        </div>
+        </article>
+
+      </div>
+      <div class="ds-classlist"><b>.tbe-salon</b> · .tbe-salon-media · .tbe-salon-dots · .tbe-salon-body · .tbe-salon-name · .tbe-salon-role · .tbe-salon-loc · .tbe-salon-tags · <b>.tbe-tag</b> · .tbe-salon-brands · .tbe-salon-actions · <b>.tbe-btn-contact</b> · <b>.tbe-social</b> + .is-facebook · .is-instagram · .is-maps · .is-whatsapp</div>
+
+      <div class="tbe-callout is-info">
+        <div><strong>De ce butonul de contact e verde și nu magenta</strong>
+        E singura excepție de la regula „magenta = acțiune", și e deliberată. Butoanele de contact predau utilizatoarea unei alte platforme (WhatsApp, Facebook, Instagram, Maps). Culoarea canalului spune instant unde ajunge — informație pe care magenta nu o poate transmite. Excepția se aplică <b>exclusiv</b> handoff-urilor către platforme externe; orice altă acțiune din ecosistem rămâne magenta.</div>
       </div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Semnale de hartă</h3></div>

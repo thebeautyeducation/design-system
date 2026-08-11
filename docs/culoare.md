@@ -39,14 +39,29 @@ Paleta oficială are 3 culori de brand. Un site are nevoie de stări de hover, b
 | 900 | `#3D0620` | fundal foarte închis |
 | light | `#E36D9E` | **dark mode** — 6.0:1 pe fundal închis |
 
-### Mauve
+### Mauve — vocea editorială
+Rolul mauve-ului în sistem: **tot ce e expresiv dar nu se dă click.** Supratitluri, citate, atribuiri, roluri, etichete de tabel și de statistică, linii decorative. Există tocmai ca magenta să rămână curat al acțiunii.
+
 | Treaptă | HEX | Se folosește pentru |
 |---|---|---|
-| 50 | `#F7F1F3` | fundal soft |
-| 200 | `#DFC8D1` | borduri |
-| 300 | `#C9A6B4` | decorativ, dark mode |
-| **400 ★** | **`#A98192`** | **decorativ, blocuri de culoare** |
-| 700 | `#6E5361` | **text mauve accesibil** — 6.9:1 |
+| 50 | `#F7F1F3` | fundal de bloc editorial — `--tbe-editorial-soft` |
+| 200 | `#DFC8D1` | borduri; textul editorial în dark mode |
+| 300 | `#C9A6B4` | linii decorative, bordura citatului — `--tbe-editorial-line` |
+| **400 ★** | **`#A98192`** | **decorativ, blocuri de culoare** (3.4:1 — nu text) |
+| 700 | `#6E5361` | **text editorial** — 6.9:1 — `--tbe-editorial` |
+
+**Unde se folosește**
+
+| Element | Token |
+|---|---|
+| Supratitluri (`.tbe-kicker`) | `--tbe-editorial` |
+| Roluri, subtitluri italice (`.tbe-role`) | `--tbe-editorial` |
+| Atribuiri de citat (`<cite>`) | `--tbe-editorial` |
+| Etichete de tabel (`th`) și de statistică | `--tbe-editorial` |
+| Bordura citatului, linii decorative (`.tbe-rule`) | `--tbe-editorial-line` |
+| Card editorial (`.tbe-card.is-mauve`) | `--tbe-editorial-soft` |
+
+**Unde NU:** butoane, linkuri, stări de eroare, text lung, borduri de card, fundal de pagină.
 
 ### Nude
 | Treaptă | HEX | Se folosește pentru |
@@ -90,12 +105,18 @@ Derivate în aceeași temperatură caldă. Nu folosi verde/roșu standard de sis
 
 Doar pentru badge-uri de status. Nu ca fundal de secțiune sau culoare de buton.
 
-| Nivel | HEX |
-|---|---|
-| Bronze | `#A9714B` |
-| Silver | `#8C8C94` |
-| Gold | `#B58A2E` |
-| Diamond | `#6E8FA6` |
+Fiecare nivel are trei valori, ca să poată fi viu **și** lizibil: glifa poartă culoarea saturată (e un simbol, nu are nevoie de 4.5:1), textul poartă lizibilitatea.
+
+| Nivel | Glifă | Vivid (glifă) | Text | Fundal | Contrast text |
+|---|---|---|---|---|---|
+| Bronze | ● | `#C97F45` | `#8A5228` | `#F7EBE1` | 6.4:1 ✓ |
+| Silver | ◈ | `#9BA5B5` | `#5D6675` | `#EEF1F5` | 5.9:1 ✓ |
+| Gold | ★ | `#F0B72A` | `#8A6300` | `#FDF3D9` | 5.4:1 ✓ |
+| Diamond | ◆ | `#3FB6E8` | `#1A6E92` | `#E2F3FB` | 5.8:1 ✓ |
+
+Progresia e intenționată: Bronze și Silver rămân calme, Gold și Diamond strălucesc. Nivelul se recunoaște de la distanță — asta e tot rostul meritocrației.
+
+Varianta `.is-tier-solid` (gradient plin) e rezervată profilului, certificatelor și antetului de cont.
 
 ## Harta Coafezelor
 
@@ -103,6 +124,17 @@ Doar pentru badge-uri de status. Nu ca fundal de secțiune sau culoare de buton.
 |---|---|---|
 | Verde Hartă | `#2E6F5E` | disponibil / verificat / pin pe hartă. **Nu** buton, **nu** titlu, **nu** fundal de secțiune. |
 | Verde Hartă soft | `#E3EFEB` | fundal de badge |
+
+### Canale de contact
+
+Excepție documentată de la „magenta = acțiune". Se aplică **exclusiv** butoanelor care predau utilizatoarea unei platforme externe. Vezi [`decizii.md` § 14](decizii.md).
+
+| Canal | HEX | Notă |
+|---|---|---|
+| Contact (verde) | `#15803D` | 5.0:1 cu text alb. Verdele mai deschis din produsul actual e la 3.3:1 — insuficient. |
+| Facebook | `#1877F2` | culoare oficială a platformei |
+| Instagram | gradient `#F09433 → #BC1888` | gradientul oficial |
+| Google Maps | `#EA4335` | culoare oficială a platformei |
 
 ---
 

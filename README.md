@@ -90,12 +90,13 @@ De ce contează diferența: `--tbe-action` se schimbă singur în dark mode și 
 
 ---
 
-## Cele patru reguli
+## Cele cinci reguli
 
 1. **Nici un HEX în cod.** Orice culoare vine din `var(--tbe-…)`. Nu există în tokens → nu se folosește.
-2. **Magenta înseamnă acțiune.** Cere click → magenta. Nu cere click → nu e magenta. Un singur buton primar per ecran.
-3. **60 / 30 / 10.** 60% neutre, 30% magenta, 10% mauve+nude. Asta face diferența între premium și țipător.
-4. **Contrast minim 4.5:1** pentru text normal, 3:1 pentru text mare. Mauve `#A98192` și gri cald `#9E9086` arată bine dar **nu se citesc** — sunt decorative.
+2. **Magenta înseamnă acțiune.** Cere click → magenta. Nu cere click → nu e magenta. Un singur buton primar per ecran. Singura excepție: butoanele de contact de pe Hartă, care poartă culoarea platformei externe către care duc.
+3. **Mauve înseamnă voce editorială.** Tot ce e expresiv dar nu se dă click: supratitluri, citate, roluri, etichete, linii decorative. Mauve există tocmai ca magenta să rămână curat al acțiunii.
+4. **60 / 30 / 10.** 60% neutre, 30% magenta, 10% mauve+nude. Asta face diferența între premium și țipător.
+5. **Contrast minim 4.5:1** pentru text normal, 3:1 pentru text mare. Mauve `#A98192` și gri cald `#9E9086` arată bine dar **nu se citesc** — pentru text folosește `--tbe-editorial` și `--tbe-text-muted`.
 
 ---
 
@@ -132,9 +133,9 @@ Folderul funcționează singur. Fonturile (`assets/fonturi/`) sunt încărcate c
 
 Ce a rămas în brand kit-ul principal, în afara acestui folder: fișierele sursă `.ai` și `.eps` ale logo-ului (pentru tipar), `Mini Brand Book.pdf` și dosarul de ecosistem.
 
-## Problemă cunoscută — fișierele de logo
+## Notă tehnică — fișierele de logo
 
-Cele 9 SVG-uri au pânză pătrată 2000×2000 (inclusiv variantele „orizontal" și „vertical") și folosesc culori ușor diferite de paletă: `#A62660` în loc de magenta oficial `#A71257`, `#191919` în loc de negru moale `#2C2521`. Detalii și opțiuni de rezolvare în [`docs/decizii.md`](docs/decizii.md).
+Cele 9 SVG-uri au pânză pătrată 2000×2000, inclusiv variantele „orizontal" și „vertical". Practic: dimensionează logo-ul după **lățime**, nu după înălțime, și ține cont că o parte din spațiul de respirație e deja inclusă în fișier.
 
 ---
 

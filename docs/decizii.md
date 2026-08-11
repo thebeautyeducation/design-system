@@ -119,38 +119,57 @@ Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pe
 
 ---
 
-## ⚠ Problemă de rezolvat: fișierele de logo nu se potrivesc cu paleta
+## 12 · Mauve = vocea editorială
 
-Am descoperit-o inspectând fișierele `.svg` din `brand/logo/`. Nu am schimbat nimic — decizia e a ta.
+**Problema observată:** după prima versiune, mauve-ul aproape nu se folosea nicăieri. Era în paletă ca „accent secundar", dar nimic concret nu i se atribuia — deci nu apărea.
 
-### 1 · Culorile din logo diferă de paleta oficială
+**Cauza reală:** magenta făcea două munci deodată. Era și culoarea acțiunii (butoane, linkuri), și culoarea decorului (supratitluri, borduri de citat, etichete). Asta slăbea regula centrală: dacă supratitlul e magenta și butonul e magenta, magenta nu mai *înseamnă* nimic.
 
-| Element | Culoare în fișierul SVG | Culoare în brand book | Diferență |
-|---|---|---|---|
-| Logo color | `#A62660` | Magenta `#A71257` | Mai deschis, ușor mai puțin saturat |
-| Logo negru | `#191919` | Negru moale `#2C2521` | **Rece** vs. cald — se vede |
-| Logo alb | `#F2F2F2` | Alb `#FFFFFF` | Gri foarte deschis |
+**Soluția:** mauve preia tot ce e expresiv dar nu se dă click.
 
-Izolat, nici una nu sare în ochi. Problema apare când logo-ul stă lângă un buton magenta pe același ecran: două magenta-uri aproape identice citesc ca o greșeală de tipar, nu ca o intenție. La fel, negrul rece al logo-ului lângă textul cald `#2C2521` face logo-ul să pară „lipit din altă parte".
+| Element | Înainte | Acum |
+|---|---|---|
+| Supratitluri (kickere) | magenta | mauve `--tbe-editorial` |
+| Bordura citatului | magenta | mauve `--tbe-editorial-line` |
+| Atribuirea citatului | gri | mauve |
+| Etichete de statistică | gri | mauve |
+| Roluri, subtitluri italice | — | mauve (`.tbe-role`, nou) |
+| Linii decorative | — | mauve (`.tbe-rule`, nou) |
+| Fundal bloc editorial | — | mauve diluat (`.tbe-card.is-mauve`, nou) |
 
-**Trei opțiuni:**
+Rezultat dublu: mauve-ul are în sfârșit un rost, iar magenta rămâne exclusiv al acțiunii. Regula devine verificabilă cu ochiul — **într-un ecran corect construit, singurele lucruri magenta sunt cele pe care se dă click.**
 
-1. **Reexportă logo-urile cu culorile din paletă** (recomandat). Se schimbă doar valorile de fill în fișierele sursă `.ai`. Efort mic, rezolvă definitiv problema. Toate materialele vechi tipărite rămân valabile — diferența e sub pragul la care cineva observă retroactiv.
-2. **Schimbă paleta ca să se potrivească logo-ului** — magenta devine `#A62660`. Contrast pe alb: 6.9:1, tot AA. Dezavantaj: contrazice Mini Brand Book-ul validat, deci ar trebui actualizat și acela.
-3. **Lasă așa și acceptă discrepanța.** Viabilă dacă logo-ul nu apare niciodată direct lângă suprafețe magenta. Riscant — pe un site apare mereu în antet.
+Se folosește `--tbe-editorial` (mauve 700, 6.9:1), nu mauve-ul oficial 400 — acela rămâne decorativ, la 3.4:1.
 
-### 2 · Toate SVG-urile au pânză pătrată 2000×2000
+---
 
-Inclusiv variantele „orizontal" și „vertical". Artwork-ul stă centrat într-un pătrat, cu spațiu gol în jur.
+## 13 · Nivelurile Gold și Diamond strălucesc
 
-**Ce strică:**
-- Nu poți dimensiona logo-ul după înălțime (`max-height: 64px` îl face 64×64px cu logo minuscul în mijloc).
-- Regula „spațiu de respirație = ½ din înălțimea iconiței" nu se poate aplica — spațiul e deja înăuntrul fișierului, într-o cantitate necontrolată.
-- În antetul unui site, logo-ul orizontal ocupă un pătrat, ceea ce împinge navigația și strică alinierea verticală.
+**Cerință:** Gold și Diamond arătau prea șterse.
 
-**Soluție:** reexport din `.ai` cu pânza strânsă pe artwork (Illustrator: *Object → Artboards → Fit to Artwork Bounds*), separat pentru fiecare configurație. Se face o dată, în aceeași sesiune cu corecția de culoare de mai sus.
+**Problema tehnică:** un galben sau un bleu suficient de vii pentru a „străluci" nu au contrast de text. `#F0B72A` pe alb are 1.9:1 — ilizibil.
 
-Până atunci, paginile de aici afișează logo-urile la lățime fixă, ca soluție de compromis.
+**Soluția — separă culoarea de lizibilitate.** Fiecare badge are acum trei valori:
+
+- **glifa** (`★ ◆ ● ◈`) poartă culoarea vie — e un simbol, nu text, deci nu are nevoie de 4.5:1
+- **textul** poartă lizibilitatea — versiunea închisă a aceleiași culori
+- **fundalul** e un tint foarte diluat
+
+Așa Gold poate fi `#F0B72A` în glifă și `#8A6300` în text (5.4:1). Arată viu și rămâne accesibil.
+
+**Progresia e intenționată:** Bronze și Silver rămân calme, Gold și Diamond strălucesc, iar varianta `.is-tier-solid` (cu gradient) e rezervată profilului și certificatelor. Nivelul se recunoaște de la distanță — ceea ce e tot rostul unui program de meritocrație.
+
+---
+
+## 14 · Excepția canalelor de contact
+
+**Ce am făcut:** pe cardul de coafeză, butonul „Contactează" e verde, iar cercurile de social sunt în culorile Facebook / Instagram / Google Maps.
+
+**De ce încalcă regula „magenta = acțiune":** pentru că nu o încalcă, o completează. Butoanele astea nu execută o acțiune în produsul nostru — **predau utilizatoarea unei platforme externe**. Culoarea canalului spune instant unde ajunge: verde = mesagerie, albastru = Facebook, gradient = Instagram, roșu = hartă. Magenta n-ar putea transmite asta, iar o utilizatoare care nu știe unde ajunge ezită să apese.
+
+**Limita strictă:** excepția se aplică exclusiv handoff-urilor către platforme externe. Orice acțiune care rămâne în ecosistem — abonare, trimitere de coafură, deschidere de tutorial — e magenta.
+
+**Notă de accesibilitate:** verdele din produsul actual e prea deschis pentru text alb (3.3:1). Tokenul `--c-contact` folosește `#15803D`, care ajunge la 5.0:1. Vizual e același verde; funcțional e diferența dintre lizibil și nu.
 
 ---
 

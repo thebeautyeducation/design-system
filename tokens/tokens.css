@@ -112,11 +112,41 @@
   --c-harta-300: #6FA595;
   --c-harta-700: #1F4C40;
 
-  /* --- Niveluri de loialitate ------------------------------------------- */
-  --c-bronze:  #A9714B;
-  --c-silver:  #8C8C94;
-  --c-gold:    #B58A2E;
-  --c-diamond: #6E8FA6;
+  /* --- Niveluri de loialitate -------------------------------------------
+     Fiecare nivel are 3 valori:
+       *-vivid = glifa (★ ◆ ●) — saturată, „vie", nu trebuie să fie lizibilă ca text
+       *-text  = textul badge-ului — închisă, minim 4.5:1
+       *-soft  = fundalul badge-ului
+     Progresia e intenționată: Bronze/Silver sunt calme, Gold și Diamond strălucesc.
+     Nivelul se vede de la distanță, ceea ce e tot rostul meritocrației.        */
+  --c-bronze:       #B4703E;
+  --c-bronze-vivid: #C97F45;
+  --c-bronze-text:  #8A5228;
+  --c-bronze-soft:  #F7EBE1;
+
+  --c-silver:       #8A93A3;
+  --c-silver-vivid: #9BA5B5;
+  --c-silver-text:  #5D6675;
+  --c-silver-soft:  #EEF1F5;
+
+  --c-gold:         #D9A520;
+  --c-gold-vivid:   #F0B72A;
+  --c-gold-text:    #8A6300;
+  --c-gold-soft:    #FDF3D9;
+
+  --c-diamond:       #2E9BC9;
+  --c-diamond-vivid: #3FB6E8;
+  --c-diamond-text:  #1A6E92;
+  --c-diamond-soft:  #E2F3FB;
+
+  /* --- Canale de contact (Harta Coafezelor) ------------------------------
+     Excepție documentată de la regula „magenta = acțiune": pe Harta
+     Coafezelor, acțiunile de contact folosesc culoarea canalului, pentru că
+     utilizatoarea recunoaște instant unde ajunge. Vezi docs/decizii.md.      */
+  --c-contact:       #15803D;  /* verde de contact — 5.0:1 cu alb */
+  --c-contact-hover: #116631;
+  --c-facebook:      #1877F2;
+  --c-maps:          #EA4335;
 }
 
 /* ==========================================================================
@@ -265,6 +295,15 @@
   --tbe-accent-text:   var(--c-mauve-700);   /* varianta lizibilă */
   --tbe-accent-soft:   var(--c-mauve-50);
 
+  /* VOCE EDITORIALĂ (mauve) — rolul principal al mauve-ului în sistem.
+     Tot ce e expresiv dar NU se dă click: kickere, citate, atribuiri,
+     etichete de tabel, linii decorative, roluri și subtitluri.
+     Regula pe care o servește: dacă e magenta, se dă click. Mauve-ul preia
+     tot ce înainte era magenta „de decor" și eliberează magenta pentru acțiune. */
+  --tbe-editorial:      var(--c-mauve-700);
+  --tbe-editorial-line: var(--c-mauve-300);
+  --tbe-editorial-soft: var(--c-mauve-50);
+
   /* Linii */
   --tbe-border:        var(--c-neutral-300);
   --tbe-border-strong: var(--c-neutral-400);
@@ -315,6 +354,10 @@
   --tbe-accent-text:   var(--c-mauve-200);
   --tbe-accent-soft:   rgba(201, 166, 180, 0.14);
 
+  --tbe-editorial:      var(--c-mauve-200);
+  --tbe-editorial-line: var(--c-mauve-600);
+  --tbe-editorial-soft: rgba(201, 166, 180, 0.10);
+
   --tbe-border:        #3C322C;
   --tbe-border-strong: #52453D;
   --tbe-border-subtle: #2E2621;
@@ -324,6 +367,15 @@
   --tbe-warning: #E3A857;  --tbe-warning-bg: rgba(227, 168, 87, 0.14);
   --tbe-danger:  #F08379;  --tbe-danger-bg:  rgba(240, 131, 121, 0.14);
   --tbe-info:    #C9A6B4;  --tbe-info-bg:    rgba(201, 166, 180, 0.14);
+
+  /* Nivelurile strălucesc mai tare pe fundal închis */
+  --c-bronze-text:  #D99B6A;  --c-bronze-soft:  rgba(201, 127, 69, 0.16);
+  --c-silver-text:  #B4BDCC;  --c-silver-soft:  rgba(155, 165, 181, 0.16);
+  --c-gold-text:    #F5C542;  --c-gold-soft:    rgba(240, 183, 42, 0.16);
+  --c-diamond-text: #5FC8F5;  --c-diamond-soft: rgba(63, 182, 232, 0.16);
+
+  --c-contact:       #22A85A;
+  --c-contact-hover: #2CBE68;
 
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
@@ -359,6 +411,15 @@
     --tbe-accent:        var(--c-mauve-300);
     --tbe-accent-text:   var(--c-mauve-200);
     --tbe-accent-soft:   rgba(201, 166, 180, 0.14);
+    --tbe-editorial:      var(--c-mauve-200);
+    --tbe-editorial-line: var(--c-mauve-600);
+    --tbe-editorial-soft: rgba(201, 166, 180, 0.10);
+    --c-bronze-text:  #D99B6A;  --c-bronze-soft:  rgba(201, 127, 69, 0.16);
+    --c-silver-text:  #B4BDCC;  --c-silver-soft:  rgba(155, 165, 181, 0.16);
+    --c-gold-text:    #F5C542;  --c-gold-soft:    rgba(240, 183, 42, 0.16);
+    --c-diamond-text: #5FC8F5;  --c-diamond-soft: rgba(63, 182, 232, 0.16);
+    --c-contact:       #22A85A;
+    --c-contact-hover: #2CBE68;
     --tbe-border:        #3C322C;
     --tbe-border-strong: #52453D;
     --tbe-border-subtle: #2E2621;
