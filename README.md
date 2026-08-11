@@ -14,7 +14,7 @@ Dă dublu-click pe `index.html`. Se deschide în browser, fără instalare, făr
 | [`index.html`](index.html) | Intrarea. Prezentare generală + cum se instalează. |
 | [`brand-book.html`](brand-book.html) | Identitatea: esență, voce, culoare, tipografie, logo, formă, fotografie, semnale, Harta Coafezelor, guvernanță. |
 | [`ui.html`](ui.html) | Biblioteca de componente. 18 secțiuni, 80+ controale, fiecare cu exemplu viu și clasele de folosit. |
-| [`bannere.html`](bannere.html) | Formate, zone sigure, 6 rețete de layout, variante cromatice, print, checklist. |
+| [`bannere.html`](bannere.html) | Formate, zone sigure, 6 rețete de layout, variante cromatice, print, specificația **Revistei Coafezelor** (lunar, ~22 pagini), checklist. |
 
 În antetul fiecărei pagini ai două comutatoare:
 - **◐ Temă** — light / dark. Vezi cum arată totul pe fundal închis.

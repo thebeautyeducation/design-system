@@ -92,7 +92,8 @@
       <li><a href="#safe">05 · Zone sigure</a></li>
       <li><a href="#logo">06 · Logo pe banner</a></li>
       <li><a href="#print">07 · Print</a></li>
-      <li><a href="#checklist">08 · Checklist</a></li>
+      <li><a href="#revista">08 · Revista Coafezelor</a></li>
+      <li><a href="#checklist">09 · Checklist</a></li>
     </ol>
   </aside>
 
@@ -301,9 +302,94 @@
       </div>
     </section>
 
-    <!-- 08 CHECKLIST -->
+    <!-- 08 REVISTA -->
+    <section class="ds-sec" id="revista">
+      <h2 class="tbe-h2"><span class="ds-num">08</span> Revista Coafezelor</h2>
+      <p class="ds-sec-intro">Publicație lunară, ~22 pagini, PDF digital. Cel mai mare livrabil de design recurent al ecosistemului — și singurul în care toate cele patru componente apar în același loc.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Format</h3></div>
+      <div class="tbe-grid is-2">
+        <div class="tbe-card is-flat">
+          <h4 class="tbe-h4">Digital (implicit)</h4>
+          <ul class="tbe-small tbe-muted tbe-mb-0">
+            <li>Pagină <b>A4 vertical</b> — 210 × 297 mm.</li>
+            <li>Export PDF, <b>150 dpi</b>, RGB — se citește pe telefon, nu se tipărește.</li>
+            <li>Marjă interioară <b>15 mm</b>, exterioară 12 mm.</li>
+            <li>Pagini <b>individuale</b>, nu spread-uri — se derulează pe telefon.</li>
+            <li>Țintă sub <b>30 MB</b> pe număr, ca să se deschidă din Circle.</li>
+          </ul>
+        </div>
+        <div class="tbe-card is-flat">
+          <h4 class="tbe-h4">Dacă vreodată se tipărește</h4>
+          <ul class="tbe-small tbe-muted tbe-mb-0">
+            <li>300 dpi, CMYK (FOGRA39), bleed 3 mm.</li>
+            <li>Cremul <code>#FAF4EF</code> dispare în albul hârtiei — folosește bej cald <code>#EDDDD3</code>.</li>
+            <li>Numărul de pagini trebuie să fie <b>multiplu de 4</b>.</li>
+            <li>Codurile QR: minim 20 × 20 mm, cu zonă liniștită în jur.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Arhitectura unei pagini</h3><p>Aceeași ierarhie ca pe site — numărul rubricii înlocuiește kickerul.</p></div>
+      <div class="ds-demo">
+        <div class="bn bn-wrap" style="width:100%;max-width:230px;aspect-ratio:210/297;background:var(--c-neutral-50);padding:7%;justify-content:flex-start;color:var(--c-neutral-900)">
+          <span class="k" style="color:#6E5361">Rubrica 06</span>
+          <h3 class="t" style="font-size:22px;margin-bottom:8px">Moodboardul<br>Lunii</h3>
+          <hr style="border:0;height:2px;width:40px;background:#C9A6B4;margin:0 0 10px">
+          <p class="s" style="font-size:9px;margin-bottom:auto">Textul introductiv, Jost 300, două-trei rânduri maximum.</p>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:10px">
+            <div style="width:26px;height:26px;background:var(--c-neutral-900);border-radius:3px;flex:none"></div>
+            <span style="font-family:var(--font-mono);font-size:7px;color:#6E5361;letter-spacing:.06em">SCANEAZĂ · 45 MIN · MEDIU</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:250px">
+          <ol class="tbe-small tbe-muted">
+            <li><b>Numărul rubricii</b> — Source Code Pro, mauve, sus. Ține locul kickerului.</li>
+            <li><b>Titlul rubricii</b> — Cormorant 500, rupt manual la sens.</li>
+            <li><b>Linie mauve scurtă</b> (<code>.tbe-rule.is-short</code>) — separă titlul de conținut.</li>
+            <li><b>Corpul</b> — Jost 300/400, minim 10pt la A4.</li>
+            <li><b>Piciorul de pagină</b> — cod QR + metadate în mono („45 min · dificultate medie").</li>
+          </ol>
+          <p class="ds-note">Magenta apare pe pagină <b>doar</b> unde e o acțiune: linkul, codul QR, butonul de „citește mai mult". Restul e mauve și neutre.</p>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Regula legăturilor</h3><p>Rostul revistei e să trimită cititoarea înapoi în ecosistem. Fiecare rubrică trebuie să aibă o destinație.</p></div>
+      <table class="tbe-table">
+        <thead><tr><th>Tip de rubrică</th><th>Trimite către</th><th>Cum</th></tr></thead>
+        <tbody>
+          <tr><td>Tutoriale (Coafuri, Colorimetrie)</td><td>Circle</td><td class="tbe-muted">link complet + cod QR</td></tr>
+          <tr><td>Fix It</td><td>Circle</td><td class="tbe-muted">link</td></tr>
+          <tr><td>Produsul Lunii, Produse Noi</td><td>Beautifier</td><td class="tbe-muted">link + imagine de produs</td></tr>
+          <tr><td>Coafura din Lumina Reflectoarelor</td><td>Harta Coafezelor</td><td class="tbe-muted">profilul coafezei</td></tr>
+          <tr><td>Interviu</td><td>YouTube</td><td class="tbe-muted">link către video complet</td></tr>
+          <tr><td>Magazinul de Loialitate</td><td>Circle</td><td class="tbe-muted">instrucțiunea „VREAU"</td></tr>
+        </tbody>
+      </table>
+
+      <div class="ds-dodont">
+        <div class="ds-do"><b>Da</b><ul>
+          <li>Aceeași ordine a rubricilor în fiecare număr — cititoarea învață unde să caute.</li>
+          <li>O singură idee per pagină.</li>
+          <li>Fotografii pe lățime completă, cu scrim dacă poartă text.</li>
+          <li>Cod QR la fiecare tutorial, testat înainte de export.</li>
+        </ul></div>
+        <div class="ds-dont"><b>Nu</b><ul>
+          <li>Rubrici noi inventate de la număr la număr.</li>
+          <li>Pagini fără destinație — revista nu e un scop în sine.</li>
+          <li>Text sub 10pt la A4.</li>
+          <li>Magenta pe elemente care nu se pot apăsa.</li>
+        </ul></div>
+      </div>
+
+      <div class="tbe-callout is-action">
+        <div><strong>Arhiva</strong>Fiecare număr se salvează în <code>documente/</code>, cu denumirea <code>Revista Coafezelor — Nr. N, Luna AAAA.pdf</code>. Numerotarea e continuă, nu se resetează anual.</div>
+      </div>
+    </section>
+
+    <!-- 09 CHECKLIST -->
     <section class="ds-sec" id="checklist">
-      <h2 class="tbe-h2"><span class="ds-num">08</span> Checklist înainte de publicare</h2>
+      <h2 class="tbe-h2"><span class="ds-num">09</span> Checklist înainte de publicare</h2>
       <div class="ds-demo is-stack" style="max-width:620px">
         <label class="tbe-check"><input type="checkbox"> Logo prezent, în varianta corectă pentru fundal</label>
         <label class="tbe-check"><input type="checkbox"> Doar fonturile Cormorant Garamond, Jost, Source Code Pro</label>
