@@ -20,6 +20,8 @@ Dă dublu-click pe `index.html`. Se deschide în browser, fără instalare, făr
 - **◐ Temă** — light / dark. Vezi cum arată totul pe fundal închis.
 - **Brand: TBE / Harta** — comută sub-brandul. Nici o clasă nu se schimbă, doar tokenii.
 
+> **De reținut:** paginile de documentație stau pe **alb**, deliberat — o suprafață neutră pe care culorile brandului se judecă corect. Fundalul **site-ului TBE** rămâne **crem `#FAF4EF`** (`--tbe-bg`), pentru că pe crem cardurile albe ies în relief. Diferența e vizibilă în [`ui.html` § Carduri → „Pe fundalul real de brand"](ui.html).
+
 ---
 
 ## Structura folderului

@@ -3,12 +3,40 @@
    pentru site — e doar „ambalajul" în care prezentăm componentele).
    ========================================================================== */
 
-.ds-shell { min-height: 100vh; }
+/* --------------------------------------------------------------------------
+   Fundalul documentației = ALB.
+   Deliberat diferit de fundalul de brand (crem #FAF4EF, vezi --tbe-bg):
+   o pagină de documentație e o suprafață neutră de laborator, pe care
+   culorile brandului trebuie judecate — nu o aplicație a brandului.
+   Albul e și singurul fundal pe care mostrele de culoare se citesc corect.
+   Tokenii de brand rămân NEATINȘI.
+   -------------------------------------------------------------------------- */
+:root {
+  --ds-page:  #FFFFFF;   /* fundalul paginilor de documentație */
+  --ds-panel: #FAF8F6;   /* panourile de demo — abia perceptibil, ca albul cardurilor să iasă */
+}
+[data-theme="dark"] {
+  --ds-page:  var(--c-neutral-950);
+  --ds-panel: var(--tbe-surface);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ds-page:  var(--c-neutral-950);
+    --ds-panel: var(--tbe-surface);
+  }
+}
+
+.ds-shell { min-height: 100vh; background: var(--ds-page); }
+
+/* Secțiunile de brand din pagina de start rămân neutre în documentație */
+.ds-shell .tbe-section.is-alt,
+.ds-shell .tbe-section.is-decor { background: var(--ds-panel); }
+.ds-shell .tbe-hero.is-decor    { background: var(--ds-panel); }
 
 /* --- Bara de sus --- */
 .ds-topbar {
   position: sticky; top: 0; z-index: var(--z-sticky);
-  background: color-mix(in srgb, var(--tbe-bg) 90%, transparent);
+  background: color-mix(in srgb, var(--ds-page) 90%, transparent);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--tbe-border-subtle);
 }
@@ -88,7 +116,7 @@
 
 /* --- Zona de demonstrație --- */
 .ds-demo {
-  background: var(--tbe-surface);
+  background: var(--ds-panel);
   border: 1px solid var(--tbe-border-subtle);
   border-radius: var(--r-md);
   padding: var(--sp-5);
@@ -99,6 +127,8 @@
 .ds-demo.is-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; }
 .ds-demo.is-sunk { background: var(--tbe-bg-alt); }
 .ds-demo.is-dark { background: var(--c-neutral-900); }
+/* Demo-urile care arată componente pe fundalul REAL de brand (crem) */
+.ds-demo.is-brand-bg { background: var(--c-neutral-50); }
 
 .ds-note {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
