@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ro" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bannere &amp; materiale promoționale — The Beauty Education</title>
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* Machete de banner — previzualizări la scară redusă */
+  .bn {
+    position: relative; overflow: hidden; border-radius: var(--r-sm);
+    border: 1px solid var(--tbe-border-subtle); display: flex; flex-direction: column;
+    justify-content: flex-end; padding: 6%; color: var(--c-neutral-900);
+    background: var(--c-neutral-50);
+  }
+  .bn-sq   { aspect-ratio: 1/1;    width: 100%; max-width: 300px; }
+  .bn-story{ aspect-ratio: 9/16;   width: 100%; max-width: 190px; }
+  .bn-wide { aspect-ratio: 1200/628; width: 100%; max-width: 380px; }
+  .bn-hero { aspect-ratio: 1920/800; width: 100%; }
+  .bn-lead { aspect-ratio: 728/90;  width: 100%; }
+
+  .bn .k { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px; }
+  .bn .t { font-family: var(--font-display); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .bn .s { font-family: var(--font-body); font-weight: 300; line-height: 1.4; margin: 0 0 10px; opacity: 0.8; }
+  .bn .c { font-family: var(--font-body); font-weight: 500; letter-spacing: 0.06em;
+           display: inline-block; padding: 0.6em 1.2em; border-radius: 6px; align-self: flex-start; }
+  .bn .mark { position: absolute; top: 6%; left: 6%; font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; opacity: 0.9; }
+
+  .bn-sq  .t { font-size: 30px; } .bn-sq  .s { font-size: 12px; } .bn-sq  .c { font-size: 11px; } .bn-sq .mark { font-size: 13px; }
+  .bn-story .t { font-size: 24px; } .bn-story .s { font-size: 10px; } .bn-story .c { font-size: 10px; } .bn-story .mark { font-size: 11px; }
+  .bn-wide .t { font-size: 26px; } .bn-wide .s { font-size: 11px; } .bn-wide .c { font-size: 11px; } .bn-wide .mark { font-size: 12px; }
+  .bn-hero .t { font-size: clamp(22px, 3.4vw, 44px); } .bn-hero .s { font-size: clamp(10px, 1.2vw, 15px); } .bn-hero .c { font-size: 12px; } .bn-hero .mark { font-size: 14px; }
+  .bn-lead { flex-direction: row; align-items: center; justify-content: space-between; padding: 2% 3%; }
+  .bn-lead .t { font-size: 18px; margin: 0; } .bn-lead .c { font-size: 10px; }
+
+  /* Variante cromatice */
+  .bn.v-crem    { background: var(--c-neutral-50); }
+  .bn.v-crem    .k { color: var(--c-magenta-500); } .bn.v-crem .c { background: var(--c-magenta-500); color: #fff; }
+  .bn.v-magenta { background: var(--c-magenta-500); color: #fff; }
+  .bn.v-magenta .k { color: var(--c-nude-200); } .bn.v-magenta .s { opacity: 0.85; } .bn.v-magenta .c { background: #fff; color: var(--c-magenta-500); }
+  .bn.v-nude    { background: var(--c-nude-200); }
+  .bn.v-nude    .k { color: var(--c-magenta-500); } .bn.v-nude .c { background: var(--c-magenta-500); color: #fff; }
+  .bn.v-inchis  { background: var(--c-neutral-900); color: var(--c-neutral-50); }
+  .bn.v-inchis  .k { color: var(--c-magenta-light); } .bn.v-inchis .c { background: var(--c-magenta-light); color: var(--c-neutral-900); }
+  .bn.v-foto    { background: linear-gradient(135deg, #DCC4B4, #A98192 55%, #8E6879); color: #fff; }
+  .bn.v-foto::before { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(44,37,33,.78) 0%, rgba(44,37,33,.25) 50%, rgba(44,37,33,0) 78%); }
+  .bn.v-foto > * { position: relative; z-index: 1; }
+  .bn.v-foto .k { color: var(--c-nude-200); } .bn.v-foto .c { background: var(--c-magenta-500); color: #fff; }
+
+  /* Zone sigure story */
+  .bn-safe { position: relative; }
+  .bn-safe::after {
+    content: 'zonă sigură'; position: absolute; left: 8%; right: 8%; top: 14%; bottom: 20%;
+    border: 1.5px dashed var(--c-magenta-500); border-radius: 4px;
+    font-family: var(--font-mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--c-magenta-500); display: flex; align-items: flex-start; justify-content: center; padding-top: 3px;
+  }
+  .bn-zone { position: absolute; left: 0; right: 0; background: rgba(179,38,30,.16); font-family: var(--font-mono); font-size: 8px; color: var(--c-danger); display: flex; align-items: center; justify-content: center; letter-spacing: .06em; }
+
+  .bn-cap { font-family: var(--font-mono); font-size: 10px; color: var(--tbe-text-muted); margin-top: var(--sp-2); letter-spacing: .04em; }
+  .bn-wrap { display: flex; flex-direction: column; }
+</style>
+</head>
+<body class="ds-shell">
+
+<header class="ds-topbar">
+  <div class="ds-topbar-inner">
+    <a class="ds-logo" href="index.html">The Beauty <span>Education</span></a>
+    <nav class="ds-topnav">
+      <a href="index.html">Acasă</a>
+      <a href="brand-book.html">Brand Book</a>
+      <a href="ui.html">Componente UI</a>
+      <a href="bannere.html" aria-current="page">Bannere</a>
+    </nav>
+    <div class="ds-controls">
+      <button class="ds-toggle" id="themeToggle" type="button">◐ Temă</button>
+    </div>
+  </div>
+</header>
+
+<div class="ds-layout">
+
+  <aside class="ds-toc">
+    <p class="ds-toc-title">Cuprins</p>
+    <ol>
+      <li><a href="#formate">01 · Formate</a></li>
+      <li><a href="#anatomie">02 · Anatomia unui banner</a></li>
+      <li><a href="#retete">03 · Rețete de layout</a></li>
+      <li><a href="#variante">04 · Variante cromatice</a></li>
+      <li><a href="#safe">05 · Zone sigure</a></li>
+      <li><a href="#logo">06 · Logo pe banner</a></li>
+      <li><a href="#print">07 · Print</a></li>
+      <li><a href="#checklist">08 · Checklist</a></li>
+    </ol>
+  </aside>
+
+  <main class="ds-main">
+
+    <div class="ds-pagehead">
+      <span class="tbe-kicker">Design System · v1.0 · 2026</span>
+      <h1 class="tbe-h1">Bannere &amp; materiale promoționale</h1>
+      <p class="tbe-lead">Machetele de mai jos sunt previzualizări la scară redusă, construite cu aceiași tokeni ca site-ul. Copiază proporțiile, nu improviza altele.</p>
+    </div>
+
+    <!-- 01 FORMATE -->
+    <section class="ds-sec" id="formate">
+      <h2 class="tbe-h2"><span class="ds-num">01</span> Formate</h2>
+      <p class="ds-sec-intro">Exportă la dimensiunea nominală sau la 2×. Peste tot JPG calitate 85 pentru fotografii, PNG doar când ai nevoie de transparență.</p>
+
+      <div class="ds-formats">
+        <div class="ds-format"><div class="ds-format-box" style="width:120px;height:120px">1:1</div><div class="ds-format-name">Post feed</div><div class="ds-format-dim">1080 × 1080</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:96px;height:120px">4:5</div><div class="ds-format-name">Post vertical</div><div class="ds-format-dim">1080 × 1350</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:68px;height:120px">9:16</div><div class="ds-format-name">Story / Reel</div><div class="ds-format-dim">1080 × 1920</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:130px;height:68px">1.91:1</div><div class="ds-format-name">Link preview / OG</div><div class="ds-format-dim">1200 × 628</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:130px;height:54px">2.4:1</div><div class="ds-format-name">Hero site</div><div class="ds-format-dim">1920 × 800</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:130px;height:16px">8:1</div><div class="ds-format-name">Leaderboard</div><div class="ds-format-dim">728 × 90</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:100px;height:83px">6:5</div><div class="ds-format-name">Medium rectangle</div><div class="ds-format-dim">300 × 250</div></div>
+        <div class="ds-format"><div class="ds-format-box" style="width:100px;height:100px">1:1</div><div class="ds-format-name">Avatar / profil</div><div class="ds-format-dim">512 × 512</div></div>
+      </div>
+
+      <div class="tbe-callout is-info">
+        <div><strong>Text pe imagine</strong>Pentru reclame plătite, ține textul sub ~20% din suprafață. Nu e o regulă de brand, e o regulă de performanță — bannerele încărcate de text convertesc prost.</div>
+      </div>
+    </section>
+
+    <!-- 02 ANATOMIE -->
+    <section class="ds-sec" id="anatomie">
+      <h2 class="tbe-h2"><span class="ds-num">02</span> Anatomia unui banner</h2>
+      <p class="ds-sec-intro">Cinci elemente, în această ordine, de sus în jos. Poți elimina, nu poți reordona.</p>
+
+      <div class="tbe-grid is-2">
+        <div>
+          <div class="bn bn-sq v-crem" style="max-width:340px">
+            <span class="mark">The Beauty Education</span>
+            <span class="k">Curs fizic · București</span>
+            <h3 class="t">Atelierul<br>de Bucle</h3>
+            <p class="s">14–15 septembrie · 12 locuri</p>
+            <span class="c">Rezervă locul</span>
+          </div>
+        </div>
+        <div>
+          <table class="tbe-table">
+            <thead><tr><th>Element</th><th>Font</th><th>Regulă</th></tr></thead>
+            <tbody>
+              <tr><td><b>Logo</b></td><td class="tbe-muted">—</td><td class="tbe-muted">Colț stânga-sus. Mereu prezent.</td></tr>
+              <tr><td><b>Kicker</b></td><td class="tbe-muted">Source Code Pro</td><td class="tbe-muted">Majuscule, tracking larg. Categoria sau contextul.</td></tr>
+              <tr><td><b>Titlu</b></td><td class="tbe-muted">Cormorant 500</td><td class="tbe-muted">Max. 5 cuvinte. Elementul cel mai mare din compoziție.</td></tr>
+              <tr><td><b>Suport</b></td><td class="tbe-muted">Jost 300</td><td class="tbe-muted">O linie. Data, prețul, locul — faptul concret.</td></tr>
+              <tr><td><b>CTA</b></td><td class="tbe-muted">Jost 500</td><td class="tbe-muted">Un verb. Magenta plin sau alb pe magenta.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ds-dodont">
+        <div class="ds-do"><b>Da</b><ul>
+          <li>Un singur mesaj per banner.</li>
+          <li>Maxim 3 mărimi de text în compoziție.</li>
+          <li>Marginea interioară minim 6% din latura mică.</li>
+          <li>Titlul rupt manual pe rânduri, la sens.</li>
+        </ul></div>
+        <div class="ds-dont"><b>Nu</b><ul>
+          <li>Două CTA-uri concurente.</li>
+          <li>Titlu care umple toată lățimea, de la margine la margine.</li>
+          <li>Text peste zona aglomerată a fotografiei.</li>
+          <li>Alte fonturi decât cele trei oficiale.</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- 03 REȚETE -->
+    <section class="ds-sec" id="retete">
+      <h2 class="tbe-h2"><span class="ds-num">03</span> Rețete de layout</h2>
+      <p class="ds-sec-intro">Șase machete acoperă practic tot ce publicăm. Alege una și schimbă doar textul.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">A · Anunț de curs (foto + scrim)</h3><p>Pentru cursuri fizice și evenimente. Fotografia poartă emoția, textul poartă informația.</p></div>
+      <div class="ds-demo">
+        <div class="bn-wrap"><div class="bn bn-sq v-foto"><span class="mark">TBE</span><span class="k">Curs fizic · Cluj</span><h3 class="t">Colorimetrie<br>avansată</h3><p class="s">21–22 octombrie · 10 locuri</p><span class="c">Rezervă locul</span></div><span class="bn-cap">1080 × 1080</span></div>
+        <div class="bn-wrap"><div class="bn bn-story v-foto"><span class="mark">TBE</span><span class="k">Curs fizic</span><h3 class="t">Colorimetrie<br>avansată</h3><p class="s">21–22 oct · Cluj</p><span class="c">Rezervă</span></div><span class="bn-cap">1080 × 1920</span></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">B · Ofertă / promoție (magenta plin)</h3><p>Impact maxim. Se folosește rar — dacă tot ce publici e magenta plin, nu mai iese nimic în evidență.</p></div>
+      <div class="ds-demo">
+        <div class="bn-wrap"><div class="bn bn-sq v-magenta"><span class="mark">TBE</span><span class="k">Doar în noiembrie</span><h3 class="t">Primele 3 luni<br>−30%</h3><p class="s">La abonamentul anual</p><span class="c">Vreau abonamentul</span></div><span class="bn-cap">1080 × 1080</span></div>
+        <div class="bn-wrap"><div class="bn bn-wide v-magenta"><span class="mark">TBE</span><span class="k">Doar în noiembrie</span><h3 class="t">Primele 3 luni −30%</h3><p class="s">La abonamentul anual · 250+ tutoriale incluse</p><span class="c">Vreau abonamentul</span></div><span class="bn-cap">1200 × 628</span></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">C · Editorial / citat (crem)</h3><p>Pentru conținut de brand, sfaturi, citate. Cel mai „premium" dintre toate.</p></div>
+      <div class="ds-demo">
+        <div class="bn-wrap"><div class="bn bn-sq v-crem" style="justify-content:center"><span class="mark">The Beauty Education</span><span class="k">Din atelier</span><h3 class="t" style="font-style:italic;font-weight:400">„Nu-ți iese<br>din prima.<br>Normal."</h3><p class="s">Adriana Dobre</p></div><span class="bn-cap">1080 × 1080</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-nude" style="justify-content:center"><span class="mark">The Beauty Education</span><span class="k">Din atelier</span><h3 class="t" style="font-style:italic;font-weight:400">„De asta<br>repetăm."</h3><p class="s">Adriana Dobre</p></div><span class="bn-cap">variantă nude</span></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">D · Cifră / dovadă socială</h3><p>O singură cifră, uriașă. Restul e context.</p></div>
+      <div class="ds-demo">
+        <div class="bn-wrap"><div class="bn bn-sq v-crem" style="justify-content:center;text-align:center;align-items:center"><span class="mark">TBE</span><span class="k">Comunitatea</span><h3 class="t" style="font-size:64px;color:var(--c-magenta-500)">3.618</h3><p class="s">coafeze active, într-un singur loc</p></div><span class="bn-cap">1080 × 1080</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-inchis" style="justify-content:center;text-align:center;align-items:center"><span class="mark">TBE</span><span class="k">Educație</span><h3 class="t" style="font-size:64px;color:var(--c-magenta-light)">400</h3><p class="s">de ore de tutoriale în abonament</p></div><span class="bn-cap">variantă închisă</span></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">E · Hero de site</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="bn-wrap"><div class="bn bn-hero v-crem" style="justify-content:center"><span class="mark">The Beauty Education</span><span class="k">Comunitatea #1 din România pentru hairstiliști</span><h3 class="t">Transformăm pasiunea<br>în măiestrie</h3><p class="s">250+ tutoriale · 3.618 coafeze · un singur abonament</p><span class="c">Intră în comunitate</span></div><span class="bn-cap">1920 × 800</span></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">F · Bandă / leaderboard</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="bn-wrap"><div class="bn bn-lead v-magenta"><h3 class="t">Program de Loialitate · 1 punct la fiecare 10 lei</h3><span class="c">Vezi cum</span></div><span class="bn-cap">728 × 90</span></div>
+      </div>
+    </section>
+
+    <!-- 04 VARIANTE -->
+    <section class="ds-sec" id="variante">
+      <h2 class="tbe-h2"><span class="ds-num">04</span> Variante cromatice</h2>
+      <p class="ds-sec-intro">Cinci fundaluri permise. Regula 60/30/10 se aplică pe ansamblul unei campanii, nu pe fiecare banner: dacă publici 10 postări, cel mult 3 sunt magenta plin.</p>
+      <div class="ds-demo is-grid">
+        <div class="bn-wrap"><div class="bn bn-sq v-crem"><span class="mark">TBE</span><span class="k">Crem</span><h3 class="t">Implicit</h3><p class="s">Cel mai des folosit</p><span class="c">Acțiune</span></div><span class="bn-cap">#FAF4EF · editorial, calm</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-nude"><span class="mark">TBE</span><span class="k">Nude</span><h3 class="t">Cald</h3><p class="s">Conținut de brand</p><span class="c">Acțiune</span></div><span class="bn-cap">#DCC4B4 · blând, tactil</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-magenta"><span class="mark">TBE</span><span class="k">Magenta</span><h3 class="t">Impact</h3><p class="s">Oferte, lansări</p><span class="c">Acțiune</span></div><span class="bn-cap">#A71257 · max. 30% din campanie</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-inchis"><span class="mark">TBE</span><span class="k">Închis</span><h3 class="t">Premium</h3><p class="s">Mastery, evenimente</p><span class="c">Acțiune</span></div><span class="bn-cap">#2C2521 · rar, pentru gravitate</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-foto"><span class="mark">TBE</span><span class="k">Foto</span><h3 class="t">Real</h3><p class="s">Cursuri, rezultate</p><span class="c">Acțiune</span></div><span class="bn-cap">foto + scrim obligatoriu</span></div>
+      </div>
+    </section>
+
+    <!-- 05 SAFE ZONES -->
+    <section class="ds-sec" id="safe">
+      <h2 class="tbe-h2"><span class="ds-num">05</span> Zone sigure</h2>
+      <p class="ds-sec-intro">Interfața Instagram/TikTok acoperă marginile unui story. Tot ce contează stă în zona punctată.</p>
+
+      <div class="ds-demo">
+        <div class="bn-wrap">
+          <div class="bn bn-story v-foto bn-safe" style="max-width:220px">
+            <div class="bn-zone" style="top:0;height:14%">interfață sus</div>
+            <div class="bn-zone" style="bottom:0;height:20%">interfață jos</div>
+          </div>
+          <span class="bn-cap">Story 1080 × 1920</span>
+        </div>
+        <div style="flex:1;min-width:240px">
+          <ul class="tbe-small tbe-muted">
+            <li><b>Sus:</b> primii ~250px (14%) — nume cont, poză de profil.</li>
+            <li><b>Jos:</b> ultimii ~380px (20%) — câmp de răspuns, butoane de share.</li>
+            <li><b>Lateral:</b> 8% pe fiecare parte, ca marjă de siguranță.</li>
+            <li>Logo-ul se pune <b>în interiorul</b> zonei sigure, nu în colțul absolut.</li>
+            <li>Pentru Reels, lasă și dreapta liberă (~15%) — acolo stau butoanele verticale.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 LOGO -->
+    <section class="ds-sec" id="logo">
+      <h2 class="tbe-h2"><span class="ds-num">06</span> Logo pe banner</h2>
+      <div class="tbe-grid is-2">
+        <div class="tbe-card is-flat">
+          <h3 class="tbe-h4">Ce variantă, unde</h3>
+          <ul class="tbe-small tbe-muted tbe-mb-0">
+            <li>Fundal <b>crem / nude / alb</b> → logo <b>color</b> sau <b>negru</b>.</li>
+            <li>Fundal <b>magenta / închis / foto</b> → logo <b>alb</b>.</li>
+            <li>Format <b>lat</b> (hero, leaderboard, OG) → orizontal.</li>
+            <li>Format <b>pătrat / vertical</b> → vertical sau iconiță.</li>
+            <li>Sub 200px lățime → doar iconița.</li>
+          </ul>
+        </div>
+        <div class="tbe-card is-flat">
+          <h3 class="tbe-h4">Poziție &amp; mărime</h3>
+          <ul class="tbe-small tbe-muted tbe-mb-0">
+            <li>Poziția implicită: <b>stânga-sus</b>, la 6% de margini.</li>
+            <li>Lățimea logoului orizontal: 18–24% din lățimea bannerului.</li>
+            <li>Spațiu liber în jur: minim ½ din înălțimea iconiței.</li>
+            <li>Minim absolut: iconiță 32px, orizontal 120px.</li>
+            <li>Nu-l pune peste o zonă cu detaliu fotografic — mută-l sau adaugă scrim.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tbe-callout is-danger">
+        <div><strong>Niciodată</strong>Logo rotit · deformat · recolorat · cu umbră sau contur · cu text lipit de el · pe fundal cu contrast sub 3:1.</div>
+      </div>
+    </section>
+
+    <!-- 07 PRINT -->
+    <section class="ds-sec" id="print">
+      <h2 class="tbe-h2"><span class="ds-num">07</span> Print</h2>
+      <div class="tbe-grid is-2">
+        <div class="tbe-card is-flat">
+          <h3 class="tbe-h4">Setări tehnice</h3>
+          <ul class="tbe-small tbe-muted tbe-mb-0">
+            <li>Rezoluție <b>300 dpi</b> la mărimea finală.</li>
+            <li>Spațiu de culoare <b>CMYK</b>, profil FOGRA39 (Europa).</li>
+            <li><b>Bleed 3mm</b> pe fiecare latură.</li>
+            <li>Marjă de siguranță interioară <b>5mm</b>.</li>
+            <li>Logo din <code>.eps</code> sau <code>.ai</code>, nu din PNG.</li>
+            <li>Fonturile convertite în curbe înainte de trimitere la tipar.</li>
+          </ul>
+        </div>
+        <div class="tbe-card is-flat">
+          <h3 class="tbe-h4">Culoare în print</h3>
+          <p class="tbe-small tbe-muted">Magenta <code>#A71257</code> e o culoare saturată — în CMYK va vira ușor. Dacă tirajul e mare și culoarea contează (cutii de produs, materiale de curs), cere <b>proof tipărit</b> înainte de producție.</p>
+          <p class="tbe-small tbe-muted tbe-mb-0">Cremul <code>#FAF4EF</code> pe hârtie necretată poate să dispară complet în albul hârtiei. Pe print, folosește bej cald <code>#EDDDD3</code> în loc.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CHECKLIST -->
+    <section class="ds-sec" id="checklist">
+      <h2 class="tbe-h2"><span class="ds-num">08</span> Checklist înainte de publicare</h2>
+      <div class="ds-demo is-stack" style="max-width:620px">
+        <label class="tbe-check"><input type="checkbox"> Logo prezent, în varianta corectă pentru fundal</label>
+        <label class="tbe-check"><input type="checkbox"> Doar fonturile Cormorant Garamond, Jost, Source Code Pro</label>
+        <label class="tbe-check"><input type="checkbox"> Doar culori din paletă (verificat în brand book)</label>
+        <label class="tbe-check"><input type="checkbox"> Un singur mesaj, un singur CTA</label>
+        <label class="tbe-check"><input type="checkbox"> Text peste foto → are scrim, contrast peste 4.5:1</label>
+        <label class="tbe-check"><input type="checkbox"> Conținut important în zona sigură (dacă e story/reel)</label>
+        <label class="tbe-check"><input type="checkbox"> Marginea interioară minim 6%</label>
+        <label class="tbe-check"><input type="checkbox"> Cifrele verificate în dosarul oficial 2026</label>
+        <label class="tbe-check"><input type="checkbox"> Diacritice corecte (ă î â ș ț), fără „s" și „t" cu sedilă</label>
+        <label class="tbe-check"><input type="checkbox"> Exportat la dimensiunea nominală sau 2×</label>
+      </div>
+    </section>
+
+    <footer class="ds-footer">
+      The Beauty Education · Design System v1.0 · 2026
+    </footer>
+
+  </main>
+</div>
+
+<script src="ds.js"></script>
+</body>
+</html>

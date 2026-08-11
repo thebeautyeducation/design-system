@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Shell-ul paginilor de documentație (NU face parte din design system-ul
+   pentru site — e doar „ambalajul" în care prezentăm componentele).
+   ========================================================================== */
+
+.ds-shell { min-height: 100vh; }
+
+/* --- Bara de sus --- */
+.ds-topbar {
+  position: sticky; top: 0; z-index: var(--z-sticky);
+  background: color-mix(in srgb, var(--tbe-bg) 90%, transparent);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--tbe-border-subtle);
+}
+.ds-topbar-inner {
+  max-width: var(--container-wide); margin-inline: auto; padding-inline: var(--gutter);
+  display: flex; align-items: center; gap: var(--sp-5); min-height: 64px; flex-wrap: wrap;
+}
+.ds-logo {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+  color: var(--tbe-text); text-decoration: none; letter-spacing: -0.01em; flex: none;
+}
+.ds-logo span { color: var(--tbe-action); }
+.ds-topnav { display: flex; gap: var(--sp-4); margin-left: auto; align-items: center; flex-wrap: wrap; }
+.ds-topnav a {
+  font-size: var(--fs-sm); font-weight: 500; color: var(--tbe-text-muted);
+  text-decoration: none; padding: var(--sp-2) var(--sp-2); border-radius: var(--r-xs);
+}
+.ds-topnav a:hover { color: var(--tbe-action); background: var(--tbe-action-soft); }
+.ds-topnav a[aria-current="page"] { color: var(--tbe-action); background: var(--tbe-action-soft); }
+
+.ds-controls { display: flex; gap: var(--sp-2); align-items: center; }
+.ds-toggle {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--tbe-surface); border: 1px solid var(--tbe-border);
+  color: var(--tbe-text-muted); border-radius: var(--r-pill);
+  padding: 0.45em 0.9em; cursor: pointer; white-space: nowrap;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.ds-toggle:hover { border-color: var(--tbe-action); color: var(--tbe-action); }
+.ds-toggle.is-on { background: var(--tbe-action); color: var(--tbe-text-on-action); border-color: var(--tbe-action); }
+
+/* --- Layout doc: sidebar + conținut --- */
+.ds-layout {
+  max-width: var(--container-wide); margin-inline: auto; padding-inline: var(--gutter);
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--sp-8);
+  align-items: start;
+}
+@media (max-width: 900px) { .ds-layout { grid-template-columns: 1fr; gap: var(--sp-5); } }
+
+.ds-toc { position: sticky; top: 84px; padding-block: var(--sp-7); }
+@media (max-width: 900px) {
+  .ds-toc { position: static; padding-block: var(--sp-5) 0; border-bottom: 1px solid var(--tbe-border-subtle); }
+  .ds-toc ol { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); }
+}
+.ds-toc-title {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--tbe-text-subtle); margin-bottom: var(--sp-3);
+}
+.ds-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+.ds-toc a {
+  display: block; font-size: var(--fs-sm); color: var(--tbe-text-muted); text-decoration: none;
+  padding: var(--sp-2) var(--sp-3); border-radius: var(--r-xs); border-left: 2px solid transparent;
+}
+.ds-toc a:hover { color: var(--tbe-action); background: var(--tbe-action-soft); }
+
+.ds-main { padding-block: var(--sp-7) var(--sp-10); min-width: 0; }
+
+/* --- Titlul paginii --- */
+.ds-pagehead { padding-block: var(--sp-7) var(--sp-6); border-bottom: 1px solid var(--tbe-border-subtle); margin-bottom: var(--sp-7); }
+.ds-pagehead h1 { margin-bottom: var(--sp-3); }
+
+/* --- Secțiune de documentație --- */
+.ds-sec { padding-block: var(--sp-7); border-top: 1px solid var(--tbe-border-subtle); scroll-margin-top: 80px; }
+.ds-sec:first-of-type { border-top: 0; padding-top: 0; }
+.ds-sec > h2 {
+  display: flex; align-items: baseline; gap: var(--sp-3); margin-bottom: var(--sp-2);
+}
+.ds-sec > h2 .ds-num {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em;
+  color: var(--tbe-action); font-weight: 500; flex: none;
+}
+.ds-sec-intro { color: var(--tbe-text-muted); max-width: var(--measure); margin-bottom: var(--sp-6); }
+
+.ds-sub { margin-block: var(--sp-6) var(--sp-4); }
+.ds-sub h3 { margin-bottom: var(--sp-2); }
+.ds-sub p { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Zona de demonstrație --- */
+.ds-demo {
+  background: var(--tbe-surface);
+  border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--r-md);
+  padding: var(--sp-5);
+  margin-block: var(--sp-4);
+  display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center;
+}
+.ds-demo.is-stack { flex-direction: column; align-items: stretch; }
+.ds-demo.is-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; }
+.ds-demo.is-sunk { background: var(--tbe-bg-alt); }
+.ds-demo.is-dark { background: var(--c-neutral-900); }
+
+.ds-note {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  color: var(--tbe-text-subtle); margin-top: var(--sp-2);
+}
+.ds-classlist {
+  font-family: var(--font-mono); font-size: 11px; color: var(--tbe-text-muted);
+  background: var(--tbe-surface-sunk); border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--r-xs); padding: var(--sp-2) var(--sp-3); margin-top: var(--sp-3);
+  overflow-x: auto; white-space: nowrap; width: 100%;
+}
+.ds-classlist b { color: var(--tbe-action); font-weight: 500; }
+
+/* --- Mostre de culoare --- */
+.ds-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: var(--sp-3); margin-block: var(--sp-4); }
+.ds-swatch { border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--tbe-border-subtle); background: var(--tbe-surface); }
+.ds-swatch-chip { height: 76px; position: relative; }
+.ds-swatch-chip .ds-star { position: absolute; top: 6px; right: 8px; font-size: 12px; }
+.ds-swatch-meta { padding: var(--sp-3); }
+.ds-swatch-name { font-size: 12px; font-weight: 600; line-height: 1.3; }
+.ds-swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--tbe-text-muted); margin-top: 2px; }
+.ds-swatch-ratio { font-family: var(--font-mono); font-size: 10px; margin-top: var(--sp-2); letter-spacing: 0.04em; }
+.ds-pass { color: var(--tbe-success); }
+.ds-fail { color: var(--tbe-danger); }
+
+/* Bara de proporții 60/30/10 */
+.ds-ratio-bar { display: flex; height: 56px; border-radius: var(--r-sm); overflow: hidden; margin-block: var(--sp-4); border: 1px solid var(--tbe-border-subtle); }
+.ds-ratio-bar div { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* --- Specimen tipografic --- */
+.ds-spec { padding-block: var(--sp-4); border-bottom: 1px dashed var(--tbe-border-subtle); display: grid; grid-template-columns: 170px minmax(0,1fr); gap: var(--sp-5); align-items: baseline; }
+@media (max-width: 700px) { .ds-spec { grid-template-columns: 1fr; gap: var(--sp-2); } }
+.ds-spec-meta { font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: var(--tbe-text-muted); letter-spacing: 0.03em; }
+.ds-spec-meta b { display: block; color: var(--tbe-text); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; font-size: 10px; }
+.ds-spec-sample { min-width: 0; }
+
+/* --- Do / Don't --- */
+.ds-dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-4); margin-block: var(--sp-4); }
+.ds-do, .ds-dont { border-radius: var(--r-sm); padding: var(--sp-4) var(--sp-5); font-size: var(--fs-sm); border-left: 3px solid; }
+.ds-do   { background: var(--tbe-success-bg); border-color: var(--tbe-success); }
+.ds-dont { background: var(--tbe-danger-bg);  border-color: var(--tbe-danger); }
+.ds-do b, .ds-dont b { display: block; margin-bottom: var(--sp-2); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+.ds-do b { color: var(--tbe-success); } .ds-dont b { color: var(--tbe-danger); }
+.ds-do ul, .ds-dont ul { margin: 0; padding-left: 1.1em; }
+.ds-do li, .ds-dont li { margin-bottom: var(--sp-1); }
+
+/* --- Grile de spațiere / rază / umbră --- */
+.ds-scale-row { display: flex; align-items: center; gap: var(--sp-4); padding-block: var(--sp-2); border-bottom: 1px dashed var(--tbe-border-subtle); }
+.ds-scale-label { font-family: var(--font-mono); font-size: 11px; color: var(--tbe-text-muted); width: 130px; flex: none; }
+.ds-scale-bar { height: 18px; background: var(--tbe-action); border-radius: 2px; }
+.ds-radius-box { width: 84px; height: 84px; background: var(--tbe-action-soft); border: 1.5px solid var(--tbe-action); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--tbe-action); }
+.ds-shadow-box { width: 110px; height: 84px; background: var(--tbe-surface); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 10px; color: var(--tbe-text-muted); }
+
+/* --- Formate de banner --- */
+.ds-formats { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--sp-4); }
+.ds-format { text-align: center; }
+.ds-format-box {
+  background: var(--tbe-decor); border: 1px dashed var(--tbe-border-strong);
+  border-radius: var(--r-xs); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px; color: var(--tbe-text-muted); margin-bottom: var(--sp-2);
+  max-width: 100%; margin-inline: auto;
+}
+.ds-format-name { font-size: 12px; font-weight: 600; }
+.ds-format-dim { font-family: var(--font-mono); font-size: 10px; color: var(--tbe-text-muted); }
+
+/* --- Footer --- */
+.ds-footer {
+  border-top: 1px solid var(--tbe-border-subtle); margin-top: var(--sp-8);
+  padding-block: var(--sp-6);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  color: var(--tbe-text-subtle); text-align: center;
+}
+
+/* --- Card de intrare (index) --- */
+.ds-hub { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--sp-5); }
+.ds-hub-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--tbe-surface); border: 1px solid var(--tbe-border-subtle);
+  border-radius: var(--r-lg); padding: var(--sp-6);
+  transition: transform var(--dur-slow) var(--ease-out), box-shadow var(--dur-slow) var(--ease-out), border-color var(--dur-slow) var(--ease-out);
+}
+.ds-hub-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--tbe-action-border); color: inherit; }
+.ds-hub-card h3 { margin-bottom: var(--sp-2); }
+.ds-hub-card p { font-size: var(--fs-sm); color: var(--tbe-text-muted); margin-bottom: 0; }
+.ds-hub-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--tbe-action); display: block; margin-bottom: var(--sp-4); }

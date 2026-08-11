@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ro" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Componente UI — The Beauty Education</title>
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="ds-shell">
+
+<header class="ds-topbar">
+  <div class="ds-topbar-inner">
+    <a class="ds-logo" href="index.html">The Beauty <span>Education</span></a>
+    <nav class="ds-topnav">
+      <a href="index.html">Acasă</a>
+      <a href="brand-book.html">Brand Book</a>
+      <a href="ui.html" aria-current="page">Componente UI</a>
+      <a href="bannere.html">Bannere</a>
+    </nav>
+    <div class="ds-controls">
+      <button class="ds-toggle" id="brandToggle" type="button">Brand: TBE</button>
+      <button class="ds-toggle" id="themeToggle" type="button">◐ Temă</button>
+    </div>
+  </div>
+</header>
+
+<div class="ds-layout">
+
+  <aside class="ds-toc">
+    <p class="ds-toc-title">18 secțiuni</p>
+    <ol>
+      <li><a href="#butoane">01 · Butoane</a></li>
+      <li><a href="#formulare">02 · Formulare</a></li>
+      <li><a href="#selectie">03 · Selecție</a></li>
+      <li><a href="#comutatoare">04 · Comutatoare</a></li>
+      <li><a href="#cautare">05 · Căutare &amp; chips</a></li>
+      <li><a href="#carduri">06 · Carduri</a></li>
+      <li><a href="#statistici">07 · Statistici</a></li>
+      <li><a href="#badges">08 · Badges</a></li>
+      <li><a href="#avatare">09 · Avatare</a></li>
+      <li><a href="#callouts">10 · Callouts</a></li>
+      <li><a href="#navigatie">11 · Navigație</a></li>
+      <li><a href="#indicatori">12 · Indicatori</a></li>
+      <li><a href="#tabele">13 · Tabele</a></li>
+      <li><a href="#overlays">14 · Overlays</a></li>
+      <li><a href="#acordeon">15 · Acordeon</a></li>
+      <li><a href="#goale">16 · Stări goale</a></li>
+      <li><a href="#tbe">17 · Patternuri TBE</a></li>
+      <li><a href="#harta">18 · Patternuri Hartă</a></li>
+    </ol>
+  </aside>
+
+  <main class="ds-main">
+
+    <div class="ds-pagehead">
+      <span class="tbe-kicker">Design System · v1.0 · 2026</span>
+      <h1 class="tbe-h1">Componente UI</h1>
+      <p class="tbe-lead">Toate elementele de interfață ale ecosistemului. Fiecare exemplu e viu — comută tema sau brandul din antet și vezi cum se adaptează. Sub fiecare demo găsești clasele de folosit.</p>
+      <div class="tbe-callout is-info">
+        <div><strong>Convenție</strong>Componentă = <code>.tbe-nume</code>. Variantă sau stare = <code>.is-nume</code>. Exemplu: <code>&lt;button class="tbe-btn is-primary is-lg"&gt;</code></div>
+      </div>
+    </div>
+
+    <!-- 01 BUTOANE -->
+    <section class="ds-sec" id="butoane">
+      <h2 class="tbe-h2"><span class="ds-num">01</span> Butoane</h2>
+      <p class="ds-sec-intro">Cinci variante, o ierarhie. Un singur buton primar per ecran — magenta plin înseamnă „acțiunea principală", și e una singură.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Variante</h3></div>
+      <div class="ds-demo">
+        <button class="tbe-btn is-primary">Intră în comunitate</button>
+        <button class="tbe-btn is-secondary">Vezi cursurile</button>
+        <button class="tbe-btn is-neutral">Anulează</button>
+        <button class="tbe-btn is-ghost">Mai târziu</button>
+        <button class="tbe-btn is-link">Află mai multe</button>
+      </div>
+      <div class="ds-classlist"><b>.tbe-btn</b> + .is-primary · .is-secondary · .is-neutral · .is-ghost · .is-link</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Dimensiuni</h3></div>
+      <div class="ds-demo">
+        <button class="tbe-btn is-primary is-sm">Mic</button>
+        <button class="tbe-btn is-primary">Normal</button>
+        <button class="tbe-btn is-primary is-lg">Mare</button>
+        <button class="tbe-btn is-primary is-pill">Pill</button>
+        <button class="tbe-btn is-secondary is-icon" aria-label="Adaugă">+</button>
+      </div>
+      <div class="ds-classlist">.is-sm (36px) · implicit (44px) · .is-lg (52px) · .is-pill · .is-icon · .is-block</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Stări</h3></div>
+      <div class="ds-demo">
+        <button class="tbe-btn is-primary">Normal</button>
+        <button class="tbe-btn is-primary is-busy">Se încarcă</button>
+        <button class="tbe-btn is-primary" disabled>Dezactivat</button>
+        <button class="tbe-btn is-secondary" disabled>Dezactivat</button>
+      </div>
+      <div class="ds-classlist">:hover · :active · :focus-visible · .is-busy · [disabled]</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Cu iconițe &amp; pe lățime completă</h3></div>
+      <div class="ds-demo is-stack" style="max-width:340px">
+        <button class="tbe-btn is-primary is-block">Începe acum &nbsp;→</button>
+        <button class="tbe-btn is-secondary is-block">↓ &nbsp;Descarcă materialul</button>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Pe fundal închis / fotografie</h3></div>
+      <div class="ds-demo is-dark">
+        <button class="tbe-btn is-inverse">Buton inversat</button>
+        <button class="tbe-btn is-secondary" style="--_fg:#fff;--_bd:rgba(255,255,255,.4)">Contur alb</button>
+      </div>
+    </section>
+
+    <!-- 02 FORMULARE -->
+    <section class="ds-sec" id="formulare">
+      <h2 class="tbe-h2"><span class="ds-num">02</span> Formulare</h2>
+      <p class="ds-sec-intro">Înălțime minimă 48px, focus vizibil cu inel magenta, etichetă mereu deasupra (nu placeholder în loc de etichetă).</p>
+
+      <div class="ds-demo is-stack" style="max-width:460px">
+        <div class="tbe-field">
+          <label class="tbe-label" for="f1">Nume complet <span class="tbe-req">*</span></label>
+          <input class="tbe-input" id="f1" type="text" placeholder="Ana Maria Popescu">
+        </div>
+        <div class="tbe-field">
+          <label class="tbe-label" for="f2">Email</label>
+          <input class="tbe-input" id="f2" type="email" placeholder="ana@exemplu.ro">
+          <span class="tbe-help">Îl folosim doar pentru accesul în comunitate.</span>
+        </div>
+        <div class="tbe-field is-invalid">
+          <label class="tbe-label" for="f3">Telefon</label>
+          <input class="tbe-input" id="f3" type="tel" value="072" aria-invalid="true">
+          <span class="tbe-error">Numărul trebuie să aibă 10 cifre.</span>
+        </div>
+        <div class="tbe-field">
+          <label class="tbe-label" for="f4">Spune-ne despre experiența ta</label>
+          <textarea class="tbe-textarea" id="f4" placeholder="Lucrez de 4 ani în salon..."></textarea>
+        </div>
+        <div class="tbe-field">
+          <label class="tbe-label" for="f5">Dezactivat</label>
+          <input class="tbe-input" id="f5" value="Nu poți edita" disabled>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-field</b> · .tbe-label · .tbe-input · .tbe-textarea · .tbe-help · .tbe-error · .is-invalid</div>
+    </section>
+
+    <!-- 03 SELECȚIE -->
+    <section class="ds-sec" id="selectie">
+      <h2 class="tbe-h2"><span class="ds-num">03</span> Selecție</h2>
+      <p class="ds-sec-intro">Dropdown pentru 5+ opțiuni. Control segmentat pentru 2–4 opțiuni care se compară între ele.</p>
+
+      <div class="ds-demo is-stack" style="max-width:460px">
+        <div class="tbe-field">
+          <label class="tbe-label" for="s1">Specializare</label>
+          <select class="tbe-select" id="s1">
+            <option>Coafuri</option>
+            <option>Colorimetrie (Vopsit)</option>
+            <option>Makeup</option>
+          </select>
+        </div>
+      </div>
+      <div class="ds-demo">
+        <div class="tbe-segmented">
+          <button aria-selected="true">Toate</button>
+          <button aria-selected="false">Coafuri</button>
+          <button aria-selected="false">Colorimetrie</button>
+        </div>
+        <div class="tbe-segmented">
+          <button aria-selected="true">Lunar</button>
+          <button aria-selected="false">Anual</button>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-select</b> · <b>.tbe-segmented</b> (folosește aria-selected="true" pe butonul activ)</div>
+    </section>
+
+    <!-- 04 COMUTATOARE -->
+    <section class="ds-sec" id="comutatoare">
+      <h2 class="tbe-h2"><span class="ds-num">04</span> Comutatoare</h2>
+      <p class="ds-sec-intro">Switch pentru setări care se aplică imediat. Checkbox pentru alegeri care se salvează la submit.</p>
+
+      <div class="ds-demo is-stack" style="max-width:460px">
+        <label class="tbe-switch"><input type="checkbox" checked><span class="tbe-switch-track"></span> Notificări pentru tutoriale noi</label>
+        <label class="tbe-switch"><input type="checkbox"><span class="tbe-switch-track"></span> Email săptămânal cu progresul</label>
+        <hr class="tbe-divider">
+        <label class="tbe-check"><input type="checkbox" checked> Am citit și accept termenii comunității</label>
+        <label class="tbe-check"><input type="checkbox"> Vreau să primesc oferte Beautifier</label>
+        <hr class="tbe-divider">
+        <label class="tbe-check"><input type="radio" name="niv" checked> Fundamentals — începător</label>
+        <label class="tbe-check"><input type="radio" name="niv"> Essentials — intermediar</label>
+        <label class="tbe-check"><input type="radio" name="niv"> Mastery — avansat</label>
+      </div>
+      <div class="ds-classlist"><b>.tbe-switch</b> + .tbe-switch-track · <b>.tbe-check</b> (funcționează cu checkbox și radio)</div>
+    </section>
+
+    <!-- 05 CĂUTARE & CHIPS -->
+    <section class="ds-sec" id="cautare">
+      <h2 class="tbe-h2"><span class="ds-num">05</span> Căutare &amp; chips</h2>
+      <div class="ds-demo is-stack" style="max-width:460px">
+        <div class="tbe-search"><input class="tbe-input" type="search" placeholder="Caută un tutorial sau o coafeză..."></div>
+      </div>
+      <div class="ds-demo">
+        <span class="tbe-chip is-active">Bucle</span>
+        <span class="tbe-chip">Balayage</span>
+        <span class="tbe-chip">Tuns</span>
+        <span class="tbe-chip">Coafat de seară</span>
+        <span class="tbe-chip">Blond <button class="tbe-chip-x" aria-label="Elimină">×</button></span>
+      </div>
+      <p class="ds-note">Click pe chips ca să comuți starea. „×" îl elimină.</p>
+      <div class="ds-classlist"><b>.tbe-search</b> · <b>.tbe-chip</b> + .is-active · .tbe-chip-x</div>
+    </section>
+
+    <!-- 06 CARDURI -->
+    <section class="ds-sec" id="carduri">
+      <h2 class="tbe-h2"><span class="ds-num">06</span> Carduri</h2>
+      <p class="ds-sec-intro">Containerul de bază al conținutului. Radius <code>lg</code> pe TBE, <code>md</code> pe Hartă — se schimbă singur.</p>
+
+      <div class="ds-demo is-grid">
+        <div class="tbe-card">
+          <h3 class="tbe-card-title">Card standard</h3>
+          <p class="tbe-card-body">Fundal alb, bordură fină. Folosit peste fundalul crem al paginii.</p>
+          <button class="tbe-btn is-secondary is-sm">Acțiune</button>
+        </div>
+        <div class="tbe-card is-flat">
+          <h3 class="tbe-card-title">Flat</h3>
+          <p class="tbe-card-body">Fără bordură, fundal ușor diferit. Pentru grile dense de informație.</p>
+        </div>
+        <div class="tbe-card is-raised">
+          <h3 class="tbe-card-title">Ridicat</h3>
+          <p class="tbe-card-body">Cu umbră. Pentru elemente care „plutesc" peste conținut.</p>
+        </div>
+        <div class="tbe-card is-decor">
+          <h3 class="tbe-card-title">Decorativ</h3>
+          <p class="tbe-card-body">Fundal nude. Pentru blocuri de accent, citate, oferte.</p>
+        </div>
+        <div class="tbe-card is-featured">
+          <span class="tbe-badge is-action">Recomandat</span>
+          <h3 class="tbe-card-title" style="margin-top:var(--sp-3)">Evidențiat</h3>
+          <p class="tbe-card-body">Contur magenta. Pentru planul recomandat sau oferta principală.</p>
+        </div>
+        <div class="tbe-card is-interactive">
+          <h3 class="tbe-card-title">Interactiv</h3>
+          <p class="tbe-card-body">Se ridică la hover. Pentru carduri care sunt linkuri întregi.</p>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-card</b> + .is-flat · .is-raised · .is-decor · .is-featured · .is-interactive</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Card de curs (cu media)</h3></div>
+      <div class="ds-demo is-grid">
+        <div class="tbe-card is-interactive tbe-course-card">
+          <span class="tbe-badge is-solid tbe-course-level">Fundamentals</span>
+          <div class="tbe-card-media" style="background:linear-gradient(135deg,#DCC4B4,#A98192)"></div>
+          <span class="tbe-kicker">Coafuri</span>
+          <h3 class="tbe-card-title">Atelierul de Bucle</h3>
+          <p class="tbe-card-body">Tehnica completă a buclei: secționare, tensiune, fixare, finisaj.</p>
+          <div class="tbe-card-foot">
+            <span class="tbe-course-meta">12 lecții · 3h 40m</span>
+            <span class="tbe-badge">Inclus</span>
+          </div>
+        </div>
+        <div class="tbe-card is-interactive tbe-course-card">
+          <span class="tbe-badge is-solid tbe-course-level">Essentials</span>
+          <div class="tbe-card-media" style="background:linear-gradient(135deg,#A98192,#8E6879)"></div>
+          <span class="tbe-kicker">Colorimetrie</span>
+          <h3 class="tbe-card-title">Color Mastery</h3>
+          <p class="tbe-card-body">De la roata culorilor la corecția de culoare pe păr vopsit anterior.</p>
+          <div class="tbe-card-foot">
+            <span class="tbe-course-meta">28 lecții · 9h 15m</span>
+            <span class="tbe-badge is-action">Nou</span>
+          </div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-course-card</b> · .tbe-card-media · .tbe-card-title · .tbe-card-body · .tbe-card-foot · .tbe-course-meta</div>
+    </section>
+
+    <!-- 07 STATISTICI -->
+    <section class="ds-sec" id="statistici">
+      <h2 class="tbe-h2"><span class="ds-num">07</span> Statistici</h2>
+      <p class="ds-sec-intro">Cifra e în Cormorant, magenta, cu <code>tabular-nums</code>. Eticheta e în mono, mică, majuscule.</p>
+      <div class="ds-demo is-grid">
+        <div class="tbe-stat"><div class="tbe-stat-value">3.618</div><div class="tbe-stat-label">Conturi active</div></div>
+        <div class="tbe-stat"><div class="tbe-stat-value">250+</div><div class="tbe-stat-label">Tutoriale</div></div>
+        <div class="tbe-stat"><div class="tbe-stat-value">70+</div><div class="tbe-stat-label">Cursuri fizice</div></div>
+        <div class="tbe-stat"><div class="tbe-stat-value">5,8x</div><div class="tbe-stat-label">Valoare vs. client obișnuit</div></div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-stat</b> · .tbe-stat-value · .tbe-stat-label</div>
+    </section>
+
+    <!-- 08 BADGES -->
+    <section class="ds-sec" id="badges">
+      <h2 class="tbe-h2"><span class="ds-num">08</span> Badges</h2>
+      <div class="ds-demo">
+        <span class="tbe-badge">Neutru</span>
+        <span class="tbe-badge is-action">Nou</span>
+        <span class="tbe-badge is-solid">Inclus</span>
+        <span class="tbe-badge is-success">Finalizat</span>
+        <span class="tbe-badge is-warning">Expiră curând</span>
+        <span class="tbe-badge is-danger">Blocat</span>
+      </div>
+      <div class="ds-demo">
+        <span class="tbe-badge is-bronze">Bronze</span>
+        <span class="tbe-badge is-silver">Silver</span>
+        <span class="tbe-badge is-gold">Gold</span>
+        <span class="tbe-badge is-diamond">Diamond</span>
+      </div>
+      <div class="ds-classlist"><b>.tbe-badge</b> + .is-action · .is-solid · .is-success · .is-warning · .is-danger · .is-bronze/silver/gold/diamond</div>
+    </section>
+
+    <!-- 09 AVATARE -->
+    <section class="ds-sec" id="avatare">
+      <h2 class="tbe-h2"><span class="ds-num">09</span> Avatare</h2>
+      <div class="ds-demo">
+        <span class="tbe-avatar is-sm">AD</span>
+        <span class="tbe-avatar">AD</span>
+        <span class="tbe-avatar is-lg">AD</span>
+        <span class="tbe-avatar is-xl is-ring">AD</span>
+        <div class="tbe-avatar-group">
+          <span class="tbe-avatar">AM</span>
+          <span class="tbe-avatar">IC</span>
+          <span class="tbe-avatar">DP</span>
+          <span class="tbe-avatar" style="background:var(--tbe-action);color:#fff;font-family:var(--font-body);font-size:12px">+42</span>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-avatar</b> + .is-sm · .is-lg · .is-xl · .is-ring · <b>.tbe-avatar-group</b></div>
+    </section>
+
+    <!-- 10 CALLOUTS -->
+    <section class="ds-sec" id="callouts">
+      <h2 class="tbe-h2"><span class="ds-num">10</span> Callouts</h2>
+      <p class="ds-sec-intro">Fiecare callout are titlu bold + explicație. Niciodată doar culoare — mereu cuvânt.</p>
+      <div class="ds-demo is-stack">
+        <div class="tbe-callout"><div><strong>Notă</strong>Context suplimentar, informație neutră.</div></div>
+        <div class="tbe-callout is-action"><div><strong>Acțiune</strong>Scrie „VREAU" la produsul dorit din Magazinul de Loialitate.</div></div>
+        <div class="tbe-callout is-success"><div><strong>Reușit</strong>Test promovat cu 9/10. Essentials e deblocat.</div></div>
+        <div class="tbe-callout is-warning"><div><strong>Atenție</strong>Abonamentul expiră în 5 zile.</div></div>
+        <div class="tbe-callout is-danger"><div><strong>Blocat</strong>Finalizează Essentials înainte de Mastery.</div></div>
+        <div class="tbe-callout is-info"><div><strong>Info</strong>Punctele se dublează pentru membrii Mastery.</div></div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-callout</b> + .is-action · .is-success · .is-warning · .is-danger · .is-info</div>
+    </section>
+
+    <!-- 11 NAVIGAȚIE -->
+    <section class="ds-sec" id="navigatie">
+      <h2 class="tbe-h2"><span class="ds-num">11</span> Navigație</h2>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Antet de site</h3></div>
+      <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
+        <div class="tbe-header" style="position:static">
+          <div class="tbe-container tbe-header-inner">
+            <a class="tbe-brand" href="#navigatie">The Beauty Education</a>
+            <nav class="tbe-nav">
+              <a href="#navigatie" aria-current="page">Cursuri</a>
+              <a href="#navigatie">Comunitate</a>
+              <a href="#navigatie">Traineri</a>
+              <a class="tbe-btn is-primary is-sm" href="#navigatie">Intră în comunitate</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-header</b> · .tbe-header-inner · .tbe-brand · .tbe-nav (a[aria-current] = activ)</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Taburi</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-tabs">
+          <button aria-selected="true">Prezentare</button>
+          <button aria-selected="false">Programa</button>
+          <button aria-selected="false">Trainer</button>
+          <button aria-selected="false">Recenzii</button>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Firimituri &amp; paginare</h3></div>
+      <div class="ds-demo is-stack">
+        <nav class="tbe-breadcrumb"><ol>
+          <li><a href="#navigatie">Acasă</a></li>
+          <li><a href="#navigatie">Cursuri</a></li>
+          <li><a href="#navigatie">Coafuri</a></li>
+          <li>Atelierul de Bucle</li>
+        </ol></nav>
+        <nav class="tbe-pagination">
+          <a href="#navigatie">←</a>
+          <a href="#navigatie" aria-current="page">1</a>
+          <a href="#navigatie">2</a>
+          <a href="#navigatie">3</a>
+          <span class="tbe-muted">…</span>
+          <a href="#navigatie">12</a>
+          <a href="#navigatie">→</a>
+        </nav>
+      </div>
+      <div class="ds-classlist"><b>.tbe-tabs</b> · <b>.tbe-breadcrumb</b> · <b>.tbe-pagination</b></div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Bandă promoțională</h3></div>
+      <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
+        <div class="tbe-banner">Program de Loialitate activ · câștigi 1 punct la fiecare 10 lei pe Beautifier <a href="#navigatie">Vezi cum →</a></div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-banner</b></div>
+    </section>
+
+    <!-- 12 INDICATORI -->
+    <section class="ds-sec" id="indicatori">
+      <h2 class="tbe-h2"><span class="ds-num">12</span> Indicatori</h2>
+      <div class="ds-demo is-stack" style="max-width:460px">
+        <div>
+          <div class="tbe-row is-between" style="margin-bottom:var(--sp-2)">
+            <span class="tbe-small">Progres Essentials</span>
+            <span class="tbe-small tbe-muted tbe-tabular">68%</span>
+          </div>
+          <div class="tbe-progress"><div class="tbe-progress-bar" style="width:68%"></div></div>
+        </div>
+        <div class="tbe-steps">
+          <span class="tbe-step-dot is-done"></span>
+          <span class="tbe-step-dot is-done"></span>
+          <span class="tbe-step-dot is-active"></span>
+          <span class="tbe-step-dot"></span>
+          <span class="tbe-step-dot"></span>
+        </div>
+        <div class="tbe-row">
+          <span class="tbe-rating">★★★★<span class="is-empty">★</span></span>
+          <span class="tbe-small tbe-muted">4,2 · 128 evaluări</span>
+        </div>
+        <div class="tbe-row">
+          <span class="tbe-spinner"></span>
+          <span class="tbe-small tbe-muted">Se încarcă tutorialele…</span>
+        </div>
+        <div class="tbe-stack is-tight">
+          <div class="tbe-skeleton" style="width:60%"></div>
+          <div class="tbe-skeleton" style="width:100%"></div>
+          <div class="tbe-skeleton" style="width:85%"></div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-progress</b> · <b>.tbe-steps</b> · <b>.tbe-rating</b> · <b>.tbe-spinner</b> · <b>.tbe-skeleton</b></div>
+    </section>
+
+    <!-- 13 TABELE -->
+    <section class="ds-sec" id="tabele">
+      <h2 class="tbe-h2"><span class="ds-num">13</span> Tabele</h2>
+      <div class="ds-demo is-stack">
+        <div style="overflow-x:auto;width:100%">
+          <table class="tbe-table">
+            <thead><tr><th>Nivel</th><th>Puncte</th><th>Condiție EMPIRIA</th><th class="is-num">Multiplicator</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tbe-badge is-bronze">Bronze</span></td><td class="tbe-tabular">0</td><td class="tbe-muted">—</td><td class="is-num">1x</td></tr>
+              <tr><td><span class="tbe-badge is-silver">Silver</span></td><td class="tbe-tabular">500</td><td class="tbe-muted">Fundamentals finalizat</td><td class="is-num">1,5x</td></tr>
+              <tr><td><span class="tbe-badge is-gold">Gold</span></td><td class="tbe-tabular">1.500</td><td class="tbe-muted">Essentials finalizat</td><td class="is-num">2x</td></tr>
+              <tr><td><span class="tbe-badge is-diamond">Diamond</span></td><td class="tbe-tabular">3.000</td><td class="tbe-muted">Mastery finalizat</td><td class="is-num">3x</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="ds-note">Cifrele folosesc <code>.tbe-tabular</code> ca să se alinieze pe verticală. Coloanele numerice — <code>.is-num</code>.</p>
+      <div class="ds-classlist"><b>.tbe-table</b> · .is-num · .tbe-tabular</div>
+    </section>
+
+    <!-- 14 OVERLAYS -->
+    <section class="ds-sec" id="overlays">
+      <h2 class="tbe-h2"><span class="ds-num">14</span> Overlays</h2>
+      <div class="ds-demo">
+        <button class="tbe-btn is-secondary" data-open-modal="demoModal">Deschide modal</button>
+        <span class="tbe-tooltip" data-tip="Punctele expiră după 90 de zile" tabindex="0">Ce sunt punctele?</span>
+      </div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-toast">✓ &nbsp;Progresul a fost salvat.</div>
+        <div class="tbe-toast">⚠ &nbsp;Conexiune pierdută. Reîncercăm…</div>
+      </div>
+
+      <dialog class="tbe-modal" id="demoModal">
+        <div class="tbe-modal-inner">
+          <span class="tbe-kicker">Confirmare</span>
+          <h3 class="tbe-h3">Trimiți coafura spre evaluare?</h3>
+          <p class="tbe-muted tbe-small">Trainerul o va evalua după formă, linii și finisaj. Primești feedback în maximum 72 de ore.</p>
+          <div class="tbe-row" style="justify-content:flex-end;margin-top:var(--sp-5)">
+            <button class="tbe-btn is-ghost" data-close-modal>Anulează</button>
+            <button class="tbe-btn is-primary" data-close-modal>Trimite</button>
+          </div>
+        </div>
+      </dialog>
+      <div class="ds-classlist"><b>.tbe-modal</b> (pe &lt;dialog&gt;) · .tbe-modal-inner · <b>.tbe-toast</b> · <b>.tbe-tooltip</b>[data-tip]</div>
+    </section>
+
+    <!-- 15 ACORDEON -->
+    <section class="ds-sec" id="acordeon">
+      <h2 class="tbe-h2"><span class="ds-num">15</span> Acordeon</h2>
+      <p class="ds-sec-intro">Construit pe <code>&lt;details&gt;</code> nativ — funcționează fără JavaScript și e accesibil din start.</p>
+      <div class="ds-demo is-stack">
+        <details class="tbe-accordion" open>
+          <summary>Cât durează un nivel EMPIRIA?</summary>
+          <div class="tbe-accordion-body">Depinde de ritmul tău. Nivelurile sunt blocate liniar — nu treci mai departe până nu finalizezi tot ce e înainte. În medie, Fundamentals se termină în 6–8 săptămâni.</div>
+        </details>
+        <details class="tbe-accordion">
+          <summary>Ce se întâmplă cu punctele dacă îmi opresc abonamentul?</summary>
+          <div class="tbe-accordion-body">Se păstrează 90 de zile de la închidere. Dacă reactivezi în acest interval, le regăsești intacte. După 90 de zile se șterg.</div>
+        </details>
+        <details class="tbe-accordion">
+          <summary>Pot ajunge trainer TBE?</summary>
+          <div class="tbe-accordion-body">Da. Membrele care ating nivelul Diamond intră în programul de traineri juniori. Trei membre au făcut deja pasul.</div>
+        </details>
+      </div>
+      <div class="ds-classlist"><b>.tbe-accordion</b> (pe &lt;details&gt;) · .tbe-accordion-body</div>
+    </section>
+
+    <!-- 16 STĂRI GOALE -->
+    <section class="ds-sec" id="goale">
+      <h2 class="tbe-h2"><span class="ds-num">16</span> Stări goale</h2>
+      <p class="ds-sec-intro">O stare goală nu spune „nu există nimic". Spune ce urmează.</p>
+      <div class="ds-demo">
+        <div class="tbe-empty" style="width:100%">
+          <div class="tbe-empty-icon">✂</div>
+          <h3 class="tbe-h4">Încă nu ai trimis nicio coafură</h3>
+          <p class="tbe-small tbe-muted" style="margin-inline:auto">Alege un tutorial din Skill Lab, execută coafura și trimite fotografiile pentru feedback.</p>
+          <button class="tbe-btn is-primary is-sm">Vezi Skill Lab</button>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-empty</b> · .tbe-empty-icon</div>
+    </section>
+
+    <!-- 17 PATTERNURI TBE -->
+    <section class="ds-sec" id="tbe">
+      <h2 class="tbe-h2"><span class="ds-num">17</span> Patternuri TBE</h2>
+      <p class="ds-sec-intro">Componente specifice ecosistemului, care nu există în nicio bibliotecă generică.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Traseul EMPIRIA</h3><p>Cele trei niveluri blocate liniar. Starea <code>is-locked</code> arată explicit lacătul — nu doar culoare mai palidă.</p></div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-path">
+          <span class="tbe-path-node is-done">Fundamentals ✓</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-current">Essentials</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-locked">Mastery</span>
+        </div>
+        <div class="tbe-path">
+          <span class="tbe-path-node is-current">Fundamentals</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-locked">Essentials</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-locked">Mastery</span>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-path</b> · .tbe-path-node + .is-done · .is-current · .is-locked · .tbe-path-arrow</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Cele 5 faze empirice</h3></div>
+      <div class="ds-demo is-grid">
+        <div class="tbe-card is-flat"><span class="tbe-kicker">Observație</span><h4 class="tbe-h4 tbe-mb-0">Decode IT</h4></div>
+        <div class="tbe-card is-flat"><span class="tbe-kicker">Inducție</span><h4 class="tbe-h4 tbe-mb-0">Skill Lab</h4></div>
+        <div class="tbe-card is-flat"><span class="tbe-kicker">Deducție</span><h4 class="tbe-h4 tbe-mb-0">Pinterest 2.0</h4></div>
+        <div class="tbe-card is-flat"><span class="tbe-kicker">Testare</span><h4 class="tbe-h4 tbe-mb-0">Duelul Coafezelor</h4></div>
+        <div class="tbe-card is-flat"><span class="tbe-kicker">Evaluare</span><h4 class="tbe-h4 tbe-mb-0">Rubrica de Feedback</h4></div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Citat</h3></div>
+      <div class="ds-demo is-stack">
+        <blockquote class="tbe-quote" style="margin:0">Nu-ți iese din prima. Normal. De asta repetăm.<cite>Adriana Dobre · trainer principal</cite></blockquote>
+      </div>
+      <div class="ds-classlist"><b>.tbe-quote</b> (pe &lt;blockquote&gt;, cu &lt;cite&gt; înăuntru)</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Foto cu scrim</h3><p>Singura modalitate corectă de a pune text peste o fotografie.</p></div>
+      <div class="ds-demo">
+        <div class="tbe-photo-scrim" style="width:100%;max-width:380px;aspect-ratio:4/3;background:linear-gradient(135deg,#DCC4B4,#A98192 60%,#8E6879)">
+          <div class="tbe-photo-content">
+            <span class="tbe-kicker" style="color:#fff">Curs fizic</span>
+            <div class="tbe-h3" style="margin:0">Colorimetrie avansată</div>
+            <p class="tbe-small" style="margin:var(--sp-2) 0 0;opacity:.85">București · 14–15 septembrie</p>
+          </div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-photo-scrim</b> &gt; .tbe-photo-content</div>
+    </section>
+
+    <!-- 18 PATTERNURI HARTĂ -->
+    <section class="ds-sec" id="harta">
+      <h2 class="tbe-h2"><span class="ds-num">18</span> Patternuri Harta Coafezelor</h2>
+      <p class="ds-sec-intro">Aceleași clase, alți tokeni. Blocul de mai jos are <code>data-brand="harta"</code> — observă fundalul mai alb și colțurile mai strânse.</p>
+
+      <div class="ds-demo is-grid" data-brand="harta">
+        <div class="tbe-card">
+          <div class="tbe-salon-card">
+            <div class="tbe-avatar" style="width:72px;height:72px;border-radius:var(--r-sm)">AM</div>
+            <div style="min-width:0;flex:1">
+              <div class="tbe-row is-between" style="margin-bottom:var(--sp-1)">
+                <h3 class="tbe-h4 tbe-mb-0">Ana Maria Popescu</h3>
+                <span class="tbe-score"><span class="tbe-score-value">4,9</span><span class="tbe-score-max">/5</span></span>
+              </div>
+              <p class="tbe-small tbe-muted" style="margin-bottom:var(--sp-3)">Cluj-Napoca · Colorimetrie, bucle</p>
+              <div class="tbe-row" style="gap:var(--sp-2)">
+                <span class="tbe-badge is-map">Disponibil azi</span>
+                <span class="tbe-badge is-gold">Gold</span>
+              </div>
+            </div>
+          </div>
+          <div class="tbe-card-foot" style="margin-top:var(--sp-4)">
+            <span class="tbe-badge-recomandat">★ Recomandat de TBE</span>
+            <button class="tbe-btn is-primary is-sm">Contactează</button>
+          </div>
+        </div>
+        <div class="tbe-card">
+          <div class="tbe-salon-card">
+            <div class="tbe-avatar" style="width:72px;height:72px;border-radius:var(--r-sm)">IC</div>
+            <div style="min-width:0;flex:1">
+              <div class="tbe-row is-between" style="margin-bottom:var(--sp-1)">
+                <h3 class="tbe-h4 tbe-mb-0">Ioana Constantin</h3>
+                <span class="tbe-score"><span class="tbe-score-value">4,6</span><span class="tbe-score-max">/5</span></span>
+              </div>
+              <p class="tbe-small tbe-muted" style="margin-bottom:var(--sp-3)">Timișoara · Tuns, coafat de seară</p>
+              <div class="tbe-row" style="gap:var(--sp-2)">
+                <span class="tbe-badge">Program plin</span>
+                <span class="tbe-badge is-silver">Silver</span>
+              </div>
+            </div>
+          </div>
+          <div class="tbe-card-foot" style="margin-top:var(--sp-4)">
+            <span class="tbe-small tbe-muted">Răspunde în ~2h</span>
+            <button class="tbe-btn is-secondary is-sm">Contactează</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Semnale de hartă</h3></div>
+      <div class="ds-demo" data-brand="harta">
+        <span class="tbe-badge is-map">Disponibil azi</span>
+        <span class="tbe-badge is-map">Profil verificat</span>
+        <span class="tbe-badge is-map">Acceptă clienți noi</span>
+        <span class="tbe-badge">Program plin</span>
+        <span class="tbe-badge-recomandat">★ Recomandat de TBE</span>
+      </div>
+      <div class="tbe-callout is-warning">
+        <div><strong>Verde Hartă nu e culoare de brand</strong>
+        <code>#2E6F5E</code> comunică exclusiv <em>disponibilitate / verificare / pin</em>. Nu-l folosi pentru butoane, titluri sau fundaluri de secțiune. Acțiunea rămâne magenta peste tot în ecosistem.</div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-salon-card</b> · <b>.tbe-score</b> · <b>.tbe-badge.is-map</b> · <b>.tbe-badge-recomandat</b></div>
+    </section>
+
+    <footer class="ds-footer">
+      18 secțiuni · 80+ controale · The Beauty Education Design System v1.0
+    </footer>
+
+  </main>
+</div>
+
+<script src="ds.js"></script>
+</body>
+</html>

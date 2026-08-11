@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ro" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — The Beauty Education</title>
+<link rel="stylesheet" href="tokens/tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="ds-shell">
+
+<header class="ds-topbar">
+  <div class="ds-topbar-inner">
+    <a class="ds-logo" href="index.html">The Beauty <span>Education</span></a>
+    <nav class="ds-topnav">
+      <a href="index.html" aria-current="page">Acasă</a>
+      <a href="brand-book.html">Brand Book</a>
+      <a href="ui.html">Componente UI</a>
+      <a href="bannere.html">Bannere</a>
+    </nav>
+    <div class="ds-controls">
+      <button class="ds-toggle" id="brandToggle" type="button">Brand: TBE</button>
+      <button class="ds-toggle" id="themeToggle" type="button">◐ Temă</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="tbe-hero">
+    <div class="tbe-container">
+      <span class="tbe-kicker">Design System · v1.0 · 2026</span>
+      <h1 class="tbe-hero-title">Un singur limbaj vizual pentru tot ecosistemul</h1>
+      <p class="tbe-hero-sub">Site, bannere, materiale promoționale, aplicații. Culorile, fonturile și componentele de aici sunt sursa unică de adevăr — pentru The Beauty Education și pentru Harta Coafezelor.</p>
+      <div class="tbe-btn-group">
+        <a class="tbe-btn is-primary is-lg" href="brand-book.html">Deschide Brand Book</a>
+        <a class="tbe-btn is-secondary is-lg" href="ui.html">Vezi componentele</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tbe-section is-alt">
+    <div class="tbe-container">
+      <div class="ds-hub">
+        <a class="ds-hub-card" href="brand-book.html">
+          <span class="ds-hub-num">01</span>
+          <h3 class="tbe-h3">Brand Book</h3>
+          <p>Esența brandului, vocea, paleta completă cu rapoarte de contrast, tipografia, regulile de logo, fotografia și sub-brandul Harta Coafezelor.</p>
+        </a>
+        <a class="ds-hub-card" href="ui.html">
+          <span class="ds-hub-num">02</span>
+          <h3 class="tbe-h3">Componente UI</h3>
+          <p>18 secțiuni, 80+ controale. Butoane, formulare, carduri, navigație, overlays și patternurile specifice EMPIRIA și Hărții. Fiecare exemplu e viu.</p>
+        </a>
+        <a class="ds-hub-card" href="bannere.html">
+          <span class="ds-hub-num">03</span>
+          <h3 class="tbe-h3">Bannere</h3>
+          <p>Formate, zone sigure, șase rețete de layout gata de copiat, variante cromatice, reguli de print și checklist înainte de publicare.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tbe-section">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <span class="tbe-kicker">Cum se folosește</span>
+        <h2 class="tbe-h2">Trei fișiere, orice platformă</h2>
+        <p class="tbe-lead">Design system-ul e scris în CSS variables. Funcționează la fel în WordPress, Shopify, Lovable, Webflow sau într-un HTML simplu.</p>
+      </div>
+
+      <div class="tbe-grid">
+        <div class="tbe-card">
+          <span class="tbe-kicker">Fișier</span>
+          <h3 class="tbe-card-title">tokens/tokens.css</h3>
+          <p class="tbe-card-body">Toate culorile, fonturile, spațierile, razele, umbrele. Light + dark + sub-brand. Îl încarci primul, peste tot.</p>
+        </div>
+        <div class="tbe-card">
+          <span class="tbe-kicker">Fișier</span>
+          <h3 class="tbe-card-title">components.css</h3>
+          <p class="tbe-card-body">Butoane, formulare, carduri, tot restul. Depinde de tokens. Îl încarci al doilea.</p>
+        </div>
+        <div class="tbe-card">
+          <span class="tbe-kicker">Fișier</span>
+          <h3 class="tbe-card-title">tokens/tokens.json</h3>
+          <p class="tbe-card-body">Aceiași tokeni în format JSON — pentru Figma (Tokens Studio), Style Dictionary sau orice tooling de design.</p>
+        </div>
+      </div>
+
+      <div class="tbe-callout is-action">
+        <div><strong>În WordPress</strong>
+        Încarcă cele două fișiere CSS din tema copil (<code>functions.php</code> → <code>wp_enqueue_style</code>), în ordinea: întâi tokens, apoi components. Detaliile complete sunt în <code>docs/instalare.md</code>.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tbe-section is-decor">
+    <div class="tbe-container">
+      <div class="tbe-section-head is-center">
+        <span class="tbe-kicker">Cele patru reguli</span>
+        <h2 class="tbe-h2">Ce ține sistemul în viață</h2>
+      </div>
+      <div class="tbe-grid is-4">
+        <div class="tbe-card">
+          <h3 class="tbe-h4">Nici un HEX în cod</h3>
+          <p class="tbe-small tbe-muted tbe-mb-0">Orice culoare vine din <code>var(--tbe-…)</code>. Dacă nu există în tokens, nu se folosește.</p>
+        </div>
+        <div class="tbe-card">
+          <h3 class="tbe-h4">Magenta = acțiune</h3>
+          <p class="tbe-small tbe-muted tbe-mb-0">Dacă cere click, e magenta. Dacă nu cere click, nu e magenta. Un singur buton primar per ecran.</p>
+        </div>
+        <div class="tbe-card">
+          <h3 class="tbe-h4">60 / 30 / 10</h3>
+          <p class="tbe-small tbe-muted tbe-mb-0">Majoritatea suprafeței rămâne neutră. Asta face diferența între premium și țipător.</p>
+        </div>
+        <div class="tbe-card">
+          <h3 class="tbe-h4">Contrast peste 4.5:1</h3>
+          <p class="tbe-small tbe-muted tbe-mb-0">Mauve și gri cald arată bine, dar nu se citesc. Sunt decorative, nu text.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ds-footer">
+    The Beauty Education · Design System v1.0 · 2026 · Confidențial, uz intern
+  </footer>
+</main>
+
+<script src="ds.js"></script>
+</body>
+</html>
