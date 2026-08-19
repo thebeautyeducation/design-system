@@ -499,22 +499,24 @@ code, .tbe-code {
 /* ==========================================================================
    CALLOUT / ALERTĂ
    ========================================================================== */
+/* Semnalul de tip îl poartă fundalul tonifiat + bordura completă în culoarea
+   hue-ului, NU o bară groasă pe o singură margine (tell de UI generat). */
 .tbe-callout {
   display: flex; gap: var(--sp-3);
   padding: var(--sp-4) var(--sp-5);
   border-radius: var(--tbe-radius-control);
-  border-left: 3px solid var(--tbe-text-muted);
+  border: var(--bw-hair) solid var(--tbe-border-subtle);
   background: var(--tbe-surface-sunk);
   font-size: var(--fs-sm);
   margin-block: var(--sp-4);
 }
 .tbe-callout > :last-child { margin-bottom: 0; }
 .tbe-callout strong { display: block; margin-bottom: var(--sp-1); font-weight: var(--fw-semibold); }
-.tbe-callout.is-success { background: var(--tbe-success-bg); border-color: var(--tbe-success); }
-.tbe-callout.is-warning { background: var(--tbe-warning-bg); border-color: var(--tbe-warning); }
-.tbe-callout.is-danger  { background: var(--tbe-danger-bg);  border-color: var(--tbe-danger); }
-.tbe-callout.is-info    { background: var(--tbe-info-bg);    border-color: var(--tbe-info); }
-.tbe-callout.is-action  { background: var(--tbe-action-soft); border-color: var(--tbe-action); }
+.tbe-callout.is-success { background: var(--tbe-success-bg); border-color: color-mix(in srgb, var(--tbe-success) 45%, transparent); }
+.tbe-callout.is-warning { background: var(--tbe-warning-bg); border-color: color-mix(in srgb, var(--tbe-warning) 45%, transparent); }
+.tbe-callout.is-danger  { background: var(--tbe-danger-bg);  border-color: color-mix(in srgb, var(--tbe-danger) 45%, transparent); }
+.tbe-callout.is-info    { background: var(--tbe-info-bg);    border-color: color-mix(in srgb, var(--tbe-info) 45%, transparent); }
+.tbe-callout.is-action  { background: var(--tbe-action-soft); border-color: var(--tbe-action-border); }
 
 /* ==========================================================================
    NAVIGAȚIE
