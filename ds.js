@@ -52,6 +52,10 @@
     var chipX = e.target.closest('.tbe-chip-x');
     if (chipX) { e.stopPropagation(); chipX.closest('.tbe-chip').remove(); }
 
+    /* Taburi ARIA: click selectează tabul și arată panoul lui */
+    var tab = e.target.closest('[role="tablist"] [role="tab"]');
+    if (tab) selectTab(tab);
+
     if (e.target.matches('[data-open-modal]')) {
       var dlg = document.getElementById(e.target.getAttribute('data-open-modal'));
       if (dlg && dlg.showModal) dlg.showModal();
@@ -60,5 +64,30 @@
       var d = e.target.closest('dialog');
       if (d) d.close();
     }
+  });
+
+  /* --- Taburi accesibile: selecție + navigare cu săgeți (pattern WAI-ARIA) --- */
+  function selectTab(tab) {
+    var list = tab.closest('[role="tablist"]');
+    if (!list) return;
+    list.querySelectorAll('[role="tab"]').forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      var panelId = t.getAttribute('aria-controls');
+      var panel = panelId && document.getElementById(panelId);
+      if (panel) panel.hidden = !on;
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    var tab = e.target.closest('[role="tablist"] [role="tab"]');
+    if (!tab) return;
+    var tabs = Array.prototype.slice.call(tab.closest('[role="tablist"]').querySelectorAll('[role="tab"]'));
+    var i = tabs.indexOf(tab), next = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = tabs[(i + 1) % tabs.length];
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = tabs[(i - 1 + tabs.length) % tabs.length];
+    else if (e.key === 'Home') next = tabs[0];
+    else if (e.key === 'End') next = tabs[tabs.length - 1];
+    if (next) { e.preventDefault(); selectTab(next); next.focus(); }
   });
 })();

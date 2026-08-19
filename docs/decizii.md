@@ -22,7 +22,9 @@ Mini Brand Book-ul definește 3 culori de brand, 5 neutre, 3 fonturi și o scar�
 
 **Soluția:** o variantă mai deschisă a aceleiași culori, folosită **exclusiv** în dark mode. Contrast 6.0:1 pe `#1A1513`.
 
-**Alternativa, dacă nu-ți place:** renunți la dark mode complet. E o opțiune validă — un site editorial premium nu e obligat să aibă temă închisă. Dacă alegi asta, ștergi secțiunea 07 din `tokens.css`.
+**Alternativa, dacă nu-ți place:** renunți la dark mode complet. E o opțiune validă — un site editorial premium nu e obligat să aibă temă închisă. Dacă alegi asta, treci `color-scheme` pe `light` peste tot și ramurile dark din `light-dark()` nu se mai folosesc.
+
+**Cum e construită tema (v1.0.1):** fiecare token semantic e definit O SINGURĂ dată, cu `light-dark(valoare_light, valoare_dark)`, și se rezolvă din `color-scheme`. Nu mai există un al doilea bloc „dark" de ținut sincron manual (înainte, `[data-theme="dark"]` și `@media (prefers-color-scheme: dark)` erau copii — una divergase deja pe `--shadow-xs`). Comutarea temei = doar `color-scheme`: `light dark` pe `:root` (urmează sistemul), sau `light`/`dark` pe `[data-theme=…]` (forțat). Fallback pe browsere pre-2024 fără `light-dark()`: ramura light.
 
 ---
 
@@ -106,6 +108,8 @@ Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pe
 **Ce am făcut:** toate butoanele și controalele au minim 44px înălțime.
 
 **De ce:** e pragul recomandat pentru degete pe ecran tactil. Publicul TBE e majoritar pe telefon. Un buton de 32px pe mobil se ratează.
+
+**Excepția, explicită:** variantele compacte `.tbe-btn.is-sm` (36px) sunt gândite pentru bare de unelte dense, unde controlul stă lângă altele și nu e acțiunea principală. Rămân peste pragul AA de 24px (WCAG 2.5.8). Acțiunile principale și navigarea (inclusiv paginația, urcată la 44px) rămân la 44px.
 
 ---
 

@@ -158,17 +158,17 @@
         </div>
       </div>
       <div class="ds-demo">
-        <div class="tbe-segmented">
+        <div class="tbe-segmented" role="group" aria-label="Filtru categorie">
           <button aria-selected="true">Toate</button>
           <button aria-selected="false">Coafuri</button>
           <button aria-selected="false">Colorimetrie</button>
         </div>
-        <div class="tbe-segmented">
+        <div class="tbe-segmented" role="group" aria-label="Interval abonament">
           <button aria-selected="true">Lunar</button>
           <button aria-selected="false">Anual</button>
         </div>
       </div>
-      <div class="ds-classlist"><b>.tbe-select</b> · <b>.tbe-segmented</b> (folosește aria-selected="true" pe butonul activ)</div>
+      <div class="ds-classlist"><b>.tbe-select</b> · <b>.tbe-segmented</b> (grup de filtre: role="group" + aria-label; butonul activ aria-selected="true")</div>
     </section>
 
     <!-- 04 COMUTATOARE -->
@@ -381,12 +381,13 @@
 
       <div class="ds-sub"><h3 class="tbe-h4">Taburi</h3></div>
       <div class="ds-demo is-stack">
-        <div class="tbe-tabs">
-          <button aria-selected="true">Prezentare</button>
-          <button aria-selected="false">Programa</button>
-          <button aria-selected="false">Trainer</button>
-          <button aria-selected="false">Recenzii</button>
+        <div class="tbe-tabs" role="tablist" aria-label="Detalii curs">
+          <button role="tab" id="tab-prez" aria-selected="true" aria-controls="panel-prez" tabindex="0">Prezentare</button>
+          <button role="tab" id="tab-prog" aria-selected="false" aria-controls="panel-prog" tabindex="-1">Programa</button>
+          <button role="tab" id="tab-train" aria-selected="false" aria-controls="panel-train" tabindex="-1">Trainer</button>
+          <button role="tab" id="tab-rec" aria-selected="false" aria-controls="panel-rec" tabindex="-1">Recenzii</button>
         </div>
+        <div role="tabpanel" id="panel-prez" aria-labelledby="tab-prez" class="tbe-small tbe-muted" style="padding-top:var(--sp-3)">Conținutul tabului activ. Săgețile ←/→ comută taburile.</div>
       </div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Firimituri &amp; paginare</h3></div>
@@ -407,7 +408,7 @@
           <a href="#navigatie">→</a>
         </nav>
       </div>
-      <div class="ds-classlist"><b>.tbe-tabs</b> · <b>.tbe-breadcrumb</b> · <b>.tbe-pagination</b></div>
+      <div class="ds-classlist"><b>.tbe-tabs</b> (role="tablist" + role="tab"/aria-controls, tabindex roving, săgeți ←/→) · <b>.tbe-breadcrumb</b> · <b>.tbe-pagination</b></div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Bandă promoțională</h3></div>
       <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
@@ -476,7 +477,7 @@
       <h2 class="tbe-h2"><span class="ds-num">14</span> Overlays</h2>
       <div class="ds-demo">
         <button class="tbe-btn is-secondary" data-open-modal="demoModal">Deschide modal</button>
-        <span class="tbe-tooltip" data-tip="Punctele expiră după 90 de zile" tabindex="0">Ce sunt punctele?</span>
+        <span class="tbe-tooltip" data-tip="Punctele expiră după 90 de zile" tabindex="0" aria-describedby="tip-puncte">Ce sunt punctele?<span id="tip-puncte" class="tbe-sr-only">Punctele expiră după 90 de zile.</span></span>
       </div>
       <div class="ds-demo is-stack">
         <div class="tbe-toast">✓ &nbsp;Progresul a fost salvat.</div>

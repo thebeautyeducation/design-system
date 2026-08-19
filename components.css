@@ -288,7 +288,7 @@ code, .tbe-code {
   width: 100%;
   transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
-.tbe-input::placeholder, .tbe-textarea::placeholder { color: var(--tbe-text-subtle); }
+.tbe-input::placeholder, .tbe-textarea::placeholder { color: var(--tbe-text-muted); }  /* 4.8:1 — nu subtle (3.1:1) */
 .tbe-input:focus, .tbe-textarea:focus, .tbe-select:focus {
   outline: none;
   border-color: var(--tbe-ring);
@@ -558,7 +558,7 @@ code, .tbe-code {
 
 .tbe-pagination { display: flex; gap: var(--sp-2); align-items: center; }
 .tbe-pagination a, .tbe-pagination button {
-  min-width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;  /* țintă de atingere 44px */
   font-size: var(--fs-sm); border-radius: var(--tbe-radius-control);
   border: 1px solid var(--tbe-border-subtle); background: var(--tbe-surface);
   color: var(--tbe-text); text-decoration: none; cursor: pointer;
@@ -621,6 +621,13 @@ code, .tbe-code {
   box-shadow: var(--shadow-lg); font-size: var(--fs-sm); max-width: 420px;
 }
 
+/* Tooltip — DOAR pentru informație suplimentară, niciodată esențială (pe touch
+   nu există hover). Accesibilitate obligatorie în markup:
+     <span class="tbe-tooltip" tabindex="0" aria-describedby="tip-x" data-tip="…">
+       Declanșator <span id="tip-x" class="tbe-sr-only">Textul citit de screen reader</span>
+     </span>
+   `tabindex="0"` îl face focalizabil (bula apare și la :focus-visible), iar
+   aria-describedby leagă textul real — pseudo-elementul ::after nu e citit de AT. */
 .tbe-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted var(--tbe-text-muted); cursor: help; }
 .tbe-tooltip::after {
   content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
@@ -691,8 +698,10 @@ code, .tbe-code {
   display: inline-flex; align-items: center; gap: var(--sp-2);
   padding: 0.4em 0.9em; border-radius: var(--r-pill);
   font-size: var(--fs-xs); font-family: var(--font-mono); letter-spacing: var(--ls-wide); text-transform: uppercase;
-  background: var(--tbe-surface-sunk); color: var(--tbe-text-subtle); border: 1px solid var(--tbe-border-subtle);
+  background: var(--tbe-surface-sunk); color: var(--tbe-text-muted); border: 1px solid var(--tbe-border-subtle);
 }
+/* Nodurile neatinse/blocate rămân de-emfazate prin fundal, NU prin contrast de
+   text: eticheta e mono 12px, deci are nevoie de ≥4.5:1 (muted), nu subtle (3.1:1). */
 .tbe-path-node.is-done   { background: var(--tbe-action-soft); color: var(--tbe-action); border-color: var(--tbe-action-border); }
 .tbe-path-node.is-current { background: var(--tbe-action); color: var(--tbe-text-on-action); border-color: var(--tbe-action); }
 .tbe-path-node.is-locked::before { content: '🔒'; font-size: 0.85em; }
