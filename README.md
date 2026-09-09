@@ -22,6 +22,12 @@ Dă dublu-click pe `index.html`. Se deschide în browser, fără instalare, făr
 
 > **De reținut:** paginile de documentație stau pe **alb**, deliberat — o suprafață neutră pe care culorile brandului se judecă corect. Fundalul **site-ului TBE** rămâne **crem `#FAF4EF`** (`--tbe-bg`), pentru că pe crem cardurile albe ies în relief. Diferența e vizibilă în [`ui.html` § Carduri → „Pe fundalul real de brand"](ui.html).
 
+> **Replici site-ul TBE în WordPress?** Nu lua valorile de umbră de aici. Site-ul **rescrie** umbrele
+> (`--shadow-*`) în variante lungi și difuze, în `site.css`. Toate valorile finale — fonturi și umbre pe fiecare
+> tip de buton și casetă, cu HEX, alpha și poziții, plus efectul „glass" al navbar-ului — sunt rezolvate în
+> [**site → `HANDOFF-SPEC.md`**](https://github.com/thebeautyeducation/site/blob/main/HANDOFF-SPEC.md).
+> Design system-ul rămâne sursa pentru culori, tipografie și componente; specul e traducerea lor în valorile de pe site.
+
 ---
 
 ## Structura folderului
