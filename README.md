@@ -48,7 +48,7 @@ design-system/
 ├── ds.js                   ← doar comutatoarele de temă/brand
 │
 ├── assets/
-│   ├── fonturi/            ← cele 4 fonturi variable (.ttf) + licența OFL
+│   ├── fonturi/            ← Fraunces + Inter (.woff2, subseturi latin / latin-ext) + Source Code Pro + licența OFL
 │   └── logo/               ← logo-urile în .svg și .png (color / black / white)
 │
 └── docs/
@@ -137,9 +137,9 @@ Componentă nouă → se adaugă în `components.css` **și** în `ui.html`, în
 
 ## Auto-conținut
 
-Folderul funcționează singur. Fonturile (`assets/fonturi/`) sunt încărcate cu `@font-face`, deci paginile arată corect chiar dacă fonturile nu sunt instalate în sistem — pe orice calculator, online sau offline. Logo-urile sunt în `assets/logo/`, în `.svg` și `.png`.
+Folderul funcționează singur. Fonturile (`assets/fonturi/` — Fraunces pentru titluri, Inter pentru text, Source Code Pro pentru kickere) sunt încărcate cu `@font-face`, deci paginile arată corect chiar dacă fonturile nu sunt instalate în sistem — pe orice calculator, online sau offline. Logo-urile sunt în `assets/logo/`, în `.svg` și `.png`.
 
-Ce a rămas în brand kit-ul principal, în afara acestui folder: fișierele sursă `.ai` și `.eps` ale logo-ului (pentru tipar), `Mini Brand Book.pdf` și dosarul de ecosistem.
+Ce a rămas în brand kit-ul principal, în afara acestui folder: fișierele sursă `.ai` și `.eps` ale logo-ului (pentru tipar), fonturile în `.ttf` pentru instalare pe calculator (`brand/fonturi/`), `Mini Brand Book.pdf` și dosarul de ecosistem.
 
 ## Notă tehnică — fișierele de logo
 

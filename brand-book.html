@@ -230,54 +230,71 @@
     <!-- ================================================== 04 TIPOGRAFIE -->
     <section class="ds-sec" id="tipografie">
       <h2 class="tbe-h2"><span class="ds-num">04</span> Tipografie</h2>
-      <p class="ds-sec-intro">Trei familii, roluri fixe. <b>Cormorant Garamond</b> pentru titluri — serif editorial, contrast mare, premium. <b>Jost</b> pentru text și interfață — sans geometric, curat. <b>Source Code Pro</b> pentru supratitluri și etichete.</p>
+      <p class="ds-sec-intro">Trei familii, roluri fixe. <b>Fraunces</b> pentru titluri — serif editorial cu contrast mare și italic expresiv; se adaptează optic la mărime. <b>Inter</b> pentru text și interfață — sans desenat pentru ecran, cu bold real și cifre clare. <b>Source Code Pro</b> pentru supratitluri și etichete. Ambele familii principale au toate grosimile 100–900.</p>
 
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>Display</b>Cormorant Garamond<br>500 · 40→72px<br>line-height 1.08<br>tracking −0.02em</div>
-        <div class="ds-spec-sample"><div class="tbe-display" style="margin:0">Transformăm pasiunea în măiestrie</div></div>
+        <div class="ds-spec-meta"><b>Display</b>Fraunces<br>500 · 40→72px<br>line-height 1.08<br>tracking −0.02em<br><code>&lt;em&gt;</code> = italic 400</div>
+        <div class="ds-spec-sample"><div class="tbe-display" style="margin:0">Transformăm pasiunea în <em>măiestrie</em></div></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>H1</b>Cormorant Garamond<br>500 · 32→48px<br>line-height 1.25</div>
-        <div class="ds-spec-sample"><div class="tbe-h1" style="margin:0">Atelierul de Bucle</div></div>
+        <div class="ds-spec-meta"><b>H1</b>Fraunces<br>500 · 32→48px<br>line-height 1.25</div>
+        <div class="ds-spec-sample"><div class="tbe-h1" style="margin:0">Color Mastery</div></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>H2</b>Cormorant Garamond<br>500 · 26→34px</div>
+        <div class="ds-spec-meta"><b>H2</b>Fraunces<br>500 · 26→34px</div>
         <div class="ds-spec-sample"><div class="tbe-h2" style="margin:0">Programul EMPIRIA</div></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>H3</b>Cormorant Garamond<br>600 · 22px</div>
+        <div class="ds-spec-meta"><b>H3</b>Fraunces<br>600 · 22px</div>
         <div class="ds-spec-sample"><div class="tbe-h3" style="margin:0">Colorimetrie · nivelul Essentials</div></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>H4</b>Cormorant Garamond<br>600 · 18px</div>
+        <div class="ds-spec-meta"><b>H4</b>Fraunces<br>600 · 18px</div>
         <div class="ds-spec-sample"><div class="tbe-h4" style="margin:0">Ce înveți în acest modul</div></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>Lead</b>Jost<br>300 · 18px<br>line-height 1.8</div>
+        <div class="ds-spec-meta"><b>Lead</b>Inter<br>300 · 18px<br>line-height 1.8</div>
         <div class="ds-spec-sample"><p class="tbe-lead" style="margin:0">Un program secvențial, construit pe empirism: observi, induci, deduci, testezi, evaluezi. Fără scurtături.</p></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>Body</b>Jost<br>400 · 16px<br>line-height 1.65<br>max ~68 caractere</div>
+        <div class="ds-spec-meta"><b>Body</b>Inter<br>400 · 16px<br>line-height 1.65<br>max ~68 caractere</div>
         <div class="ds-spec-sample"><p style="margin:0">Fiecare tutorial se încheie cu o evaluare. Vizionezi materialul, dai testul grilă și trimiți coafura pentru feedback manual. Trainerul evaluează după trei criterii: formă, linii, finisaj. Sub 80% la test, reiei modulul — nu ca pedeapsă, ci pentru că repetiția e singurul lucru care transformă informația în reflex.</p></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>Small</b>Jost<br>400 · 14px</div>
-        <div class="ds-spec-sample"><p class="tbe-small" style="margin:0">Punctele expiră după 90 de zile de la închiderea abonamentului.</p></div>
+        <div class="ds-spec-meta"><b>Small</b>Inter<br>400 · 14px</div>
+        <div class="ds-spec-sample"><p class="tbe-small" style="margin:0">Punctele expiră după 60 de zile de la închiderea abonamentului.</p></div>
       </div>
       <div class="ds-spec">
-        <div class="ds-spec-meta"><b>Caption</b>Jost<br>500 · 12px<br>culoare: text-muted</div>
+        <div class="ds-spec-meta"><b>Caption</b>Inter<br>500 · 12px<br>culoare: text-muted</div>
         <div class="ds-spec-sample"><p class="tbe-caption" style="margin:0">Foto: curs Bucuresti, martie 2026</p></div>
       </div>
       <div class="ds-spec">
         <div class="ds-spec-meta"><b>Kicker</b>Source Code Pro<br>500 · 12px<br>tracking 0.14em<br>MAJUSCULE</div>
         <div class="ds-spec-sample"><span class="tbe-kicker" style="margin:0">Nivel · Fundamentals</span></div>
       </div>
+      <div class="ds-spec">
+        <div class="ds-spec-meta"><b>Grosimi</b>Fraunces · Inter<br>300 → 900<br>tokeni <code>--fw-light</code> … <code>--fw-black</code><br>bold în text = 700</div>
+        <div class="ds-spec-sample" style="display:grid;gap:6px">
+          <div style="font-family:var(--font-display);font-size:26px;line-height:1.2"><span style="font-weight:300">Light</span> · <span style="font-weight:400">Regular</span> · <span style="font-weight:500">Medium</span> · <span style="font-weight:600">Semibold</span> · <span style="font-weight:700">Bold</span> · <span style="font-weight:800">Extra</span> · <span style="font-weight:900">Black</span></div>
+          <div style="font-size:18px;line-height:1.3"><span style="font-weight:300">Light</span> · <span style="font-weight:400">Regular</span> · <span style="font-weight:500">Medium</span> · <span style="font-weight:600">Semibold</span> · <span style="font-weight:700">Bold</span> · <span style="font-weight:800">Extra</span> · <span style="font-weight:900">Black</span></div>
+          <p class="tbe-small" style="margin:0">În text, bold-ul marchează un fragment: punctele <strong>expiră după 60 de zile</strong> de la închiderea abonamentului.</p>
+        </div>
+      </div>
+      <div class="ds-spec">
+        <div class="ds-spec-meta"><b>Cifre</b>aliniate pe rând, peste tot<br><code>.tbe-tabular</code> = și lățime egală<br>(tabele, prețuri, statistici)</div>
+        <div class="ds-spec-sample" style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline">
+          <span class="tbe-stat-value">1.390 lei</span>
+          <span class="tbe-stat-value">3.618</span>
+          <span class="tbe-tabular" style="font-size:18px">601 abonamente · 7.120 persoane · 0724 371 890</span>
+        </div>
+      </div>
 
       <div class="ds-dodont">
         <div class="ds-do">
           <b>Așa se face</b>
           <ul>
-            <li>Titlurile mereu Cormorant. Textul mereu Jost.</li>
+            <li>Titlurile mereu Fraunces. Textul mereu Inter.</li>
+            <li>Bold (700) pe un fragment din text, nu pe paragraf întreg.</li>
             <li>Text lung: minim 16px, weight 400, line-height 1.65.</li>
             <li>Rânduri de max. ~68 caractere (<code>.tbe-measure</code>).</li>
             <li>Un singur kicker per bloc de conținut.</li>
@@ -286,9 +303,9 @@
         <div class="ds-dont">
           <b>Așa nu</b>
           <ul>
-            <li>Cormorant sub 18px — se sparge, devine ilizibil.</li>
+            <li>Fraunces sub 14px — la mărimi mici Inter e mai clar.</li>
             <li>Text lung cu majuscule sau cu Source Code Pro.</li>
-            <li>Weight 700+ la Cormorant (nu-i în paletă).</li>
+            <li>Grosimi 800–900 în text curent — sunt doar pentru bannere, pe 1–3 cuvinte.</li>
             <li>Mai mult de 3 mărimi diferite într-un banner.</li>
           </ul>
         </div>
@@ -429,7 +446,7 @@
       <div class="ds-demo is-stack">
         <div class="tbe-callout"><div><strong>Notă</strong>Informație neutră, context suplimentar.</div></div>
         <div class="tbe-callout is-success"><div><strong>Reușit</strong>Ai promovat testul cu 9/10. Nivelul Essentials e deblocat.</div></div>
-        <div class="tbe-callout is-warning"><div><strong>Atenție</strong>Abonamentul expiră în 5 zile. Punctele se păstrează încă 90 de zile.</div></div>
+        <div class="tbe-callout is-warning"><div><strong>Atenție</strong>Abonamentul expiră în 5 zile. Punctele se păstrează încă 60 de zile.</div></div>
         <div class="tbe-callout is-danger"><div><strong>Blocat</strong>Nu poți accesa Mastery înainte să finalizezi Essentials.</div></div>
         <div class="tbe-callout is-action"><div><strong>Acțiune</strong>Scrie „VREAU" la produsul dorit din Magazinul de Loialitate.</div></div>
       </div>

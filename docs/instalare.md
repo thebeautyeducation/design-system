@@ -15,17 +15,17 @@ wp-content/themes/tema-copil/
 └── design-system/
     ├── tokens/tokens.css
     ├── components.css
-    └── fonturi/          ← copiază aici cele 4 .ttf din brand/fonturi/
+    └── fonturi/          ← copiază aici fișierele .woff2 + .ttf din design-system/assets/fonturi/
 ```
 
 > Fonturile trebuie să fie **pe server**, nu pe calculatorul tău. Copiază-le și ajustează calea din `@font-face` la începutul lui `tokens.css`.
 
 ### b) Ajustează calea fonturilor
 
-În `tokens.css`, la început, schimbă `../../fonturi/` în `../fonturi/` (sau în calea reală, dacă ai altă structură). Exemplu:
+În `tokens.css`, la început, schimbă `../assets/fonturi/` în `../fonturi/` (sau în calea reală, dacă ai altă structură). Sunt 8 linii `src` pentru Fraunces și Inter (câte un subset `latin` și `latin-ext` pentru roman și italic) plus una pentru Source Code Pro. Exemplu:
 
 ```css
-src: url('../fonturi/Jost%5Bwght%5D.ttf') format('truetype-variations');
+src: url('../fonturi/Inter-latin.woff2') format('woff2');
 ```
 
 ### c) Încarcă CSS-ul
@@ -48,7 +48,7 @@ add_action('wp_enqueue_scripts', function () {
 Constructoarele vizuale au propriile setări de culoare. Ca să nu se bată cap în cap:
 
 1. În setările globale de culoare ale constructorului, introdu **manual** culorile din paletă (`#A71257`, `#A98192`, `#DCC4B4`, `#FAF4EF`, `#EDDDD3`, `#9E9086`, `#2C2521`).
-2. În setările globale de tipografie, setează Cormorant Garamond pentru titluri, Jost pentru text.
+2. În setările globale de tipografie, setează **Fraunces** pentru titluri, **Inter** pentru text (ambele sunt și în lista de Google Fonts a constructorului, dacă nu vrei fișiere locale).
 3. Folosește clasele `.tbe-*` pentru butoane și carduri în loc de stilurile implicite ale constructorului.
 
 Alternativ, dacă vrei ca tot ce faci în constructor să meargă automat pe tokeni, adaugă în CSS-ul global:
@@ -73,10 +73,10 @@ Deschide site-ul, inspectează un element și caută `--tbe-action` în panoul d
 
 În editorul de temă: **Assets** → adaugă `tokens.css` și `components.css` (Shopify nu acceptă subfoldere în Assets, deci redenumește-le `tbe-tokens.css` și `tbe-components.css`).
 
-Fonturile: **Settings → Files** → încarcă cele 4 `.ttf`. Copiază URL-urile generate și înlocuiește-le în `@font-face`:
+Fonturile: **Settings → Files** → încarcă fișierele `.woff2` și `SourceCodePro[wght].ttf`. Copiază URL-urile generate și înlocuiește-le în `@font-face`:
 
 ```css
-src: url('https://cdn.shopify.com/s/files/.../Jost.ttf') format('truetype-variations');
+src: url('https://cdn.shopify.com/s/files/.../Inter-latin.woff2') format('woff2');
 ```
 
 ### b) Încarcă-le în `theme.liquid`
@@ -116,8 +116,8 @@ export default {
         line:    'var(--tbe-border)',
       },
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        body:    ['Jost', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        body:    ['Inter', 'system-ui', 'sans-serif'],
         mono:    ['Source Code Pro', 'monospace'],
       },
       borderRadius: {
@@ -139,7 +139,7 @@ Apoi scrii `bg-action`, `text-muted`, `rounded-card` — și dark mode + sub-bra
 
 Când ceri o pagină nouă, dă-i contextul:
 
-> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Cormorant Garamond, text Jost, kickere Source Code Pro majuscule cu tracking 0.14em. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`.
+> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Fraunces (cuvântul accentuat în italic), text Inter, cifre aliniate (`lining-nums`), kickere Source Code Pro majuscule cu tracking 0.14em. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`.
 
 ---
 
@@ -150,7 +150,7 @@ Când ceri o pagină nouă, dă-i contextul:
 <link rel="stylesheet" href="components.css">
 ```
 
-Atât. Verifică doar că `@font-face` din `tokens.css` arată spre locul real al fișierelor `.ttf`.
+Atât. Verifică doar că `@font-face` din `tokens.css` arată spre locul real al fișierelor `.woff2` și `.ttf`.
 
 ---
 
@@ -161,7 +161,7 @@ Dacă nu vrei să găzduiești fonturile, șterge blocul `@font-face` de la înc
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:wght@200..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:wght@200..900&display=swap" rel="stylesheet">
 ```
 
 Compromis: mai simplu de instalat, dar depinzi de Google și încarci ceva mai lent. Pentru site-ul principal, recomand fișierele locale.

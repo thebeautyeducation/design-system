@@ -177,9 +177,27 @@ Așa Gold poate fi `#F0B72A` în glifă și `#8A6300` în text (5.4:1). Arată v
 
 ---
 
+## 15 · Tipografia: Fraunces + Inter în locul Cormorant Garamond + Jost (octombrie 2026)
+
+**Ce am făcut:** am înlocuit fontul de titluri (Cormorant Garamond → **Fraunces**) și fontul de text (Jost → **Inter**). Source Code Pro rămâne pentru kickere. Am adăugat tokenii `--fw-bold` (700), `--fw-extrabold` (800), `--fw-black` (900) și tokenii de cifre `--num-default` / `--num-tabular`.
+
+**De ce:**
+- **Cifrele.** Cormorant folosește implicit cifre „old-style": 3, 4, 5, 7 și 9 coboară sub rând, ca într-o carte veche. În prețuri și statistici („1.390 lei", „3.618") păreau să sară. Fraunces și Inter au cifre aliniate, iar sistemul le forțează acum explicit pe `body`.
+- **Grosimile.** Scara de tokeni mergea doar până la 600 și nu exista un token de bold. Pentru bannere, prețuri și accente era nevoie de bold real. Ambele fonturi noi au toate grosimile 100–900, în roman și italic, iar scara de tokeni acoperă acum 300–900.
+- **Lizibilitatea pe telefon.** Inter e desenat pentru ecran: litere deschise, distincție clară între `I`, `l` și `1`. Publicul TBE citește majoritar pe telefon.
+- **Păstrăm caracterul.** Fraunces e tot un serif editorial cu contrast mare, ca să rămână senzația de revistă. Are ax optic: la 72px e fin și elegant, la 18px se îngroașă singur ca să nu se spargă — ceva ce Cormorant nu putea.
+
+**Cum s-a ales:** din șase perechi de fonturi Google comparate pe conținut real TBE (titlul Color Mastery, prețul, cifrele oficiale), aleasă de Marius Dobre.
+
+**Performanță:** fonturile sunt în `.woff2`, împărțite pe subseturile `latin` și `latin-ext`. O pagină în română descarcă ~330 KB pentru toate grosimile, față de ~1,3 MB cu fonturile vechi (Cormorant singur avea 1,2 MB).
+
+**Ce nu s-a schimbat:** mărimile, line-height-urile și tracking-ul din scară, culorile, regulile de kicker. Componentele citesc fonturile din tokeni, deci au trecut automat pe noile familii.
+
+---
+
 ## Ce NU am decis (rămâne pentru tine)
 
-- **Iconițele.** Sistemul nu include un set de iconițe. Recomand un set cu linie subțire (1.5px), colțuri rotunjite — Lucide sau Phosphor Light se potrivesc cu Jost. De stabilit înainte să înceapă designul site-ului.
+- **Iconițele.** Sistemul nu include un set de iconițe. Recomand un set cu linie subțire (1.5px), colțuri rotunjite — Lucide sau Phosphor Light se potrivesc cu Inter. De stabilit înainte să înceapă designul site-ului.
 - **Ilustrațiile.** Dacă vrei ilustrații (stări goale, onboarding), au nevoie de un stil propriu definit.
 - **Animațiile de pagină.** Tokenii de durată și easing există; coregrafia (ce intră când, în ce ordine) nu e definită.
 - **Beautifier.** Nu e inclus — mi-ai cerut TBE și Harta. Ecommerce-ul are nevoi proprii (carduri de produs, variante, coș, checkout). Se adaugă ca al treilea `data-brand` când vrei.
