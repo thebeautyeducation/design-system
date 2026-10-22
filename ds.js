@@ -13,7 +13,7 @@
   function paintTheme() {
     if (!themeBtn) return;
     var dark = root.getAttribute('data-theme') === 'dark';
-    themeBtn.textContent = dark ? '☀ Deschis' : '☾ Închis';
+    themeBtn.textContent = dark ? 'Temă: închisă' : 'Temă: deschisă';
     themeBtn.classList.toggle('is-on', dark);
   }
   if (themeBtn) {
@@ -56,15 +56,40 @@
     var tab = e.target.closest('[role="tablist"] [role="tab"]');
     if (tab) selectTab(tab);
 
-    if (e.target.matches('[data-open-modal]')) {
-      var dlg = document.getElementById(e.target.getAttribute('data-open-modal'));
+    var opener = e.target.closest('[data-open-modal]');
+    if (opener) {
+      var dlg = document.getElementById(opener.getAttribute('data-open-modal'));
       if (dlg && dlg.showModal) dlg.showModal();
     }
-    if (e.target.matches('[data-close-modal]')) {
-      var d = e.target.closest('dialog');
+    var closer = e.target.closest('[data-close-modal]');
+    if (closer) {
+      var d = closer.closest('dialog');
       if (d) d.close();
     }
+
+    /* Click pe fundalul estompat închide fereastra / foaia */
+    if (e.target.matches('dialog.tbe-modal[open]')) e.target.close();
+
+    var toastBtn = e.target.closest('[data-toast]');
+    if (toastBtn) showToast(toastBtn.getAttribute('data-toast'));
   });
+
+  /* --- Notificare: intră din josul ecranului, după 3 s pleacă pe același drum --- */
+  function showToast(text) {
+    var region = document.getElementById('toastRegion');
+    if (!region) return;
+    var t = document.createElement('div');
+    t.className = 'tbe-toast';
+    t.setAttribute('role', 'status');
+    t.innerHTML = '<span class="tbe-icon" data-icon="circle-check" aria-hidden="true"></span>';
+    t.appendChild(document.createTextNode(' ' + text));
+    region.appendChild(t);
+    setTimeout(function () {
+      t.classList.add('is-leaving');
+      t.addEventListener('transitionend', function () { t.remove(); }, { once: true });
+      setTimeout(function () { t.remove(); }, 600);   /* plasă de siguranță */
+    }, 3000);
+  }
 
   /* --- Taburi accesibile: selecție + navigare cu săgeți (pattern WAI-ARIA) --- */
   function selectTab(tab) {

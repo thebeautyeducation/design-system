@@ -21,20 +21,25 @@
     </nav>
     <div class="ds-controls">
       <button class="ds-toggle" id="brandToggle" type="button">Brand: TBE</button>
-      <button class="ds-toggle" id="themeToggle" type="button">◐ Temă</button>
+      <button class="ds-toggle" id="themeToggle" type="button">Temă</button>
     </div>
   </div>
 </header>
 
 <main>
   <section class="tbe-hero">
-    <div class="tbe-container">
-      <span class="tbe-kicker">Design System · v1.0 · 2026</span>
-      <h1 class="tbe-hero-title">Un singur limbaj vizual pentru tot ecosistemul</h1>
-      <p class="tbe-hero-sub">Site, bannere, materiale promoționale, aplicații. Culorile, fonturile și componentele de aici sunt sursa unică de adevăr — pentru The Beauty Education și pentru Harta Coafezelor.</p>
-      <div class="tbe-btn-group">
-        <a class="tbe-btn is-primary is-lg" href="brand-book.html">Deschide Brand Book</a>
-        <a class="tbe-btn is-secondary is-lg" href="ui.html">Vezi componentele</a>
+    <div class="tbe-container tbe-hero-split">
+      <div>
+        <span class="tbe-kicker">Design System v2.0</span>
+        <h1 class="tbe-hero-title">Un singur limbaj vizual pentru tot <em>ecosistemul</em></h1>
+        <p class="tbe-hero-sub">Site, aplicații, bannere, revista. Culorile, fonturile, iconițele, mișcarea și componentele de aici sunt sursa unică pentru The Beauty Education și Harta Coafezelor.</p>
+        <div class="tbe-btn-group">
+          <a class="tbe-btn is-primary is-lg" href="ui.html">Vezi componentele</a>
+          <a class="tbe-btn is-secondary is-lg" href="brand-book.html">Brand Book</a>
+        </div>
+      </div>
+      <div class="tbe-hero-media">
+        <img src="assets/foto/coc-lateral-accesoriu.jpg" alt="Coc lateral cu accesoriu auriu, văzut din spate" style="object-position:50% 30%">
       </div>
     </div>
   </section>
@@ -43,19 +48,19 @@
     <div class="tbe-container">
       <div class="ds-hub">
         <a class="ds-hub-card" href="brand-book.html">
-          <span class="ds-hub-num">01</span>
+          <div class="ds-hub-media"><img src="assets/foto/valuri-retro.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div>
           <h3 class="tbe-h3">Brand Book</h3>
-          <p>Esența brandului, vocea, paleta completă cu rapoarte de contrast, tipografia, regulile de logo, fotografia și sub-brandul Harta Coafezelor.</p>
+          <p>Esența brandului, vocea, paleta cu rapoartele de contrast, tipografia, logo-ul, fotografia și sub-brandul Harta Coafezelor.</p>
         </a>
         <a class="ds-hub-card" href="ui.html">
-          <span class="ds-hub-num">02</span>
+          <div class="ds-hub-media"><img src="assets/foto/curs-fizic.jpg" alt="" loading="lazy" style="object-position:50% 40%"></div>
           <h3 class="tbe-h3">Componente UI</h3>
-          <p>18 secțiuni, 80+ controale. Butoane, formulare, carduri, navigație, overlays și patternurile specifice EMPIRIA și Hărții. Fiecare exemplu e viu.</p>
+          <p>21 de secțiuni, de la butoane la paginile care vând: preț, planuri, ofertă, programa, trainer. Plus setul de iconițe și mișcarea. Fiecare exemplu e viu.</p>
         </a>
         <a class="ds-hub-card" href="bannere.html">
-          <span class="ds-hub-num">03</span>
-          <h3 class="tbe-h3">Bannere &amp; publicații</h3>
-          <p>Formate, zone sigure, șase rețete de layout gata de copiat, variante cromatice, reguli de print, specificația <b>Revistei Coafezelor</b> și checklist înainte de publicare.</p>
+          <div class="ds-hub-media"><img src="assets/foto/coc-mireasa.jpg" alt="" loading="lazy" style="object-position:50% 35%"></div>
+          <h3 class="tbe-h3">Bannere și publicații</h3>
+          <p>Formate, zone sigure, rețete de layout, reguli de print, specificația <b>Revistei Coafezelor</b> și lista de verificat înainte de publicare.</p>
         </a>
       </div>
     </div>
@@ -64,32 +69,37 @@
   <section class="tbe-section">
     <div class="tbe-container">
       <div class="tbe-section-head">
-        <span class="tbe-kicker">Cum se folosește</span>
-        <h2 class="tbe-h2">Trei fișiere, orice platformă</h2>
-        <p class="tbe-lead">Design system-ul e scris în CSS variables. Funcționează la fel în WordPress, Shopify, Lovable, Webflow sau într-un HTML simplu.</p>
+        <h2 class="tbe-h2">Patru fișiere, orice platformă</h2>
+        <p class="tbe-lead">Totul e scris în variabile CSS. Funcționează la fel în WordPress, Shopify, Lovable, Webflow sau într-un HTML simplu.</p>
       </div>
 
-      <div class="tbe-grid">
-        <div class="tbe-card">
-          <span class="tbe-kicker">Fișier</span>
+      <div class="tbe-grid is-4">
+        <div class="tbe-card ds-file">
+          <span class="tbe-icon" data-icon="palette" aria-hidden="true"></span>
           <h3 class="tbe-card-title">tokens/tokens.css</h3>
-          <p class="tbe-card-body">Toate culorile, fonturile, spațierile, razele, umbrele. Light + dark + sub-brand. Îl încarci primul, peste tot.</p>
+          <p class="tbe-card-body tbe-mb-0">Culori, fonturi, spațieri, raze, umbre, mișcare. Temă deschisă, închisă și sub-brand. Se încarcă primul.</p>
         </div>
-        <div class="tbe-card">
-          <span class="tbe-kicker">Fișier</span>
+        <div class="tbe-card ds-file">
+          <span class="tbe-icon" data-icon="list-checks" aria-hidden="true"></span>
           <h3 class="tbe-card-title">components.css</h3>
-          <p class="tbe-card-body">Butoane, formulare, carduri, tot restul. Depinde de tokens. Îl încarci al doilea.</p>
+          <p class="tbe-card-body tbe-mb-0">Toate componentele, inclusiv iconițele. Depinde de tokeni. Se încarcă al doilea.</p>
         </div>
-        <div class="tbe-card">
-          <span class="tbe-kicker">Fișier</span>
+        <div class="tbe-card ds-file">
+          <span class="tbe-icon" data-icon="image" aria-hidden="true"></span>
+          <h3 class="tbe-card-title">assets/icons/</h3>
+          <p class="tbe-card-body tbe-mb-0">Fiecare iconiță ca fișier SVG, plus <code>sprite.svg</code>. Pentru Figma, Canva și aplicații.</p>
+        </div>
+        <div class="tbe-card ds-file">
+          <span class="tbe-icon" data-icon="file-text" aria-hidden="true"></span>
           <h3 class="tbe-card-title">tokens/tokens.json</h3>
-          <p class="tbe-card-body">Aceiași tokeni în format JSON — pentru Figma (Tokens Studio), Style Dictionary sau orice tooling de design.</p>
+          <p class="tbe-card-body tbe-mb-0">Aceiași tokeni în JSON, pentru Figma (Tokens Studio) sau Style Dictionary.</p>
         </div>
       </div>
 
       <div class="tbe-callout is-action">
+        <span class="tbe-icon" data-icon="info" aria-hidden="true"></span>
         <div><strong>În WordPress</strong>
-        Încarcă cele două fișiere CSS din tema copil (<code>functions.php</code> → <code>wp_enqueue_style</code>), în ordinea: întâi tokens, apoi components. Detaliile complete sunt în <code>docs/instalare.md</code>.</div>
+        Încarcă cele două fișiere CSS din tema copil (<code>functions.php</code>, cu <code>wp_enqueue_style</code>), întâi tokens, apoi components. Detaliile sunt în <code>docs/instalare.md</code>.</div>
       </div>
     </div>
   </section>
@@ -97,36 +107,45 @@
   <section class="tbe-section is-decor">
     <div class="tbe-container">
       <div class="tbe-section-head is-center">
-        <span class="tbe-kicker">Cele cinci reguli</span>
-        <h2 class="tbe-h2">Ce ține sistemul în viață</h2>
+        <h2 class="tbe-h2">Cinci reguli care țin sistemul în viață</h2>
       </div>
       <div class="tbe-grid">
         <div class="tbe-card">
           <h3 class="tbe-h4">Nici un HEX în cod</h3>
-          <p class="tbe-small tbe-muted tbe-mb-0">Orice culoare vine din <code>var(--tbe-…)</code>. Dacă nu există în tokens, nu se folosește.</p>
+          <p class="tbe-small tbe-muted tbe-mb-0">Orice culoare vine din <code>var(--tbe-…)</code>. Dacă nu există în tokeni, nu se folosește.</p>
         </div>
         <div class="tbe-card">
           <h3 class="tbe-h4">Magenta = acțiune</h3>
-          <p class="tbe-small tbe-muted tbe-mb-0">Dacă cere click, e magenta. Dacă nu cere click, nu e magenta. Un singur buton primar per ecran.</p>
+          <p class="tbe-small tbe-muted tbe-mb-0">Dacă cere click, e magenta. Dacă nu cere click, nu e magenta. Un singur buton primar pe ecran.</p>
         </div>
         <div class="tbe-card is-editorial">
           <h3 class="tbe-h4">Prună = voce editorială</h3>
-          <p class="tbe-small tbe-muted tbe-mb-0">Cuvântul-accent din titluri, supratitluri, citate, roluri, etichete. Tot ce e expresiv dar nu se apasă — ca magenta să rămână curat. Același prună, în varianta aproape neagră, e fundalul închis.</p>
+          <p class="tbe-small tbe-muted tbe-mb-0">Cuvântul-accent din titluri, citatele, rolurile, prețurile reduse, bifele. Tot ce e expresiv dar nu se apasă. Varianta aproape neagră e fundalul închis.</p>
         </div>
         <div class="tbe-card">
           <h3 class="tbe-h4">60 / 30 / 10</h3>
-          <p class="tbe-small tbe-muted tbe-mb-0">Majoritatea suprafeței rămâne neutră. Asta face diferența între premium și țipător.</p>
+          <p class="tbe-small tbe-muted tbe-mb-0">Cea mai mare parte a suprafeței rămâne neutră. Asta face diferența între premium și țipător.</p>
         </div>
         <div class="tbe-card">
-          <h3 class="tbe-h4">Contrast peste 4.5:1</h3>
-          <p class="tbe-small tbe-muted tbe-mb-0">Mauve 400 și gri cald arată bine, dar nu se citesc. Pentru text: <code>--tbe-editorial</code> (prună) și <code>--tbe-text-muted</code>.</p>
+          <h3 class="tbe-h4">Mișcarea vine de undeva</h3>
+          <p class="tbe-small tbe-muted tbe-mb-0">Răspuns la apăsare, intrare și ieșire pe același drum, nimic care nu poate fi întrerupt. Cu mișcare redusă, totul devine estompare.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section class="tbe-section">
+    <div class="tbe-container">
+      <div class="tbe-section-head">
+        <h2 class="tbe-h2">Ce s-a schimbat în v2.0</h2>
+        <p class="tbe-lead">Fonturile Fraunces și Inter, paleta prună, contrastul reparat pe textul mic, un singur set de iconițe, mișcare pe arc, tipografie reglată pe mărimi și componentele pentru paginile care vând.</p>
+      </div>
+      <a class="tbe-btn is-link" href="https://github.com/thebeautyeducation/design-system/blob/main/docs/changelog.md">Toate schimbările <span class="tbe-icon" data-icon="arrow-right" aria-hidden="true"></span></a>
+    </div>
+  </section>
+
   <footer class="ds-footer">
-    The Beauty Education · Design System v1.0 · 2026 · Confidențial, uz intern
+    The Beauty Education · Design System v2.0 · octombrie 2026 · Uz intern
   </footer>
 </main>
 

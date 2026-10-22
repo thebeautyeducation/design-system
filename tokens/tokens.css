@@ -1,6 +1,7 @@
 /* ==========================================================================
    THE BEAUTY EDUCATION — DESIGN TOKENS
-   v1.0 · 2026 · Sursa unică de adevăr pentru culoare, tipografie, spațiere.
+   v2.0 · octombrie 2026 · Sursa unică de adevăr pentru culoare, tipografie, spațiere, mișcare.
+   Ce s-a schimbat față de v1.0: docs/changelog.md.
    --------------------------------------------------------------------------
    Cum se folosește:
      <link rel="stylesheet" href="tokens/tokens.css">
@@ -216,8 +217,9 @@
      Excepție documentată de la regula „magenta = acțiune": pe Harta
      Coafezelor, acțiunile de contact folosesc culoarea canalului, pentru că
      utilizatoarea recunoaște instant unde ajunge. Vezi docs/decizii.md.      */
-  --c-contact:       light-dark(#15803D, #22A85A);  /* verde de contact — 5.0:1 cu alb */
-  --c-contact-hover: light-dark(#116631, #2CBE68);
+  /* Același verde pe ambele teme: varianta deschisă (#22A85A) avea 3.1:1 cu textul alb. */
+  --c-contact:       #15803D;  /* verde de contact: 5.0:1 cu alb */
+  --c-contact-hover: #116631;
   --c-facebook:      #1877F2;
   --c-maps:          #EA4335;
 }
@@ -265,10 +267,19 @@
   --lh-body:    1.65;  /* text lung — regula din brand book */
   --lh-relaxed: 1.8;
 
-  --ls-tight:   -0.02em;
-  --ls-normal:  0;
-  --ls-wide:    0.04em;
-  --ls-kicker:  0.14em;  /* supratitluri majuscule */
+  /* Spațierea dintre litere depinde de mărime: textul mare se strânge
+     (literele par tot mai depărtate cu cât cresc), textul mic se deschide puțin.
+     O singură valoare pentru toate mărimile e greșită undeva. */
+  --ls-display: -0.03em;   /* 40–72px */
+  --ls-h1:      -0.025em;  /* 32–48px */
+  --ls-h2:      -0.02em;   /* 26–34px */
+  --ls-h3:      -0.01em;   /* 22px */
+  --ls-h4:      -0.005em;  /* 18px */
+  --ls-normal:  0;         /* text, butoane */
+  --ls-small:   0.01em;    /* 12–13px: etichete, meta, note */
+  --ls-wide:    0.04em;    /* DOAR majuscule (badge-uri) */
+  --ls-kicker:  0.14em;    /* supratitluri mono, majuscule */
+  --ls-tight:   var(--ls-h2);  /* nume vechi, păstrat pentru compatibilitate */
 
   --measure: 68ch;      /* lățime max. de citit — regula ~70 caractere */
   --measure-narrow: 46ch;
@@ -338,12 +349,32 @@
   --ease-in:   cubic-bezier(0.5, 0, 0.9, 0.4);
   --ease-both: cubic-bezier(0.5, 0, 0.2, 1);
 
+  /* Arc (spring), în stilul Apple: mișcarea pornește repede și se așază
+     natural. Curbele sunt calculate dintr-un arc real și scrise cu linear(),
+     deci merg în CSS simplu, fără JavaScript.
+     - spring: amortizare 1.0 (fără depășire), răspuns 0.4s. Implicitul pentru
+       orice apare, se mută sau se deschide.
+     - spring-bounce: amortizare 0.8, răspuns 0.35s, depășește cu ~1.5%. DOAR
+       pentru ce vine din afara ecranului: foaia de jos, bara fixă de cumpărare.
+     Browserele fără linear() folosesc --ease-out (vezi @supports mai jos). */
+  --ease-spring: var(--ease-out);
+  --ease-spring-bounce: var(--ease-out);
+  --dur-spring: 500ms;
+  --dur-spring-bounce: 480ms;
+  --dur-press: 90ms;   /* apăsarea: răspuns imediat, la atingere, nu la eliberare */
+
   --z-base: 1;
   --z-sticky: 100;
   --z-dropdown: 200;
   --z-overlay: 300;
   --z-modal: 400;
   --z-toast: 500;
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-spring: linear(0, 0.058, 0.18, 0.321, 0.455, 0.573, 0.671, 0.75, 0.812, 0.86, 0.897, 0.924, 0.945, 0.96, 0.971, 0.979, 0.985, 0.989, 0.992, 0.994, 0.996, 0.997, 0.998, 0.999, 1);
+    --ease-spring-bounce: linear(0, 0.034, 0.118, 0.228, 0.347, 0.464, 0.573, 0.67, 0.753, 0.821, 0.876, 0.919, 0.951, 0.975, 0.992, 1.003, 1.01, 1.013, 1.015, 1.015, 1.014, 1.013, 1.011, 1.009, 1.007, 1.006, 1.004, 1.003, 1.002, 1.002, 1);
+  }
 }
 
 /* ==========================================================================
@@ -366,6 +397,12 @@
   --tbe-surface-inverse: light-dark(var(--c-pruna-900), var(--c-neutral-50));   /* bloc închis pe pagină deschisă */
   --tbe-decor:         light-dark(var(--c-nude-100), #332129);                  /* blocuri decorative */
   --tbe-decor-strong:  light-dark(var(--c-nude-200), #3E2B34);
+  /* Material „de sticlă" pentru suprafețele care plutesc peste conținut
+     (antet, bară fixă). Devine solid la transparență redusă / contrast mărit. */
+  --tbe-glass:         color-mix(in srgb, var(--tbe-bg) 80%, transparent);
+  --tbe-glass-blur:    blur(18px) saturate(1.25);
+  --tbe-scrim:         rgba(42, 21, 32, 0.55);   /* negru-prună 55%: fundalul din spatele ferestrelor modale */
+  --tbe-scrim-blur:    blur(4px);
 
   /* Text */
   --tbe-text:          light-dark(var(--c-neutral-900), var(--c-neutral-50));   /* 15.2:1 light — text principal */
@@ -382,6 +419,9 @@
   --tbe-action-active:  light-dark(var(--c-magenta-700), #F2A5C6);
   --tbe-action-soft:    light-dark(var(--c-magenta-50),  rgba(227, 109, 158, 0.14));
   --tbe-action-soft-hover: light-dark(var(--c-magenta-100), rgba(227, 109, 158, 0.22));
+  /* Text magenta pe fundal --tbe-action-soft (badge, pas terminat). Pe tema închisă,
+     magenta deschis pe fundalul roz transparent ajungea la 4.4:1; Magenta 200 trece. */
+  --tbe-action-on-soft: light-dark(var(--c-magenta-500), var(--c-magenta-200));
   --tbe-action-border:  light-dark(var(--c-magenta-200), rgba(227, 109, 158, 0.38));
   /* Progres secundar, cercul unui pas încă neînceput: trebuie să se vadă
      (min. 3:1), dar să nu concureze cu acțiunea. 4.2:1 pe alb. */
@@ -459,12 +499,22 @@
 /* ==========================================================================
    09 · ACCESIBILITATE
    ========================================================================== */
+/* Mișcare redusă NU înseamnă fără feedback: înseamnă fără deplasare.
+   Elementele nu mai alunecă, nu mai cresc și nu mai sar; apar și dispar
+   printr-o estompare scurtă (opacitate), ca utilizatorul să înțeleagă tot
+   ce s-a schimbat, fără mișcarea care dă amețeală. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-property: opacity, color, background-color, border-color, box-shadow, outline-color !important;
+    transition-duration: 150ms !important;
+    transition-timing-function: ease !important;
+  }
+  :root {
+    --dur-spring: 150ms;
+    --dur-spring-bounce: 150ms;
   }
   /* Excepție: indicatorii de proces continuu rămân animați. Un spinner oprit
      la jumătate pare rupt, nu „se încarcă" — exact ce reduce-motion nu vrea.
@@ -473,5 +523,25 @@
   .tbe-btn.is-busy::after {
     animation-duration: 0.7s !important;
     animation-iteration-count: infinite !important;
+  }
+}
+
+/* Transparență redusă: suprafețele „de sticlă" devin solide. */
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-brand] {
+    --tbe-glass: var(--tbe-bg);
+    --tbe-glass-blur: none;
+    --tbe-scrim-blur: none;
+  }
+}
+
+/* Contrast mărit: bordurile discrete devin vizibile, iar fundalurile
+   semi-transparente devin pline. */
+@media (prefers-contrast: more) {
+  :root, [data-brand] {
+    --tbe-border-subtle: var(--tbe-border-strong);
+    --tbe-border: var(--tbe-border-strong);
+    --tbe-glass: var(--tbe-bg);
+    --tbe-glass-blur: none;
   }
 }

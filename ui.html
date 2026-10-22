@@ -21,7 +21,7 @@
     </nav>
     <div class="ds-controls">
       <button class="ds-toggle" id="brandToggle" type="button">Brand: TBE</button>
-      <button class="ds-toggle" id="themeToggle" type="button">◐ Temă</button>
+      <button class="ds-toggle" id="themeToggle" type="button">Temă</button>
     </div>
   </div>
 </header>
@@ -29,7 +29,7 @@
 <div class="ds-layout">
 
   <aside class="ds-toc">
-    <p class="ds-toc-title">18 secțiuni</p>
+    <p class="ds-toc-title">21 de secțiuni</p>
     <ol>
       <li><a href="#butoane">01 · Butoane</a></li>
       <li><a href="#formulare">02 · Formulare</a></li>
@@ -49,15 +49,18 @@
       <li><a href="#goale">16 · Stări goale</a></li>
       <li><a href="#tbe">17 · Patternuri TBE</a></li>
       <li><a href="#harta">18 · Patternuri Hartă</a></li>
+      <li><a href="#iconite">19 · Iconițe</a></li>
+      <li><a href="#miscare">20 · Mișcare</a></li>
+      <li><a href="#vanzare">21 · Vânzare</a></li>
     </ol>
   </aside>
 
   <main class="ds-main">
 
     <div class="ds-pagehead">
-      <span class="tbe-kicker">Design System · v1.0 · 2026</span>
+      <span class="tbe-kicker">Design System · v2.0</span>
       <h1 class="tbe-h1">Componente UI</h1>
-      <p class="tbe-lead">Toate elementele de interfață ale ecosistemului. Fiecare exemplu e viu — comută tema sau brandul din antet și vezi cum se adaptează. Sub fiecare demo găsești clasele de folosit.</p>
+      <p class="tbe-lead">Toate elementele de interfață ale ecosistemului. Fiecare exemplu e viu: comută tema sau brandul din antet și vezi cum se adaptează. Sub fiecare demo găsești clasele de folosit.</p>
       <div class="tbe-callout is-info">
         <div><strong>Convenție</strong>Componentă = <code>.tbe-nume</code>. Variantă sau stare = <code>.is-nume</code>. Exemplu: <code>&lt;button class="tbe-btn is-primary is-lg"&gt;</code></div>
       </div>
@@ -84,9 +87,9 @@
         <button class="tbe-btn is-primary">Normal</button>
         <button class="tbe-btn is-primary is-lg">Mare</button>
         <button class="tbe-btn is-primary is-pill">Pill</button>
-        <button class="tbe-btn is-secondary is-icon" aria-label="Adaugă">+</button>
+        <button class="tbe-btn is-secondary is-icon" aria-label="Adaugă"><span class="tbe-icon" data-icon="plus" aria-hidden="true"></span></button>
       </div>
-      <div class="ds-classlist">.is-sm (36px) · implicit (44px) · .is-lg (52px) · .is-pill · .is-icon · .is-block</div>
+      <div class="ds-classlist">.is-sm (36px; 44px pe ecran tactil) · implicit (44px) · .is-lg (52px) · .is-pill · .is-icon · .is-block</div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Stări</h3></div>
       <div class="ds-demo">
@@ -99,12 +102,13 @@
 
       <div class="ds-sub"><h3 class="tbe-h4">Cu iconițe &amp; pe lățime completă</h3></div>
       <div class="ds-demo is-stack" style="max-width:340px">
-        <button class="tbe-btn is-primary is-block">Începe acum &nbsp;→</button>
-        <button class="tbe-btn is-secondary is-block">↓ &nbsp;Descarcă materialul</button>
+        <button class="tbe-btn is-primary is-block">Începe acum <span class="tbe-icon" data-icon="arrow-right" aria-hidden="true"></span></button>
+        <button class="tbe-btn is-secondary is-block"><span class="tbe-icon" data-icon="download" aria-hidden="true"></span> Descarcă materialul</button>
       </div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Pe fundal închis / fotografie</h3></div>
       <div class="ds-demo is-dark">
+        <button class="tbe-btn is-on-dark">Acțiunea principală</button>
         <button class="tbe-btn is-inverse">Buton inversat</button>
         <button class="tbe-btn is-secondary" style="--_fg:#fff;--_bd:rgba(255,255,255,.4)">Contur alb</button>
       </div>
@@ -201,9 +205,9 @@
         <span class="tbe-chip">Balayage</span>
         <span class="tbe-chip">Tuns</span>
         <span class="tbe-chip">Coafat de seară</span>
-        <span class="tbe-chip">Blond <button class="tbe-chip-x" aria-label="Elimină">×</button></span>
+        <span class="tbe-chip">Blond <button class="tbe-chip-x" aria-label="Elimină"><span class="tbe-icon" data-icon="x" aria-hidden="true"></span></button></span>
       </div>
-      <p class="ds-note">Click pe chips ca să comuți starea. „×" îl elimină.</p>
+      <p class="ds-note">Click pe chips ca să comuți starea. Iconița x îl elimină.</p>
       <div class="ds-classlist"><b>.tbe-search</b> · <b>.tbe-chip</b> + .is-active · .tbe-chip-x</div>
     </section>
 
@@ -260,24 +264,24 @@
       <div class="ds-demo is-grid">
         <div class="tbe-card is-interactive tbe-course-card">
           <span class="tbe-badge is-solid tbe-course-level">Fundamentals</span>
-          <div class="tbe-card-media" style="background:linear-gradient(135deg,#DCC4B4,#A98192)"></div>
+          <div class="tbe-card-media"><img src="assets/foto/coc-mireasa.jpg" alt="Coc de mireasă, văzut din spate" loading="lazy" style="object-position:50% 30%"></div>
           <span class="tbe-kicker">Coafuri</span>
-          <h3 class="tbe-card-title">Atelierul de Bucle</h3>
-          <p class="tbe-card-body">Tehnica completă a buclei: secționare, tensiune, fixare, finisaj.</p>
+          <h3 class="tbe-card-title">EMPIRIA · Coafuri</h3>
+          <p class="tbe-card-body">Observi, exersezi și primești feedback de la traineri pe formă, linii și finisaj.</p>
           <div class="tbe-card-foot">
-            <span class="tbe-course-meta">12 lecții · 3h 40m</span>
+            <span class="tbe-course-meta">5 rubrici · test 8/10</span>
             <span class="tbe-badge">Inclus</span>
           </div>
         </div>
         <div class="tbe-card is-interactive tbe-course-card">
-          <span class="tbe-badge is-solid tbe-course-level">Essentials</span>
-          <div class="tbe-card-media" style="background:linear-gradient(135deg,#A98192,#8E6879)"></div>
+          <span class="tbe-badge is-solid tbe-course-level">Avansat</span>
+          <div class="tbe-card-media"><img src="assets/foto/valuri-retro.jpg" alt="Valuri retro pe păr blond" loading="lazy" style="object-position:50% 25%"></div>
           <span class="tbe-kicker">Colorimetrie</span>
           <h3 class="tbe-card-title">Color Mastery</h3>
-          <p class="tbe-card-body">De la roata culorilor la corecția de culoare pe păr vopsit anterior.</p>
+          <p class="tbe-card-body">Colorimetrie avansată cu Mihaela Mihăescu, cu rubrică proprie de feedback.</p>
           <div class="tbe-card-foot">
-            <span class="tbe-course-meta">28 lecții · 9h 15m</span>
-            <span class="tbe-badge is-action">Nou</span>
+            <span class="tbe-course-meta">Plată unică</span>
+            <span class="tbe-badge">Curs separat</span>
           </div>
         </div>
       </div>
@@ -289,7 +293,7 @@
       <h2 class="tbe-h2"><span class="ds-num">07</span> Statistici</h2>
       <p class="ds-sec-intro">Cifra e în Fraunces, magenta, cu cifre aliniate și de lățime egală (<code>--num-tabular</code>). Eticheta e în mono, mică, majuscule.</p>
       <div class="ds-demo is-grid">
-        <div class="tbe-stat"><div class="tbe-stat-value">3.618</div><div class="tbe-stat-label">Conturi active</div></div>
+        <div class="tbe-stat"><div class="tbe-stat-value">4.364</div><div class="tbe-stat-label">Conturi active</div></div>
         <div class="tbe-stat"><div class="tbe-stat-value">250+</div><div class="tbe-stat-label">Tutoriale</div></div>
         <div class="tbe-stat"><div class="tbe-stat-value">70+</div><div class="tbe-stat-label">Cursuri fizice</div></div>
         <div class="tbe-stat"><div class="tbe-stat-value">5,8x</div><div class="tbe-stat-label">Valoare vs. client obișnuit</div></div>
@@ -308,21 +312,21 @@
         <span class="tbe-badge is-warning">Expiră curând</span>
         <span class="tbe-badge is-danger">Blocat</span>
       </div>
-      <div class="ds-sub"><h3 class="tbe-h4">Niveluri de loialitate</h3><p>Fiecare nivel are glifa lui, saturată. Progresia e intenționată: Bronze și Silver sunt calme, Gold și Diamond strălucesc — nivelul se vede de la distanță, ceea ce e tot rostul meritocrației.</p></div>
+      <div class="ds-sub"><h3 class="tbe-h4">Niveluri de loialitate</h3><p>Fiecare nivel are simbolul lui, desenat (assets/icons/tier-*.svg), în culoarea vie a nivelului. Progresia e intenționată: Bronze și Silver sunt calme, Gold și Diamond strălucesc. Nivelul se vede de la distanță, și ăsta e tot rostul meritocrației.</p></div>
       <div class="ds-demo">
         <span class="tbe-badge is-bronze">Bronze</span>
         <span class="tbe-badge is-silver">Silver</span>
         <span class="tbe-badge is-gold">Gold</span>
         <span class="tbe-badge is-diamond">Diamond</span>
       </div>
-      <div class="ds-sub"><h4 class="tbe-h4">Varianta plină — profil, certificat, antet de cont</h4></div>
+      <div class="ds-sub"><h4 class="tbe-h4">Varianta plină: profil, certificat, antet de cont</h4></div>
       <div class="ds-demo">
         <span class="tbe-badge is-bronze is-tier-solid">Bronze</span>
         <span class="tbe-badge is-silver is-tier-solid">Silver</span>
         <span class="tbe-badge is-gold is-tier-solid">Gold</span>
         <span class="tbe-badge is-diamond is-tier-solid">Diamond</span>
       </div>
-      <p class="ds-note">Glifa poartă culoarea vie, textul poartă lizibilitatea. Așa poate străluci fără să scadă sub 4.5:1.</p>
+      <p class="ds-note">Simbolul poartă culoarea vie, textul poartă lizibilitatea. Așa poate străluci fără să scadă sub 4.5:1.</p>
       <div class="ds-classlist"><b>.tbe-badge</b> + .is-action · .is-solid · .is-success · .is-warning · .is-danger · .is-bronze/silver/gold/diamond · .is-tier-solid</div>
     </section>
 
@@ -338,7 +342,7 @@
           <span class="tbe-avatar">AM</span>
           <span class="tbe-avatar">IC</span>
           <span class="tbe-avatar">DP</span>
-          <span class="tbe-avatar" style="background:var(--tbe-action);color:#fff;font-family:var(--font-body);font-size:12px">+42</span>
+          <span class="tbe-avatar" style="background:var(--tbe-action);color:var(--tbe-text-on-action);font-family:var(--font-body);font-size:12px">+42</span>
         </div>
       </div>
       <div class="ds-classlist"><b>.tbe-avatar</b> + .is-sm · .is-lg · .is-xl · .is-ring · <b>.tbe-avatar-group</b></div>
@@ -349,14 +353,14 @@
       <h2 class="tbe-h2"><span class="ds-num">10</span> Callouts</h2>
       <p class="ds-sec-intro">Fiecare callout are titlu bold + explicație. Niciodată doar culoare — mereu cuvânt.</p>
       <div class="ds-demo is-stack">
-        <div class="tbe-callout"><div><strong>Notă</strong>Context suplimentar, informație neutră.</div></div>
-        <div class="tbe-callout is-action"><div><strong>Acțiune</strong>Scrie „VREAU" la produsul dorit din Magazinul de Loialitate.</div></div>
-        <div class="tbe-callout is-success"><div><strong>Reușit</strong>Test promovat cu 9/10. Essentials e deblocat.</div></div>
-        <div class="tbe-callout is-warning"><div><strong>Atenție</strong>Abonamentul expiră în 5 zile.</div></div>
-        <div class="tbe-callout is-danger"><div><strong>Blocat</strong>Finalizează Essentials înainte de Mastery.</div></div>
-        <div class="tbe-callout is-info"><div><strong>Info</strong>Punctele se dublează pentru membrii Mastery.</div></div>
+        <div class="tbe-callout"><span class="tbe-icon" data-icon="file-text" aria-hidden="true"></span><div><strong>Notă</strong>Context suplimentar, informație neutră.</div></div>
+        <div class="tbe-callout is-action"><span class="tbe-icon" data-icon="gift" aria-hidden="true"></span><div><strong>Acțiune</strong>Alege recompensa din Contul tău, la Magazin.</div></div>
+        <div class="tbe-callout is-success"><span class="tbe-icon" data-icon="circle-check" aria-hidden="true"></span><div><strong>Reușit</strong>Test promovat cu 9/10. Essentials e deblocat.</div></div>
+        <div class="tbe-callout is-warning"><span class="tbe-icon" data-icon="triangle-alert" aria-hidden="true"></span><div><strong>Atenție</strong>Abonamentul expiră în 5 zile.</div></div>
+        <div class="tbe-callout is-danger"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span><div><strong>Blocat</strong>Finalizează Essentials înainte de Mastery.</div></div>
+        <div class="tbe-callout is-info"><span class="tbe-icon" data-icon="info" aria-hidden="true"></span><div><strong>Info</strong>Diamond înmulțește punctele de 3 ori, la orice activitate.</div></div>
       </div>
-      <div class="ds-classlist"><b>.tbe-callout</b> + .is-action · .is-success · .is-warning · .is-danger · .is-info</div>
+      <div class="ds-classlist"><b>.tbe-callout</b> + .is-action · .is-success · .is-warning · .is-danger · .is-info · iconița opțională: primul copil, .tbe-icon</div>
     </section>
 
     <!-- 11 NAVIGAȚIE -->
@@ -396,23 +400,23 @@
           <li><a href="#navigatie">Acasă</a></li>
           <li><a href="#navigatie">Cursuri</a></li>
           <li><a href="#navigatie">Coafuri</a></li>
-          <li>Atelierul de Bucle</li>
+          <li>Color Mastery</li>
         </ol></nav>
         <nav class="tbe-pagination">
-          <a href="#navigatie">←</a>
+          <a href="#navigatie" aria-label="Pagina anterioară"><span class="tbe-icon" data-icon="chevron-left" aria-hidden="true"></span></a>
           <a href="#navigatie" aria-current="page">1</a>
           <a href="#navigatie">2</a>
           <a href="#navigatie">3</a>
           <span class="tbe-muted">…</span>
           <a href="#navigatie">12</a>
-          <a href="#navigatie">→</a>
+          <a href="#navigatie" aria-label="Pagina următoare"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span></a>
         </nav>
       </div>
       <div class="ds-classlist"><b>.tbe-tabs</b> (role="tablist" + role="tab"/aria-controls, tabindex roving, săgeți ←/→) · <b>.tbe-breadcrumb</b> · <b>.tbe-pagination</b></div>
 
       <div class="ds-sub"><h3 class="tbe-h4">Bandă promoțională</h3></div>
       <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
-        <div class="tbe-banner">Program de Loialitate activ · câștigi 1 punct la fiecare 10 lei pe Beautifier <a href="#navigatie">Vezi cum →</a></div>
+        <div class="tbe-banner">Programul de Loialitate: 10 puncte = 1 leu reducere pe Beautifier. <a href="#navigatie">Vezi cum <span class="tbe-icon is-sm" data-icon="arrow-right" aria-hidden="true"></span></a></div>
       </div>
       <div class="ds-classlist"><b>.tbe-banner</b></div>
     </section>
@@ -436,7 +440,7 @@
           <span class="tbe-step-dot"></span>
         </div>
         <div class="tbe-row">
-          <span class="tbe-rating">★★★★<span class="is-empty">★</span></span>
+          <span class="tbe-rating" role="img" aria-label="4 din 5 stele"><span class="tbe-icon" data-icon="star-fill" aria-hidden="true"></span><span class="tbe-icon" data-icon="star-fill" aria-hidden="true"></span><span class="tbe-icon" data-icon="star-fill" aria-hidden="true"></span><span class="tbe-icon" data-icon="star-fill" aria-hidden="true"></span><span class="is-empty"><span class="tbe-icon" data-icon="star" aria-hidden="true"></span></span></span>
           <span class="tbe-small tbe-muted">4,2 · 128 evaluări</span>
         </div>
         <div class="tbe-row">
@@ -480,13 +484,12 @@
         <span class="tbe-tooltip" data-tip="Punctele expiră după 60 de zile" tabindex="0" aria-describedby="tip-puncte">Ce sunt punctele?<span id="tip-puncte" class="tbe-sr-only">Punctele expiră după 60 de zile.</span></span>
       </div>
       <div class="ds-demo is-stack">
-        <div class="tbe-toast">✓ &nbsp;Progresul a fost salvat.</div>
-        <div class="tbe-toast">⚠ &nbsp;Conexiune pierdută. Reîncercăm…</div>
+        <div class="tbe-toast"><span class="tbe-icon" data-icon="circle-check" aria-hidden="true"></span> Progresul a fost salvat.</div>
+        <div class="tbe-toast"><span class="tbe-icon" data-icon="triangle-alert" aria-hidden="true"></span> Conexiune pierdută. Reîncercăm…</div>
       </div>
 
       <dialog class="tbe-modal" id="demoModal">
         <div class="tbe-modal-inner">
-          <span class="tbe-kicker">Confirmare</span>
           <h3 class="tbe-h3">Trimiți coafura spre evaluare?</h3>
           <p class="tbe-muted tbe-small">Trainerul o va evalua după formă, linii și finisaj. Primești feedback în maximum 72 de ore.</p>
           <div class="tbe-row" style="justify-content:flex-end;margin-top:var(--sp-5)">
@@ -495,17 +498,18 @@
           </div>
         </div>
       </dialog>
-      <div class="ds-classlist"><b>.tbe-modal</b> (pe &lt;dialog&gt;) · .tbe-modal-inner · <b>.tbe-toast</b> · <b>.tbe-tooltip</b>[data-tip]</div>
+      <div class="ds-classlist"><b>.tbe-modal</b> (pe &lt;dialog&gt;) + .is-sheet · .tbe-modal-inner · <b>.tbe-toast</b> + .is-leaving · .tbe-toast-region · <b>.tbe-tooltip</b>[data-tip] · <b>.tbe-popover</b> · .tbe-menu-item</div>
+      <p class="ds-note">Cum intră și cum ies: secțiunea 20, Mișcare.</p>
     </section>
 
     <!-- 15 ACORDEON -->
     <section class="ds-sec" id="acordeon">
       <h2 class="tbe-h2"><span class="ds-num">15</span> Acordeon</h2>
-      <p class="ds-sec-intro">Construit pe <code>&lt;details&gt;</code> nativ — funcționează fără JavaScript și e accesibil din start.</p>
+      <p class="ds-sec-intro">Construit pe <code>&lt;details&gt;</code> nativ: funcționează fără JavaScript și e accesibil din start. Săgeata se rotește pe arc; textul coboară puțin și apare.</p>
       <div class="ds-demo is-stack">
         <details class="tbe-accordion" open>
           <summary>Cât durează un nivel EMPIRIA?</summary>
-          <div class="tbe-accordion-body">Depinde de ritmul tău. Nivelurile sunt blocate liniar — nu treci mai departe până nu finalizezi tot ce e înainte. În medie, Fundamentals se termină în 6–8 săptămâni.</div>
+          <div class="tbe-accordion-body">Depinde de ritmul tău. Nivelurile sunt blocate liniar: nu treci mai departe până nu finalizezi tot ce e înainte. În medie, Fundamentals se termină în 6–8 săptămâni.</div>
         </details>
         <details class="tbe-accordion">
           <summary>Ce se întâmplă cu punctele dacă îmi opresc abonamentul?</summary>
@@ -513,7 +517,7 @@
         </details>
         <details class="tbe-accordion">
           <summary>Pot ajunge trainer TBE?</summary>
-          <div class="tbe-accordion-body">Da. Membrele care ating nivelul Diamond intră în programul de traineri juniori. Trei membre au făcut deja pasul.</div>
+          <div class="tbe-accordion-body">Da. Membrii care ating nivelul Diamond pot intra în programul de traineri juniori. Larisa Matei, Viorica Dima și Alina Ene au făcut deja pasul.</div>
         </details>
       </div>
       <div class="ds-classlist"><b>.tbe-accordion</b> (pe &lt;details&gt;) · .tbe-accordion-body</div>
@@ -525,7 +529,7 @@
       <p class="ds-sec-intro">O stare goală nu spune „nu există nimic". Spune ce urmează.</p>
       <div class="ds-demo">
         <div class="tbe-empty" style="width:100%">
-          <div class="tbe-empty-icon">✂</div>
+          <div class="tbe-empty-icon"><span class="tbe-icon" data-icon="scissors" aria-hidden="true"></span></div>
           <h3 class="tbe-h4">Încă nu ai trimis nicio coafură</h3>
           <p class="tbe-small tbe-muted" style="margin-inline:auto">Alege un tutorial din Skill Lab, execută coafura și trimite fotografiile pentru feedback.</p>
           <button class="tbe-btn is-primary is-sm">Vezi Skill Lab</button>
@@ -539,16 +543,16 @@
       <h2 class="tbe-h2"><span class="ds-num">17</span> Patternuri TBE</h2>
       <p class="ds-sec-intro">Componente specifice ecosistemului, care nu există în nicio bibliotecă generică.</p>
 
-      <div class="ds-sub"><h3 class="tbe-h4">Traseul EMPIRIA</h3><p>Cele trei niveluri blocate liniar. Starea <code>is-locked</code> arată explicit lacătul — nu doar culoare mai palidă.</p></div>
+      <div class="ds-sub"><h3 class="tbe-h4">Traseul EMPIRIA</h3><p>Cele trei niveluri blocate liniar. Starea <code>is-locked</code> arată explicit lacătul, nu doar o culoare mai palidă.</p></div>
       <div class="ds-demo is-stack">
         <div class="tbe-path">
-          <span class="tbe-path-node is-done">Fundamentals ✓</span><span class="tbe-path-arrow">→</span>
-          <span class="tbe-path-node is-current">Essentials</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-done"><span class="tbe-icon is-sm" data-icon="check" aria-hidden="true"></span> Fundamentals</span><span class="tbe-path-arrow"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span></span>
+          <span class="tbe-path-node is-current">Essentials</span><span class="tbe-path-arrow"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span></span>
           <span class="tbe-path-node is-locked">Mastery</span>
         </div>
         <div class="tbe-path">
-          <span class="tbe-path-node is-current">Fundamentals</span><span class="tbe-path-arrow">→</span>
-          <span class="tbe-path-node is-locked">Essentials</span><span class="tbe-path-arrow">→</span>
+          <span class="tbe-path-node is-current">Fundamentals</span><span class="tbe-path-arrow"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span></span>
+          <span class="tbe-path-node is-locked">Essentials</span><span class="tbe-path-arrow"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span></span>
           <span class="tbe-path-node is-locked">Mastery</span>
         </div>
       </div>
@@ -571,11 +575,12 @@
 
       <div class="ds-sub"><h3 class="tbe-h4">Foto cu scrim</h3><p>Singura modalitate corectă de a pune text peste o fotografie.</p></div>
       <div class="ds-demo">
-        <div class="tbe-photo-scrim" style="width:100%;max-width:380px;aspect-ratio:4/3;background:linear-gradient(135deg,#DCC4B4,#A98192 60%,#8E6879)">
+        <div class="tbe-photo-scrim" style="width:100%;max-width:380px;aspect-ratio:1/1">
+          <img src="assets/foto/curs-fizic.jpg" alt="Cursante exersând o coafură pe cap de manechin la un curs fizic" loading="lazy">
           <div class="tbe-photo-content">
-            <span class="tbe-kicker" style="color:#fff">Curs fizic</span>
-            <div class="tbe-h3" style="margin:0">Colorimetrie avansată</div>
-            <p class="tbe-small" style="margin:var(--sp-2) 0 0;opacity:.85">București · 14–15 septembrie</p>
+            <span class="tbe-kicker">Curs fizic</span>
+            <div class="tbe-h3" style="margin:0">Coafuri, cu Adriana Dobre</div>
+            <p class="tbe-small" style="margin:var(--sp-2) 0 0">[Oraș] · [data]</p>
           </div>
         </div>
       </div>
@@ -598,7 +603,7 @@
             <h3 class="tbe-salon-name">Marioara Curteanu</h3>
             <p class="tbe-salon-role">Profesionist independent</p>
             <p class="tbe-salon-loc">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="tbe-icon" data-icon="map-pin" aria-hidden="true"></span>
               Bdul Republicii 20, Reșița, Caraș-Severin, Romania
             </p>
             <div><span class="tbe-badge is-gold">Gold</span></div>
@@ -609,7 +614,7 @@
             <p class="tbe-salon-brands">Branduri: <b>Milkshake</b></p>
             <div class="tbe-salon-actions">
               <a class="tbe-btn-contact" href="#harta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+                <span class="tbe-icon" data-icon="message-circle" aria-hidden="true"></span>
                 Contactează
               </a>
               <a class="tbe-social is-facebook" href="#harta" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
@@ -627,7 +632,7 @@
             <h3 class="tbe-salon-name">Ioana Constantin</h3>
             <p class="tbe-salon-role">Salon Lumière</p>
             <p class="tbe-salon-loc">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span class="tbe-icon" data-icon="map-pin" aria-hidden="true"></span>
               Str. Alba Iulia 14, Timișoara, Timiș, Romania
             </p>
             <div class="tbe-row" style="gap:var(--sp-2)">
@@ -642,7 +647,7 @@
             <p class="tbe-salon-brands">Branduri: <b>Paul Mitchell</b>, <b>Milkshake</b></p>
             <div class="tbe-salon-actions">
               <a class="tbe-btn-contact" href="#harta">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5Z"/></svg>
+                <span class="tbe-icon" data-icon="message-circle" aria-hidden="true"></span>
                 Contactează
               </a>
               <a class="tbe-social is-instagram" href="#harta" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.3-.1-1.7-.1-4.9s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3Zm0 11A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6Z"/></svg></a>
@@ -665,7 +670,7 @@
         <span class="tbe-badge is-map">Profil verificat</span>
         <span class="tbe-badge is-map">Acceptă clienți noi</span>
         <span class="tbe-badge">Program plin</span>
-        <span class="tbe-badge-recomandat">★ Recomandat de TBE</span>
+        <span class="tbe-badge-recomandat"><span class="tbe-icon is-sm" data-icon="badge-check" aria-hidden="true"></span> Recomandat de TBE</span>
       </div>
       <div class="tbe-callout is-warning">
         <div><strong>Verde Hartă nu e culoare de brand</strong>
@@ -674,9 +679,308 @@
       <div class="ds-classlist"><b>.tbe-salon-card</b> · <b>.tbe-score</b> · <b>.tbe-badge.is-map</b> · <b>.tbe-badge-recomandat</b></div>
     </section>
 
+
+    <!-- 19 ICONIȚE -->
+    <section class="ds-sec" id="iconite">
+      <h2 class="tbe-h2"><span class="ds-num">19</span> Iconițe</h2>
+      <p class="ds-sec-intro">Un singur set: Lucide, linie de 1.5px, capete rotunjite, plus patru simboluri proprii pentru niveluri. Iconița ia culoarea și mărimea textului de lângă ea. Nimic altceva: fără emoji, fără caractere text (★ ✓ → ⌕) în loc de iconițe, fără iconițe luate din alte seturi.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Setul complet (59)</h3><p>Lipsește una? Se adaugă din Lucide, cu linia la 1.5px, în <code>assets/icons/</code>, în <code>sprite.svg</code> și în <code>components.css</code>. Nu desena una nouă de mână.</p></div>
+      <div class="ds-demo">
+        <div class="ds-icons">
+          <div class="ds-icon"><span class="tbe-icon" data-icon="arrow-left" aria-hidden="true"></span><span>arrow-left</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="arrow-right" aria-hidden="true"></span><span>arrow-right</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="arrow-up-right" aria-hidden="true"></span><span>arrow-up-right</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="award" aria-hidden="true"></span><span>award</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="badge-check" aria-hidden="true"></span><span>badge-check</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="book-open" aria-hidden="true"></span><span>book-open</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="brush" aria-hidden="true"></span><span>brush</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="calendar" aria-hidden="true"></span><span>calendar</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="camera" aria-hidden="true"></span><span>camera</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="check" aria-hidden="true"></span><span>check</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="chevron-down" aria-hidden="true"></span><span>chevron-down</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="chevron-left" aria-hidden="true"></span><span>chevron-left</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="chevron-right" aria-hidden="true"></span><span>chevron-right</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="chevron-up" aria-hidden="true"></span><span>chevron-up</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="circle-check" aria-hidden="true"></span><span>circle-check</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="circle-help" aria-hidden="true"></span><span>circle-help</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="circle-x" aria-hidden="true"></span><span>circle-x</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="clock" aria-hidden="true"></span><span>clock</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="credit-card" aria-hidden="true"></span><span>credit-card</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="download" aria-hidden="true"></span><span>download</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="external-link" aria-hidden="true"></span><span>external-link</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="eye" aria-hidden="true"></span><span>eye</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="file-text" aria-hidden="true"></span><span>file-text</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="gift" aria-hidden="true"></span><span>gift</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="graduation-cap" aria-hidden="true"></span><span>graduation-cap</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="heart" aria-hidden="true"></span><span>heart</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="image" aria-hidden="true"></span><span>image</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="info" aria-hidden="true"></span><span>info</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="list-checks" aria-hidden="true"></span><span>list-checks</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span><span>lock</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="lock-open" aria-hidden="true"></span><span>lock-open</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="log-in" aria-hidden="true"></span><span>log-in</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="mail" aria-hidden="true"></span><span>mail</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="map-pin" aria-hidden="true"></span><span>map-pin</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="menu" aria-hidden="true"></span><span>menu</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="message-circle" aria-hidden="true"></span><span>message-circle</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="minus" aria-hidden="true"></span><span>minus</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="palette" aria-hidden="true"></span><span>palette</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="phone" aria-hidden="true"></span><span>phone</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="play" aria-hidden="true"></span><span>play</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="plus" aria-hidden="true"></span><span>plus</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="quote" aria-hidden="true"></span><span>quote</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="scissors" aria-hidden="true"></span><span>scissors</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="search" aria-hidden="true"></span><span>search</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="share-2" aria-hidden="true"></span><span>share-2</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="shield-check" aria-hidden="true"></span><span>shield-check</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="shopping-bag" aria-hidden="true"></span><span>shopping-bag</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="star" aria-hidden="true"></span><span>star</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="star-fill" aria-hidden="true"></span><span>star-fill</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="tier-bronze" aria-hidden="true"></span><span>tier-bronze</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="tier-diamond" aria-hidden="true"></span><span>tier-diamond</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="tier-gold" aria-hidden="true"></span><span>tier-gold</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="tier-silver" aria-hidden="true"></span><span>tier-silver</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="triangle-alert" aria-hidden="true"></span><span>triangle-alert</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="trophy" aria-hidden="true"></span><span>trophy</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="user" aria-hidden="true"></span><span>user</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="users" aria-hidden="true"></span><span>users</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="video" aria-hidden="true"></span><span>video</span></div>
+          <div class="ds-icon"><span class="tbe-icon" data-icon="x" aria-hidden="true"></span><span>x</span></div>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Mărimi și culoare</h3></div>
+      <div class="ds-demo">
+        <span class="tbe-small"><span class="tbe-icon is-sm" data-icon="heart" aria-hidden="true"></span> .is-sm</span>
+        <span><span class="tbe-icon" data-icon="heart" aria-hidden="true"></span> implicit, 1.25em</span>
+        <span class="tbe-h4" style="margin:0"><span class="tbe-icon is-lg" data-icon="heart" aria-hidden="true"></span> .is-lg</span>
+        <span style="color:var(--tbe-editorial)"><span class="tbe-icon" data-icon="award" aria-hidden="true"></span> prună</span>
+        <span style="color:var(--tbe-action)"><span class="tbe-icon" data-icon="shopping-bag" aria-hidden="true"></span> magenta, doar pe acțiuni</span>
+      </div>
+      <div class="ds-classlist"><b>.tbe-icon</b>[data-icon="nume"] + .is-sm · .is-lg · aria-hidden="true" · fișiere: assets/icons/*.svg · assets/icons/sprite.svg</div>
+      <div class="ds-dodont">
+        <div class="ds-do"><b>Așa</b><ul><li>Iconița stă lângă un cuvânt care spune același lucru.</li><li>Iconiță singură într-un buton: pune <code>aria-label</code> pe buton.</li><li>Aceeași iconiță înseamnă mereu același lucru (lacăt = blocat, peste tot).</li></ul></div>
+        <div class="ds-dont"><b>Nu așa</b><ul><li>Emoji sau caractere (★ ✓ ⚠ ✂) în loc de iconițe.</li><li>Iconițe cu linie de 2px lângă cele de 1.5px.</li><li>Iconițe colorate decorativ. Culoarea vine din text.</li></ul></div>
+      </div>
+    </section>
+
+    <!-- 20 MIȘCARE -->
+    <section class="ds-sec" id="miscare">
+      <h2 class="tbe-h2"><span class="ds-num">20</span> Mișcare</h2>
+      <p class="ds-sec-intro">Trei reguli. Răspunsul vine la apăsare, nu la eliberare. Ce apare vine de undeva și pleacă pe același drum. Orice mișcare poate fi întreruptă la jumătate, fără salt.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Apăsare</h3><p>Ține apăsat: butonul se strânge la 97% în 90 ms. La eliberare revine pe arc. Cardurile interactive și chips-urile fac la fel.</p></div>
+      <div class="ds-demo">
+        <button class="tbe-btn is-primary">Ține apăsat</button>
+        <button class="tbe-btn is-secondary">Și pe ăsta</button>
+        <span class="tbe-chip">Chip</span>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Intrare și ieșire</h3><p>Fereastra apare pe loc, cu fundalul estompat în spate. Foaia urcă de jos și coboară înapoi. Notificarea urcă din josul ecranului. Meniul crește din butonul care l-a deschis.</p></div>
+      <div class="ds-demo">
+        <button class="tbe-btn is-secondary" data-open-modal="demoModal">Fereastră</button>
+        <button class="tbe-btn is-secondary" data-open-modal="demoSheet">Foaie de jos</button>
+        <button class="tbe-btn is-secondary" data-toast="Progresul a fost salvat.">Notificare</button>
+        <button class="tbe-btn is-secondary" popovertarget="demoMenu">Meniu <span class="tbe-icon" data-icon="chevron-down" aria-hidden="true"></span></button>
+        <div popover id="demoMenu" class="tbe-popover">
+          <a class="tbe-menu-item" href="#miscare"><span class="tbe-icon" data-icon="user" aria-hidden="true"></span> Profilul meu</a>
+          <a class="tbe-menu-item" href="#miscare"><span class="tbe-icon" data-icon="award" aria-hidden="true"></span> Diplomele mele</a>
+          <a class="tbe-menu-item" href="#miscare"><span class="tbe-icon" data-icon="gift" aria-hidden="true"></span> Magazin</a>
+          <a class="tbe-menu-item" href="#miscare"><span class="tbe-icon" data-icon="log-in" aria-hidden="true"></span> Ieși din cont</a>
+        </div>
+      </div>
+      <dialog class="tbe-modal is-sheet" id="demoSheet" aria-labelledby="sheetTitle">
+        <div class="tbe-modal-inner">
+          <h3 class="tbe-h3" id="sheetTitle">Alege perioada</h3>
+          <fieldset class="tbe-plans">
+            <legend class="tbe-sr-only">Perioada abonamentului</legend>
+            <label class="tbe-plan"><input type="radio" name="sheetPlan" checked><span><span class="tbe-plan-name">Lunar</span><span class="tbe-plan-note">Anulezi oricând</span></span><span class="tbe-plan-price">185 lei<small>pe lună</small></span></label>
+            <label class="tbe-plan"><input type="radio" name="sheetPlan"><span><span class="tbe-plan-name">Anual</span><span class="tbe-plan-note">2 luni gratuite</span></span><span class="tbe-plan-price">1.850 lei<small>pe an</small></span></label>
+          </fieldset>
+          <button class="tbe-btn is-primary is-block" style="margin-top:var(--sp-5)" data-close-modal>Continuă</button>
+        </div>
+      </dialog>
+      <div class="ds-classlist">&lt;dialog class="<b>tbe-modal</b> .is-sheet"&gt; + showModal() · &lt;div popover class="<b>tbe-popover</b>"&gt; + popovertarget · <b>.tbe-toast</b> în .tbe-toast-region, .is-leaving la ieșire</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Tokenii</h3></div>
+      <div class="ds-demo is-stack">
+        <div style="overflow-x:auto;width:100%">
+          <table class="tbe-table">
+            <thead><tr><th>Token</th><th>Ce face</th><th>Unde</th></tr></thead>
+            <tbody>
+              <tr><td><code>--ease-spring</code> · <code>--dur-spring</code></td><td>Arc fără depășire (amortizare 1, răspuns 0,4 s)</td><td class="tbe-muted">Orice se mișcă: carduri, ferestre, meniuri, săgeți</td></tr>
+              <tr><td><code>--ease-spring-bounce</code> · <code>--dur-spring-bounce</code></td><td>Arc cu o mică depășire (amortizare 0,8)</td><td class="tbe-muted">Doar ce vine din afara ecranului: foaia de jos, bara fixă</td></tr>
+              <tr><td><code>--dur-press</code></td><td>90 ms</td><td class="tbe-muted">Strângerea la apăsare</td></tr>
+              <tr><td><code>--ease-out</code> · <code>--dur-base</code></td><td>Curbă clasică, 200 ms</td><td class="tbe-muted">Opacitate și culoare</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Setările telefonului, respectate</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-callout"><span class="tbe-icon" data-icon="eye" aria-hidden="true"></span><div><strong>Mișcare redusă</strong>Nimic nu mai alunecă și nu mai crește. Ferestrele, foile și notificările apar și dispar prin estompare, pe loc. Apăsarea estompează butonul în loc să-l strângă.</div></div>
+        <div class="tbe-callout"><span class="tbe-icon" data-icon="image" aria-hidden="true"></span><div><strong>Transparență redusă</strong>Antetul de sticlă și bara fixă devin solide. Fundalul ferestrelor nu mai e încețoșat.</div></div>
+        <div class="tbe-callout"><span class="tbe-icon" data-icon="circle-help" aria-hidden="true"></span><div><strong>Contrast mărit</strong>Bordurile discrete devin vizibile, suprafețele semi-transparente devin pline.</div></div>
+      </div>
+    </section>
+
+    <!-- 21 VÂNZARE -->
+    <section class="ds-sec" id="vanzare">
+      <h2 class="tbe-h2"><span class="ds-num">21</span> Vânzare</h2>
+      <p class="ds-sec-intro">Piesele unei pagini care vinde un curs sau abonamentul. Ordinea: promisiunea, dovezile, ce primești, cine predă, oferta, întrebările, închiderea. Magenta apare doar pe butoane. Prețul e negru, economia și bifele sunt prună.</p>
+      <div class="tbe-callout is-warning"><span class="tbe-icon" data-icon="triangle-alert" aria-hidden="true"></span><div><strong>Doar fapte adevărate</strong>Fără numărători inverse, fără „ultimele locuri", fără testimoniale inventate. Prețurile de mai jos sunt prețurile de listă din octombrie 2026; în producție vin din Stripe.</div></div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Preț</h3></div>
+      <div class="ds-demo is-grid">
+        <div class="tbe-price">
+          <span class="tbe-price-label">Color Mastery</span>
+          <div class="tbe-price-row"><span class="tbe-price-value">1.390</span><span class="tbe-price-currency">lei</span></div>
+          <span class="tbe-price-note">Plată unică</span>
+        </div>
+        <div class="tbe-price">
+          <span class="tbe-price-label">Abonament anual</span>
+          <div class="tbe-price-row"><span class="tbe-price-value">1.850</span><span class="tbe-price-currency">lei</span></div>
+          <div class="tbe-price-meta"><s class="tbe-price-old">2.220 lei</s><span class="tbe-price-save">Economisești 370 lei</span></div>
+          <span class="tbe-price-note">Echivalent 154 lei pe lună</span>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-price</b> · .tbe-price-label · .tbe-price-row · .tbe-price-value · .tbe-price-currency · .tbe-price-meta · .tbe-price-old (pe &lt;s&gt;) · .tbe-price-save · .tbe-price-note · .is-center</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Alegerea planului</h3><p>Radio-uri reale într-un &lt;fieldset&gt;: merg cu tastatura și cu cititorul de ecran. Planul ales primește conturul și fundalul de acțiune.</p></div>
+      <div class="ds-demo is-stack" style="max-width:520px">
+        <fieldset class="tbe-plans">
+          <legend class="tbe-sr-only">Perioada abonamentului</legend>
+          <label class="tbe-plan"><input type="radio" name="plan" checked><span><span class="tbe-plan-name">Lunar</span><span class="tbe-plan-note">Anulezi oricând</span></span><span class="tbe-plan-price">185 lei<small>pe lună</small></span></label>
+          <label class="tbe-plan"><input type="radio" name="plan"><span class="tbe-plan-badge">Recomandat</span><span><span class="tbe-plan-name">Anual</span><span class="tbe-plan-note">Economisești 370 lei</span></span><span class="tbe-plan-price">1.850 lei<small>pe an</small></span></label>
+        </fieldset>
+      </div>
+      <div class="ds-classlist"><b>.tbe-plans</b> (pe &lt;fieldset&gt;) · <b>.tbe-plan</b> (pe &lt;label&gt;, cu radio înăuntru) · .tbe-plan-name · .tbe-plan-note · .tbe-plan-price · .tbe-plan-badge</div>
+      <p class="ds-note">Eticheta de pe plan spune o alegere a noastră („Recomandat"), nu o statistică. „Cel mai ales" se scrie doar dacă datele o arată.</p>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Oferta</h3><p>Caseta de cumpărare: imagine, preț, ce primești, butonul, reasigurarea. Pe desktop stă lipită lângă conținut (<code>.is-sticky</code>).</p></div>
+      <div class="ds-demo is-brand-bg" style="justify-content:center">
+        <div class="tbe-offer" style="width:100%;max-width:400px">
+          <div class="tbe-offer-media"><img src="assets/foto/coc-lateral-accesoriu.jpg" alt="Coc lateral cu accesoriu auriu, văzut din spate" style="object-position:50% 35%"><span class="tbe-badge is-solid">Abonament</span></div>
+          <div class="tbe-offer-body">
+            <div class="tbe-price">
+              <span class="tbe-price-label">The Beauty Education</span>
+              <div class="tbe-price-row"><span class="tbe-price-value">185</span><span class="tbe-price-currency">lei / lună</span></div>
+            </div>
+            <ul class="tbe-checklist is-compact">
+              <li>250+ tutoriale, aproape 400 de ore</li>
+              <li>EMPIRIA: Coafuri și Colorimetrie, cu feedback de la traineri</li>
+              <li>Revista Coafezelor, în fiecare lună</li>
+              <li>Puncte de loialitate și profil pe Harta Coafezelor</li>
+              <li class="is-no">Color Mastery și Makeup Essentials se cumpără separat</li>
+            </ul>
+            <a class="tbe-btn is-primary is-lg is-block" href="#vanzare">Intră în comunitate</a>
+            <p class="tbe-offer-assure"><span class="tbe-icon" data-icon="shield-check" aria-hidden="true"></span> Plată securizată prin Stripe · anulezi oricând</p>
+          </div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-offer</b> + .is-sticky · .tbe-offer-media · .tbe-offer-body · .tbe-offer-assure · <b>.tbe-checklist</b> + .is-compact · li.is-no</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Cifre și încredere</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-stats">
+          <div><span class="tbe-stats-value">4.364</span><span class="tbe-stats-label">membri activi</span></div>
+          <div><span class="tbe-stats-value">250+</span><span class="tbe-stats-label">tutoriale</span></div>
+          <div><span class="tbe-stats-value">70+</span><span class="tbe-stats-label">cursuri fizice din 2020</span></div>
+          <div><span class="tbe-stats-value">3.500+</span><span class="tbe-stats-label">cursanți ai Adrianei</span></div>
+        </div>
+        <ul class="tbe-trust">
+          <li><span class="tbe-icon" data-icon="shield-check" aria-hidden="true"></span> Plată securizată prin Stripe</li>
+          <li><span class="tbe-icon" data-icon="lock-open" aria-hidden="true"></span> Acces imediat după plată</li>
+          <li><span class="tbe-icon" data-icon="award" aria-hidden="true"></span> Diplomă la fiecare nivel EMPIRIA</li>
+          <li><span class="tbe-icon" data-icon="circle-x" aria-hidden="true"></span> Anulezi oricând</li>
+        </ul>
+      </div>
+      <div class="ds-classlist"><b>.tbe-stats</b> · .tbe-stats-value · .tbe-stats-label · <b>.tbe-trust</b> + .is-center</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Cine predă</h3></div>
+      <div class="ds-demo">
+        <div class="tbe-trainer">
+          <div class="tbe-trainer-photo"><img src="assets/foto/adriana-dobre-portret.jpg" alt="Adriana Dobre" loading="lazy"></div>
+          <div>
+            <h3 class="tbe-trainer-name">Adriana Dobre</h3>
+            <p class="tbe-role">Fondatoare · Lead trainer Coafuri</p>
+            <ul class="tbe-trainer-facts">
+              <li><span class="tbe-icon" data-icon="scissors" aria-hidden="true"></span> Peste 10 ani în coafor</li>
+              <li><span class="tbe-icon" data-icon="graduation-cap" aria-hidden="true"></span> Peste 20 de cursuri de perfecționare, în Rusia și în Europa de Vest</li>
+              <li><span class="tbe-icon" data-icon="users" aria-hidden="true"></span> Peste 3.500 de cursanți</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-trainer</b> · .tbe-trainer-photo · .tbe-trainer-name · .tbe-role · .tbe-trainer-facts</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Programa</h3></div>
+      <div class="ds-demo is-stack">
+        <ol class="tbe-curriculum">
+          <li><span><span class="tbe-curriculum-title">Decode IT</span><span class="tbe-curriculum-meta">Observație</span></span><a class="tbe-curriculum-state" href="#vanzare"><span class="tbe-icon" data-icon="play" aria-hidden="true"></span> Previzualizare</a></li>
+          <li><span><span class="tbe-curriculum-title">Skill Lab</span><span class="tbe-curriculum-meta">Inducție</span></span><span class="tbe-curriculum-state"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span> Pentru membri</span></li>
+          <li><span><span class="tbe-curriculum-title">Pinterest 2.0</span><span class="tbe-curriculum-meta">Deducție</span></span><span class="tbe-curriculum-state"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span> Pentru membri</span></li>
+          <li><span><span class="tbe-curriculum-title">Duelul Coafezelor</span><span class="tbe-curriculum-meta">Testare</span></span><span class="tbe-curriculum-state"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span> Pentru membri</span></li>
+          <li><span><span class="tbe-curriculum-title">Rubrica de Feedback</span><span class="tbe-curriculum-meta">Evaluare</span></span><span class="tbe-curriculum-state"><span class="tbe-icon" data-icon="lock" aria-hidden="true"></span> Pentru membri</span></li>
+        </ol>
+      </div>
+      <div class="ds-classlist"><b>.tbe-curriculum</b> (pe &lt;ol&gt;, numerotare automată) · .tbe-curriculum-title · .tbe-curriculum-meta · .tbe-curriculum-state (a = previzualizare)</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Testimonial</h3><p>Citatul real al cursantei, cu un rezultat concret, numele și orașul. Până nu avem citatul, rămân parantezele drepte.</p></div>
+      <div class="ds-demo is-grid">
+        <figure class="tbe-testimonial">
+          <blockquote>[Citatul cursantei: ce a putut face după curs, în cuvintele ei.]</blockquote>
+          <figcaption><span class="tbe-avatar is-sm">NP</span><span><span class="tbe-testimonial-name">[Nume Prenume]</span><span class="tbe-testimonial-meta">[Oraș] · membru din [an]</span></span><span class="tbe-badge is-gold">Gold</span></figcaption>
+        </figure>
+        <figure class="tbe-testimonial is-quiet">
+          <blockquote>[Al doilea citat, mai scurt.]</blockquote>
+          <figcaption><span><span class="tbe-testimonial-name">[Nume Prenume]</span><span class="tbe-testimonial-meta">[Oraș]</span></span></figcaption>
+        </figure>
+      </div>
+      <div class="ds-classlist"><b>.tbe-testimonial</b> (pe &lt;figure&gt;) + .is-quiet · .tbe-testimonial-media · .tbe-testimonial-name · .tbe-testimonial-meta</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Întrebări frecvente</h3></div>
+      <div class="ds-demo is-stack">
+        <div class="tbe-faq">
+          <details class="tbe-accordion"><summary>Pot anula oricând?</summary><div class="tbe-accordion-body">Da. Accesul rămâne până la finalul perioadei plătite.</div></details>
+          <details class="tbe-accordion"><summary>Ce se întâmplă cu punctele dacă îmi opresc abonamentul?</summary><div class="tbe-accordion-body">Se păstrează 60 de zile de la închidere. După aceea se șterg, dar nivelul rămâne.</div></details>
+          <details class="tbe-accordion"><summary>Color Mastery e inclus în abonament?</summary><div class="tbe-accordion-body">Nu. Color Mastery și Makeup Essentials se cumpără separat.</div></details>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-faq</b> + .is-center · conține .tbe-accordion</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Bara fixă, pe telefon</h3><p>Apare când butonul principal iese din ecran și dispare pe același drum. Pe ecrane late nu există. Aici e afișată pe loc, ca s-o vezi.</p></div>
+      <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
+        <div class="tbe-stickybar is-demo">
+          <div class="tbe-stickybar-info"><span class="tbe-stickybar-name">The Beauty Education</span><span class="tbe-stickybar-price">185 lei / lună</span></div>
+          <a class="tbe-btn is-primary" href="#vanzare">Intră în comunitate</a>
+        </div>
+      </div>
+      <div class="ds-classlist"><b>.tbe-stickybar</b> + .is-visible (din JS) · .tbe-stickybar-info · .tbe-stickybar-name · .tbe-stickybar-price</div>
+
+      <div class="ds-sub"><h3 class="tbe-h4">Închiderea</h3></div>
+      <div class="ds-demo is-stack" style="padding:0;overflow:hidden">
+        <section class="tbe-section is-inverse tbe-cta-band" style="padding:var(--sp-9) var(--sp-5)">
+          <h2 class="tbe-h1">Cea mai mare comunitate de coafeze din <em>România</em></h2>
+          <p class="tbe-lead">Tutoriale, feedback de la traineri și revista lunară, într-un singur abonament.</p>
+          <div class="tbe-btn-group"><a class="tbe-btn is-primary is-lg" href="#vanzare">Intră în comunitate</a></div>
+          <ul class="tbe-trust">
+            <li><span class="tbe-icon" data-icon="shield-check" aria-hidden="true"></span> Plată prin Stripe</li>
+            <li><span class="tbe-icon" data-icon="lock-open" aria-hidden="true"></span> Acces imediat</li>
+            <li><span class="tbe-icon" data-icon="circle-x" aria-hidden="true"></span> Anulezi oricând</li>
+          </ul>
+        </section>
+      </div>
+      <div class="ds-classlist"><b>.tbe-cta-band</b> pe .tbe-section.is-inverse · butonul principal devine Magenta 50 automat</div>
+    </section>
+
     <footer class="ds-footer">
-      18 secțiuni · 80+ controale · The Beauty Education Design System v1.0
+      21 de secțiuni · 59 de iconițe · The Beauty Education Design System v2.0
     </footer>
+
+    <div class="tbe-toast-region" id="toastRegion" aria-live="polite"></div>
 
   </main>
 </div>

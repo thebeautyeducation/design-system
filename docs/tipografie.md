@@ -26,17 +26,19 @@ Toate sunt Google Fonts gratuite, licențiate OFL (inclusiv pentru uz comercial)
 
 | Nivel | Font | Grosime | Mărime | Line-height | Tracking |
 |---|---|---|---|---|---|
-| Display | Fraunces | 500 | 40 → 72px (fluid) | 1.08 | −0.02em |
-| H1 | Fraunces | 500 | 32 → 48px (fluid) | 1.25 | −0.02em |
-| H2 | Fraunces | 500 | 26 → 34px (fluid) | 1.25 | −0.02em |
-| H3 | Fraunces | 600 | 22px | 1.25 | 0 |
-| H4 | Fraunces | 600 | 18px | 1.25 | 0 |
-| Lead | Inter | 300 | 18px | 1.8 | 0 |
+| Display | Fraunces | 500 | 40 → 72px (fluid) | 1.04 | −0.03em |
+| H1 | Fraunces | 500 | 32 → 48px (fluid) | 1.12 | −0.025em |
+| H2 | Fraunces | 500 | 26 → 34px (fluid) | 1.18 | −0.02em |
+| H3 | Fraunces | 600 | 22px | 1.25 | −0.01em |
+| H4 | Fraunces | 600 | 18px | 1.25 | −0.005em |
+| Lead | Inter | 400 | 18px | 1.65 | 0 |
 | Body | Inter | 400 | **16px** | **1.65** | 0 |
 | Small | Inter | 400 | 14px | 1.65 | 0 |
-| Caption | Inter | 500 | 12px | 1.5 | 0 |
-| Butoane | Inter | 500 | 14px (12 / 16 pe `.is-sm` / `.is-lg`) | 1 | 0.04em |
+| Caption | Inter | 500 | 12px | 1.5 | 0.01em |
+| Butoane | Inter | 500 (600 pe primar) | 14px (12 / 16 pe `.is-sm` / `.is-lg`) | 1 | 0 |
 | Kicker | Source Code Pro | 500 | 12px | 1.5 | **0.14em**, MAJUSCULE |
+
+**Tracking pe mărimi** (v2.0): cu cât titlul e mai mare, cu atât literele se strâng; textul mic se lărgește puțin. O singură valoare pentru toate mărimile e greșită undeva. Tokenii: `--ls-display`, `--ls-h1` … `--ls-h4`, `--ls-normal`, `--ls-small`, `--ls-wide` (doar majuscule), `--ls-kicker`.
 
 **Fluid** înseamnă că mărimea se adaptează singură între mobil și desktop, cu `clamp()`. Nu trebuie să scrii media queries pentru tipografie.
 
@@ -46,7 +48,7 @@ Toate sunt Google Fonts gratuite, licențiate OFL (inclusiv pentru uz comercial)
 
 | Token | Valoare | Unde |
 |---|---|---|
-| `--fw-light` | 300 | lead, titluri foarte mari pe hero |
+| `--fw-light` | 300 | doar titluri foarte mari pe bannere; nu pe text, se rupe pe ecran |
 | `--fw-regular` | 400 | text, italicul accentuat din titluri |
 | `--fw-medium` | 500 | titluri H1–Display, butoane, etichete |
 | `--fw-semibold` | 600 | H3, H4, titluri de card |
@@ -68,10 +70,11 @@ Toate sunt Google Fonts gratuite, licențiate OFL (inclusiv pentru uz comercial)
 ### Titluri
 - Mereu Fraunces. Niciodată Inter pentru un titlu de secțiune.
 - Cuvântul accentuat dintr-un titlu: `<em>` → Fraunces **italic**, grosime 400 (automat). Pe site-ul TBE e și magenta.
-- `text-wrap: balance` e activat — titlurile se rup singure echilibrat.
+- `text-wrap: balance` e activat: titlurile se rup singure echilibrat. Paragrafele au `text-wrap: pretty`: fără un cuvânt singur pe ultimul rând.
 - Titlurile de banner: rupe-le **manual**, la sens („Color / Mastery", nu „Color Mas- / tery").
 
 ### Kickere
+- Doar unde spun ceva: categoria, numărul rubricii, pasul, nivelul. Nu ca decor deasupra fiecărui titlu.
 - Unul singur per bloc de conținut.
 - Mereu majuscule, mereu cu tracking 0.14em. Fără tracking arată ca o greșeală.
 - Text scurt: categoria, nivelul, contextul. Nu propoziții.

@@ -1,9 +1,11 @@
 /* ==========================================================================
    THE BEAUTY EDUCATION — COMPONENTE
-   v1.0 · 2026 · Depinde de tokens/tokens.css (încarcă-l ÎNTÎI)
+   v2.0 · octombrie 2026 · Depinde de tokens/tokens.css (încarcă-l ÎNTÂI)
    --------------------------------------------------------------------------
    Convenție de denumire:  .tbe-<componentă>  ·  modificator .is-<stare/variantă>
    Exemplu: <button class="tbe-btn is-primary is-lg">
+   Iconițe: <span class="tbe-icon" data-icon="check" aria-hidden="true"></span>
+   (secțiunea ICONIȚE). Paginile care vând: secțiunea VÂNZARE.
    ========================================================================== */
 
 /* ==========================================================================
@@ -47,24 +49,29 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: var(--fw-medium);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-tight);
+  letter-spacing: var(--ls-h2);
   color: var(--tbe-text);
   margin: 0 0 var(--sp-4);
   text-wrap: balance;
+  font-optical-sizing: auto;   /* Fraunces: fin la 72px, mai robust la 18px */
 }
 
-.tbe-display { font-size: var(--fs-display); line-height: var(--lh-tight); }
-.tbe-h1, h1  { font-size: var(--fs-h1); }
-.tbe-h2, h2  { font-size: var(--fs-h2); }
-.tbe-h3, h3  { font-size: var(--fs-h3); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
-.tbe-h4, h4  { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-normal); }
+/* Fiecare mărime are spațierea ei (vezi --ls-* în tokens). */
+.tbe-display { font-size: var(--fs-display); line-height: 1.04; letter-spacing: var(--ls-display); }
+.tbe-h1, h1  { font-size: var(--fs-h1); line-height: 1.12; letter-spacing: var(--ls-h1); }
+.tbe-h2, h2  { font-size: var(--fs-h2); line-height: 1.18; letter-spacing: var(--ls-h2); }
+.tbe-h3, h3  { font-size: var(--fs-h3); font-weight: var(--fw-semibold); letter-spacing: var(--ls-h3); }
+.tbe-h4, h4  { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-h4); }
 
 /* Cuvântul accentuat dintr-un titlu: Fraunces italic, mai subțire decât titlul,
    în prună (voce editorială). Nu magenta: magenta înseamnă „se dă click". */
 .tbe-display em, .tbe-h1 em, .tbe-h2 em, .tbe-h3 em, .tbe-h4 em,
 h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular); color: var(--tbe-editorial); }
 
-/* Kicker / supratitlu — semnătura tipografică a brandului.
+/* Kicker / supratitlu. Se folosește DOAR când spune ceva ce titlul nu spune:
+   categoria („Curs online · Colorimetrie"), numărul rubricii, pasul („Pasul 2
+   din 3"). NU deasupra fiecărui titlu de secțiune: un supratitlu decorativ peste
+   orice titlu e cel mai recognoscibil semn de șablon generic.
    PRUNĂ, nu magenta: un kicker nu se dă click. Magenta rămâne al acțiunii. */
 .tbe-kicker {
   font-family: var(--font-mono);
@@ -95,20 +102,23 @@ h1 em, h2 em, h3 em, h4 em { font-style: italic; font-weight: var(--fw-regular);
 }
 .tbe-rule.is-short { width: 64px; height: 2px; opacity: 1; border-radius: var(--r-pill); }
 
-p { margin: 0 0 var(--sp-4); max-width: var(--measure); }
+p { margin: 0 0 var(--sp-4); max-width: var(--measure); text-wrap: pretty; }  /* fără cuvinte orfane pe ultimul rând */
 
+/* Paragraful de deschidere: regular (400), nu light. Inter 300 în gri arăta
+   palid; greutatea dă prezență fără să ocupe mai mult loc. */
 .tbe-lead {
   font-size: var(--fs-lg);
-  line-height: var(--lh-relaxed);
+  line-height: 1.65;
   color: var(--tbe-text-muted);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   max-width: var(--measure);
+  text-wrap: pretty;
 }
 
 .tbe-muted   { color: var(--tbe-text-muted); }
 .tbe-subtle  { color: var(--tbe-text-subtle); }  /* 3.1:1 — DOAR text ≥24px sau decorativ; text mic → .tbe-muted */
 .tbe-small   { font-size: var(--fs-sm); }
-.tbe-caption { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--tbe-text-muted); }
+.tbe-caption { font-size: var(--fs-xs); font-weight: var(--fw-medium); color: var(--tbe-text-muted); letter-spacing: var(--ls-small); }
 
 a { color: var(--tbe-action); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 a:hover { color: var(--tbe-action-hover); }
@@ -210,7 +220,7 @@ code, .tbe-code {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   line-height: 1;
-  letter-spacing: var(--ls-wide);
+  letter-spacing: var(--ls-normal);   /* fără spațiere: textul e în litere mici, nu majuscule */
   padding: 0.85em 1.6em;
   min-height: 44px;              /* țintă de atingere accesibilă */
   border-radius: var(--tbe-radius-control);
@@ -223,13 +233,17 @@ code, .tbe-code {
   transition: background var(--dur-base) var(--ease-out),
               color var(--dur-base) var(--ease-out),
               border-color var(--dur-base) var(--ease-out),
-              transform var(--dur-fast) var(--ease-out),
+              transform var(--dur-spring) var(--ease-spring),
               box-shadow var(--dur-base) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;   /* fără întârzierea de 300ms la atingere */
 }
-.tbe-btn:active { transform: translateY(1px); }
+/* Apăsarea răspunde imediat, la atingere (nu la eliberare), și revine pe arc. */
+.tbe-btn:active { transform: scale(0.97); transition-duration: var(--dur-base), var(--dur-base), var(--dur-base), var(--dur-press), var(--dur-base); }
+.tbe-btn .tbe-icon { width: 1.15em; height: 1.15em; }
 
 /* Primar — magenta plin. Un singur buton primar per ecran/secțiune. */
-.tbe-btn.is-primary { --_bg: var(--tbe-action); --_fg: var(--tbe-text-on-action); --_bd: var(--tbe-action); }
+.tbe-btn.is-primary { --_bg: var(--tbe-action); --_fg: var(--tbe-text-on-action); --_bd: var(--tbe-action); font-weight: var(--fw-semibold); }
 .tbe-btn.is-primary:hover { --_bg: var(--tbe-action-hover); --_bd: var(--tbe-action-hover); box-shadow: var(--shadow-md); }
 
 /* Secundar — contur */
@@ -255,8 +269,21 @@ code, .tbe-code {
 /* Pe fundal închis / foto */
 .tbe-btn.is-inverse { --_bg: var(--tbe-surface); --_fg: var(--tbe-text); --_bd: var(--tbe-surface); }
 
+/* Butonul principal pe un bloc închis (negru-prună): Magenta 50 cu text
+   Magenta 700 (10.2:1). Magenta plin are doar 2.3:1 față de fundal. */
+.tbe-section.is-inverse .tbe-btn.is-primary,
+.tbe-btn.is-on-dark {
+  --_bg: light-dark(var(--c-magenta-50), var(--tbe-action));
+  --_fg: light-dark(var(--c-magenta-700), var(--tbe-text-on-action));
+  --_bd: var(--_bg);
+}
+.tbe-section.is-inverse .tbe-btn.is-primary:hover,
+.tbe-btn.is-on-dark:hover { --_bg: light-dark(#fff, var(--tbe-action-hover)); }
+
 /* Dimensiuni */
 .tbe-btn.is-sm { font-size: var(--fs-xs); padding: 0.7em 1.1em; min-height: 36px; }
+/* Pe ecrane tactile, ținta de atingere rămâne 44px și la butonul mic. */
+@media (pointer: coarse) { .tbe-btn.is-sm { min-height: 44px; } }
 .tbe-btn.is-lg { font-size: var(--fs-base); padding: 1em 2em; min-height: 52px; }
 .tbe-btn.is-pill  { border-radius: var(--r-pill); }
 .tbe-btn.is-block { display: flex; width: 100%; }
@@ -360,8 +387,10 @@ code, .tbe-code {
   font-family: var(--font-body); font-size: var(--fs-sm); font-weight: var(--fw-medium);
   padding: 0.5em 1.1em; border: 0; background: transparent; color: var(--tbe-text-muted);
   border-radius: calc(var(--tbe-radius-control) - 2px); cursor: pointer;
-  transition: all var(--dur-base) var(--ease-out);
+  min-height: 38px;
+  transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
+@media (pointer: coarse) { .tbe-segmented button { min-height: 44px; } }
 .tbe-segmented button[aria-selected="true"], .tbe-segmented button.is-active {
   background: var(--tbe-surface); color: var(--tbe-text); box-shadow: var(--shadow-xs);
 }
@@ -370,8 +399,9 @@ code, .tbe-code {
 .tbe-search { position: relative; }
 .tbe-search .tbe-input { border-radius: var(--r-pill); padding-left: 2.9em; }
 .tbe-search::before {
-  content: '⌕'; position: absolute; left: 1.05em; top: 50%; transform: translateY(-55%);
-  font-size: 1.35em; color: var(--tbe-text-muted); pointer-events: none;
+  content: ''; position: absolute; left: 1.05em; top: 50%; transform: translateY(-50%);
+  width: 1.15em; height: 1.15em; background-color: var(--tbe-text-muted); pointer-events: none;
+  -webkit-mask: var(--icon-search) center / contain no-repeat; mask: var(--icon-search) center / contain no-repeat;
 }
 
 /* ==========================================================================
@@ -382,11 +412,12 @@ code, .tbe-code {
   border: var(--bw-hair) solid var(--tbe-border-subtle);
   border-radius: var(--tbe-radius-card);
   padding: var(--sp-5);
-  transition: box-shadow var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out),
+  transition: box-shadow var(--dur-slow) var(--ease-out), transform var(--dur-spring) var(--ease-spring),
               border-color var(--dur-slow) var(--ease-out);
 }
-.tbe-card.is-interactive { cursor: pointer; }
+.tbe-card.is-interactive { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .tbe-card.is-interactive:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--tbe-border); }
+.tbe-card.is-interactive:active { transform: translateY(-1px) scale(0.99); transition-duration: var(--dur-slow), var(--dur-press), var(--dur-slow); }
 .tbe-card.is-flat  { box-shadow: none; background: var(--tbe-bg-alt); border-color: transparent; }
 .tbe-card.is-raised { box-shadow: var(--shadow-md); border-color: transparent; }
 .tbe-card.is-decor { background: var(--tbe-decor); border-color: transparent; }
@@ -428,7 +459,7 @@ code, .tbe-code {
   background: var(--tbe-surface-sunk); color: var(--tbe-text-muted);
   border: 1px solid var(--tbe-border-subtle);
 }
-.tbe-badge.is-action  { background: var(--tbe-action-soft); color: var(--tbe-action); border-color: var(--tbe-action-border); }
+.tbe-badge.is-action  { background: var(--tbe-action-soft); color: var(--tbe-action-on-soft); border-color: var(--tbe-action-border); }
 .tbe-badge.is-success { background: var(--tbe-success-bg); color: var(--tbe-success); border-color: transparent; }
 .tbe-badge.is-warning { background: var(--tbe-warning-bg); color: var(--tbe-warning); border-color: transparent; }
 .tbe-badge.is-danger  { background: var(--tbe-danger-bg);  color: var(--tbe-danger);  border-color: transparent; }
@@ -444,56 +475,64 @@ code, .tbe-code {
 .tbe-badge[class*="is-gold"],
 .tbe-badge[class*="is-diamond"] { gap: 0.4em; padding-left: 0.6em; }
 
+/* Simbolul nivelului: iconiță desenată (assets/icons/tier-*.svg), colorată cu
+   nuanța „vie" a nivelului. Înainte erau caractere text (● ◈ ★ ◆). */
 .tbe-badge.is-bronze::before,
 .tbe-badge.is-silver::before,
 .tbe-badge.is-gold::before,
-.tbe-badge.is-diamond::before { font-size: 1.05em; line-height: 1; }
+.tbe-badge.is-diamond::before {
+  content: ''; flex: none; width: 1.1em; height: 1.1em; background-color: var(--_tier);
+  -webkit-mask: var(--_tier-icon) center / contain no-repeat; mask: var(--_tier-icon) center / contain no-repeat;
+}
 
 .tbe-badge.is-bronze {
   background: var(--c-bronze-soft); color: var(--c-bronze-text);
   border-color: color-mix(in srgb, var(--c-bronze-vivid) 40%, transparent);
 }
-.tbe-badge.is-bronze::before { content: '●'; color: var(--c-bronze-vivid); }
+.tbe-badge.is-bronze { --_tier: var(--c-bronze-vivid); --_tier-icon: var(--icon-tier-bronze); }
 
 .tbe-badge.is-silver {
   background: var(--c-silver-soft); color: var(--c-silver-text);
   border-color: color-mix(in srgb, var(--c-silver-vivid) 45%, transparent);
 }
-.tbe-badge.is-silver::before { content: '◈'; color: var(--c-silver-vivid); }
+.tbe-badge.is-silver { --_tier: var(--c-silver-vivid); --_tier-icon: var(--icon-tier-silver); }
 
 .tbe-badge.is-gold {
   background: var(--c-gold-soft); color: var(--c-gold-text);
   border-color: color-mix(in srgb, var(--c-gold-vivid) 55%, transparent);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-.tbe-badge.is-gold::before { content: '★'; color: var(--c-gold-vivid); }
+.tbe-badge.is-gold { --_tier: var(--c-gold-vivid); --_tier-icon: var(--icon-tier-gold); }
 
 .tbe-badge.is-diamond {
   background: var(--c-diamond-soft); color: var(--c-diamond-text);
   border-color: color-mix(in srgb, var(--c-diamond-vivid) 55%, transparent);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
-.tbe-badge.is-diamond::before { content: '◆'; color: var(--c-diamond-vivid); }
+.tbe-badge.is-diamond { --_tier: var(--c-diamond-vivid); --_tier-icon: var(--icon-tier-diamond); }
 
 /* Varianta plină — pentru profil, certificat, header de cont */
 .tbe-badge.is-tier-solid { border-color: transparent; color: #fff; }
-.tbe-badge.is-tier-solid::before { color: rgba(255, 255, 255, 0.92); }
+.tbe-badge.is-tier-solid { --_tier: rgba(255, 255, 255, 0.92); }
 .tbe-badge.is-bronze.is-tier-solid  { background: linear-gradient(135deg, var(--c-bronze-vivid), var(--c-bronze)); }
 .tbe-badge.is-silver.is-tier-solid  { background: linear-gradient(135deg, var(--c-silver-vivid), var(--c-silver)); }
 .tbe-badge.is-gold.is-tier-solid    { background: linear-gradient(135deg, var(--c-gold-vivid), var(--c-gold)); color: #4A3400; }
-.tbe-badge.is-gold.is-tier-solid::before    { color: #fff; }
+.tbe-badge.is-gold.is-tier-solid { --_tier: #fff; }
 .tbe-badge.is-diamond.is-tier-solid { background: linear-gradient(135deg, var(--c-diamond-vivid), var(--c-diamond)); }
 
 .tbe-chip {
   display: inline-flex; align-items: center; gap: var(--sp-2);
   font-size: var(--fs-sm); padding: 0.45em 0.9em; border-radius: var(--r-pill);
   background: var(--tbe-surface); border: 1px solid var(--tbe-border);
-  color: var(--tbe-text); cursor: pointer;
-  transition: all var(--dur-base) var(--ease-out);
+  color: var(--tbe-text); cursor: pointer; min-height: 36px;
+  transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-spring) var(--ease-spring);
 }
+.tbe-chip:active { transform: scale(0.97); transition-duration: var(--dur-base), var(--dur-base), var(--dur-base), var(--dur-press); }
+@media (pointer: coarse) { .tbe-chip { min-height: 44px; } }
 .tbe-chip:hover { border-color: var(--tbe-action); color: var(--tbe-action); }
 .tbe-chip.is-active { background: var(--tbe-action); color: var(--tbe-text-on-action); border-color: var(--tbe-action); }
-.tbe-chip-x { border: 0; background: none; color: inherit; cursor: pointer; font-size: 1.1em; line-height: 1; padding: 0; opacity: 0.6; }
+.tbe-chip-x { border: 0; background: none; color: inherit; cursor: pointer; font-size: 1.1em; line-height: 1; padding: 0; opacity: 0.6; display: inline-flex; }
+.tbe-chip-x .tbe-icon { width: 1em; height: 1em; }
 .tbe-chip-x:hover { opacity: 1; }
 
 .tbe-avatar {
@@ -527,6 +566,12 @@ code, .tbe-code {
   margin-block: var(--sp-4);
 }
 .tbe-callout > :last-child { margin-bottom: 0; }
+.tbe-callout > .tbe-icon { width: 1.25rem; height: 1.25rem; margin-top: 0.1em; color: var(--tbe-text-muted); }
+.tbe-callout.is-success > .tbe-icon { color: var(--tbe-success); }
+.tbe-callout.is-warning > .tbe-icon { color: var(--tbe-warning); }
+.tbe-callout.is-danger  > .tbe-icon { color: var(--tbe-danger); }
+.tbe-callout.is-info    > .tbe-icon { color: var(--tbe-info); }
+.tbe-callout.is-action  > .tbe-icon { color: var(--tbe-action); }
 .tbe-callout strong { display: block; margin-bottom: var(--sp-1); font-weight: var(--fw-semibold); }
 .tbe-callout.is-success { background: var(--tbe-success-bg); border-color: color-mix(in srgb, var(--tbe-success) 45%, transparent); }
 .tbe-callout.is-warning { background: var(--tbe-warning-bg); border-color: color-mix(in srgb, var(--tbe-warning) 45%, transparent); }
@@ -539,8 +584,10 @@ code, .tbe-code {
    ========================================================================== */
 .tbe-header {
   position: sticky; top: 0; z-index: var(--z-sticky);
-  background: color-mix(in srgb, var(--tbe-bg) 88%, transparent);
-  backdrop-filter: blur(14px);
+  /* Material de sticlă: conținutul trece pe dedesubt. Devine solid la
+     „transparență redusă" și la „contrast mărit" (vezi tokens § 09). */
+  background: var(--tbe-glass);
+  -webkit-backdrop-filter: var(--tbe-glass-blur); backdrop-filter: var(--tbe-glass-blur);
   border-bottom: 1px solid var(--tbe-border-subtle);
 }
 .tbe-header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-5); min-height: 72px; }
@@ -562,7 +609,10 @@ code, .tbe-code {
 .tbe-breadcrumb { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--tbe-text-muted); flex-wrap: wrap; }
 .tbe-breadcrumb a { color: var(--tbe-text-muted); text-decoration: none; }
 .tbe-breadcrumb a:hover { color: var(--tbe-action); }
-.tbe-breadcrumb li + li::before { content: '/'; margin-right: var(--sp-2); color: var(--tbe-text-subtle); }
+.tbe-breadcrumb li + li::before {
+  content: ''; flex: none; width: 0.95em; height: 0.95em; margin-right: var(--sp-2); background-color: var(--tbe-text-subtle);
+  -webkit-mask: var(--icon-chevron-right) center / contain no-repeat; mask: var(--icon-chevron-right) center / contain no-repeat;
+}
 .tbe-breadcrumb ol, .tbe-breadcrumb ul { display: flex; gap: var(--sp-2); list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
 .tbe-breadcrumb li { display: flex; align-items: center; }
 
@@ -571,7 +621,8 @@ code, .tbe-code {
   font-family: var(--font-body); font-size: var(--fs-sm); font-weight: var(--fw-medium);
   background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
   padding: var(--sp-3) 0; color: var(--tbe-text-muted); cursor: pointer; white-space: nowrap;
-  transition: all var(--dur-base) var(--ease-out);
+  min-height: 44px;
+  transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
 }
 .tbe-tabs button:hover { color: var(--tbe-text); }
 .tbe-tabs button[aria-selected="true"], .tbe-tabs button.is-active { color: var(--tbe-action); border-color: var(--tbe-action); }
@@ -596,8 +647,11 @@ code, .tbe-code {
 .tbe-step-dot.is-active { background: var(--tbe-action); width: 24px; border-radius: var(--r-pill); }
 .tbe-step-dot.is-done { background: var(--tbe-action); }
 
-.tbe-rating { display: inline-flex; gap: 2px; color: var(--tbe-action); font-size: var(--fs-base); letter-spacing: 1px; }
+/* Stelele informează, nu se apasă: prună, nu magenta.
+   Stea plină = data-icon="star-fill", stea goală = data-icon="star" + .is-empty. */
+.tbe-rating { display: inline-flex; gap: 2px; color: var(--tbe-editorial); font-size: var(--fs-base); }
 .tbe-rating .is-empty { color: var(--tbe-text-subtle); }
+.tbe-rating .tbe-icon { width: 1.05em; height: 1.05em; }
 
 .tbe-skeleton {
   background: linear-gradient(90deg, var(--tbe-surface-sunk) 25%, var(--tbe-decor) 50%, var(--tbe-surface-sunk) 75%);
@@ -630,16 +684,106 @@ code, .tbe-code {
 /* ==========================================================================
    OVERLAY-URI
    ========================================================================== */
-.tbe-modal { border: 0; padding: 0; background: transparent; max-width: 520px; width: calc(100% - 2rem); }
-.tbe-modal::backdrop { background: rgba(42, 21, 32, 0.55); backdrop-filter: blur(3px); }  /* negru-prună 55% */
+/* Regula mișcării: orice apare vine de undeva și pleacă pe același drum.
+   Fereastra modală se „materializează" (opacitate + scară + blur în spate),
+   foaia de jos urcă și coboară pe același traseu, notificarea urcă din josul
+   ecranului și coboară înapoi. Toate pornesc din starea curentă, deci pot fi
+   închise la jumătatea drumului fără salt. Folosește <dialog> și showModal(). */
+.tbe-modal {
+  border: 0; padding: 0; background: transparent; max-width: 520px; width: calc(100% - 2rem);
+  opacity: 0; transform: translateY(12px) scale(0.97);
+  transition: opacity var(--dur-slow) var(--ease-out),
+              transform var(--dur-spring) var(--ease-spring),
+              overlay var(--dur-slow) allow-discrete,
+              display var(--dur-slow) allow-discrete;
+}
+.tbe-modal[open] { opacity: 1; transform: none; }
+@starting-style { .tbe-modal[open] { opacity: 0; transform: translateY(12px) scale(0.97); } }
+
+.tbe-modal::backdrop {
+  background: rgba(42, 21, 32, 0);
+  -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0);
+  transition: background var(--dur-slow) var(--ease-out),
+              backdrop-filter var(--dur-slow) var(--ease-out),
+              overlay var(--dur-slow) allow-discrete,
+              display var(--dur-slow) allow-discrete;
+}
+.tbe-modal[open]::backdrop { background: var(--tbe-scrim); -webkit-backdrop-filter: var(--tbe-scrim-blur); backdrop-filter: var(--tbe-scrim-blur); }
+@starting-style { .tbe-modal[open]::backdrop { background: rgba(42, 21, 32, 0); -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0); } }
+
 .tbe-modal-inner { background: var(--tbe-surface); border-radius: var(--tbe-radius-card); padding: var(--sp-6); box-shadow: var(--shadow-xl); }
+
+/* Foaia de jos (sheet) — pe telefon, pentru alegeri rapide: plan, filtre, meniu.
+   Urcă pe arc cu o mică depășire (vine din afara ecranului) și coboară înapoi. */
+.tbe-modal.is-sheet {
+  margin: auto auto 0; width: 100%; max-width: 560px; max-height: 88dvh;
+  opacity: 1; transform: translateY(100%);
+  transition: transform var(--dur-spring-bounce) var(--ease-spring-bounce),
+              overlay var(--dur-spring-bounce) allow-discrete,
+              display var(--dur-spring-bounce) allow-discrete;
+}
+.tbe-modal.is-sheet[open] { transform: none; }
+@starting-style { .tbe-modal.is-sheet[open] { transform: translateY(100%); } }
+.tbe-modal.is-sheet .tbe-modal-inner {
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  padding-top: var(--sp-5);
+  padding-bottom: calc(var(--sp-6) + env(safe-area-inset-bottom));
+  overflow-y: auto; max-height: inherit;
+}
+.tbe-modal.is-sheet .tbe-modal-inner::before {   /* mânerul: arată că foaia se poate trage în jos */
+  content: ''; display: block; width: 36px; height: 5px; margin: 0 auto var(--sp-4);
+  border-radius: var(--r-pill); background: var(--tbe-border-strong);
+}
 
 .tbe-toast {
   display: flex; align-items: center; gap: var(--sp-3);
   background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse);
   padding: var(--sp-4) var(--sp-5); border-radius: var(--tbe-radius-control);
   box-shadow: var(--shadow-lg); font-size: var(--fs-sm); max-width: 420px;
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-spring) var(--ease-spring);
 }
+@starting-style { .tbe-toast { opacity: 0; transform: translateY(16px) scale(0.98); } }
+.tbe-toast.is-leaving { opacity: 0; transform: translateY(16px) scale(0.98); }   /* pleacă pe drumul pe care a venit */
+/* Locul notificărilor: jos, pe centru, deasupra barei de sistem a telefonului. */
+.tbe-toast-region {
+  position: fixed; left: 50%; bottom: calc(var(--sp-5) + env(safe-area-inset-bottom)); z-index: var(--z-toast);
+  translate: -50% 0; width: min(420px, calc(100% - 2 * var(--gutter)));
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); pointer-events: none;
+}
+.tbe-toast-region .tbe-toast { pointer-events: auto; width: 100%; }
+.tbe-toast > .tbe-icon { color: var(--tbe-editorial-on-inverse); }
+
+/* Meniu / popover — <div popover class="tbe-popover">. Crește din butonul
+   care l-a deschis (transform-origin), nu din centrul lui. */
+.tbe-popover {
+  padding: var(--sp-2); min-width: 220px;
+  background: var(--tbe-surface); color: var(--tbe-text);
+  border: var(--bw-hair) solid var(--tbe-border-subtle); border-radius: var(--tbe-radius-card);
+  box-shadow: var(--shadow-lg);
+  transform-origin: top left;
+  opacity: 0; transform: translateY(-4px) scale(0.97);
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-spring) var(--ease-spring),
+              overlay var(--dur-base) allow-discrete,
+              display var(--dur-base) allow-discrete;
+}
+.tbe-popover:popover-open { opacity: 1; transform: none; }
+/* Lipit sub butonul care l-a deschis (popovertarget). Unde browserul nu știe
+   ancorare, rămâne centrat pe ecran, ca orice popover. */
+@supports (position-area: bottom) {
+  .tbe-popover { margin: 6px 0 0; inset: auto; position-area: bottom span-right; position-try-fallbacks: flip-block, flip-inline; }
+}
+@starting-style { .tbe-popover:popover-open { opacity: 0; transform: translateY(-4px) scale(0.97); } }
+.tbe-menu-item {
+  display: flex; align-items: center; gap: var(--sp-3); width: 100%;
+  min-height: 40px; padding: var(--sp-2) var(--sp-3); border: 0; border-radius: var(--r-sm);
+  background: transparent; color: var(--tbe-text); font: inherit; font-size: var(--fs-sm);
+  text-align: left; text-decoration: none; cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.tbe-menu-item:hover, .tbe-menu-item:focus-visible { background: var(--tbe-surface-sunk); }
+.tbe-menu-item .tbe-icon { color: var(--tbe-text-muted); }
+@media (pointer: coarse) { .tbe-menu-item { min-height: 44px; } }
 
 /* Tooltip — DOAR pentru informație suplimentară, niciodată esențială (pe touch
    nu există hover). Accesibilitate obligatorie în markup:
@@ -650,37 +794,58 @@ code, .tbe-code {
    aria-describedby leagă textul real — pseudo-elementul ::after nu e citit de AT. */
 .tbe-tooltip { position: relative; display: inline-block; border-bottom: 1px dotted var(--tbe-text-muted); cursor: help; }
 .tbe-tooltip::after {
-  content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%;
   background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse);
   font-size: var(--fs-xs); padding: var(--sp-2) var(--sp-3); border-radius: var(--r-xs);
-  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out);
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transform: translateX(-50%) translateY(4px) scale(0.96); transform-origin: 50% 100%;   /* crește din declanșator */
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-spring) var(--ease-spring);
   z-index: var(--z-dropdown);
 }
-.tbe-tooltip:hover::after, .tbe-tooltip:focus-visible::after { opacity: 1; }
+.tbe-tooltip:hover::after, .tbe-tooltip:focus-visible::after { opacity: 1; transform: translateX(-50%); }
 
 /* Acordeon (folosește <details>) */
 .tbe-accordion { border-bottom: 1px solid var(--tbe-border-subtle); }
 .tbe-accordion summary {
   display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
-  padding: var(--sp-4) 0; cursor: pointer; list-style: none;
+  padding: var(--sp-4) 0; min-height: 44px; cursor: pointer; list-style: none;
   font-family: var(--font-display); font-size: var(--fs-h4); font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-h4);
+  -webkit-tap-highlight-color: transparent;
 }
 .tbe-accordion summary::-webkit-details-marker { display: none; }
-.tbe-accordion summary::after { content: '+'; font-family: var(--font-body); font-size: 1.4em; color: var(--tbe-action); font-weight: var(--fw-light); transition: transform var(--dur-base) var(--ease-out); }
-.tbe-accordion[open] summary::after { transform: rotate(45deg); }
+.tbe-accordion summary::after {
+  content: ''; flex: none; width: 1.25rem; height: 1.25rem; background-color: var(--tbe-action);
+  -webkit-mask: var(--icon-chevron-down) center / contain no-repeat; mask: var(--icon-chevron-down) center / contain no-repeat;
+  transition: transform var(--dur-spring) var(--ease-spring);
+}
+.tbe-accordion[open] summary::after { transform: rotate(180deg); }
 .tbe-accordion-body { padding-bottom: var(--sp-5); color: var(--tbe-text-muted); font-size: var(--fs-sm); }
+/* Conținutul coboară puțin și apare — arată de unde vine, fără să anime înălțimea. */
+.tbe-accordion[open] .tbe-accordion-body { animation: tbe-reveal var(--dur-slow) var(--ease-out) both; }
+@keyframes tbe-reveal { from { opacity: 0; transform: translateY(-6px); } }
 
 /* Stare goală */
 .tbe-empty { text-align: center; padding: var(--sp-8) var(--sp-5); color: var(--tbe-text-muted); }
-.tbe-empty-icon { font-size: 2.5rem; opacity: 0.35; margin-bottom: var(--sp-4); }
+.tbe-empty-icon { display: inline-flex; margin-bottom: var(--sp-4); color: var(--tbe-text-subtle); }
+.tbe-empty-icon .tbe-icon { width: 2.5rem; height: 2.5rem; }
 
 /* ==========================================================================
    HERO & BANNER
    ========================================================================== */
 .tbe-hero { padding-block: clamp(3.5rem, 2rem + 8vw, 8rem); position: relative; overflow: hidden; }
 .tbe-hero.is-decor { background: var(--tbe-decor); }
-.tbe-hero-title { font-size: var(--fs-display); line-height: var(--lh-tight); margin-bottom: var(--sp-5); max-width: 16ch; }
-.tbe-hero-sub { font-size: var(--fs-lg); color: var(--tbe-text-muted); font-weight: var(--fw-light); max-width: 52ch; margin-bottom: var(--sp-6); }
+.tbe-hero-title { font-size: var(--fs-display); line-height: 1.04; letter-spacing: var(--ls-display); margin-bottom: var(--sp-5); max-width: 16ch; }
+.tbe-hero-sub { font-size: var(--fs-lg); color: var(--tbe-text-muted); font-weight: var(--fw-regular); max-width: 52ch; margin-bottom: var(--sp-6); text-wrap: pretty; }
+/* Hero cu fotografie: promisiunea în stânga, lucrarea în dreapta.
+   Pe telefon fotografia urcă deasupra textului. */
+.tbe-hero-split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
+.tbe-hero-media { position: relative; aspect-ratio: 4 / 5; border-radius: var(--tbe-radius-media); overflow: hidden; background: var(--tbe-decor); }
+.tbe-hero-media img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 860px) {
+  .tbe-hero-split { grid-template-columns: 1fr; }
+  .tbe-hero-media { order: -1; aspect-ratio: 4 / 3; }
+}
 
 /* Bandă promoțională */
 .tbe-banner {
@@ -698,6 +863,7 @@ code, .tbe-code {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(42,21,32,0.72) 0%, rgba(42,21,32,0.28) 45%, rgba(42,21,32,0) 75%);
 }
+.tbe-photo-scrim > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tbe-photo-scrim > .tbe-photo-content { position: absolute; inset: auto 0 0 0; z-index: 2; padding: var(--sp-5); color: #fff; }
 .tbe-photo-scrim > .tbe-photo-content * { color: #fff; }
 
@@ -722,10 +888,13 @@ code, .tbe-code {
 }
 /* Nodurile neatinse/blocate rămân de-emfazate prin fundal, NU prin contrast de
    text: eticheta e mono 12px, deci are nevoie de ≥4.5:1 (muted), nu subtle (3.1:1). */
-.tbe-path-node.is-done   { background: var(--tbe-action-soft); color: var(--tbe-action); border-color: var(--tbe-action-border); }
+.tbe-path-node.is-done   { background: var(--tbe-action-soft); color: var(--tbe-action-on-soft); border-color: var(--tbe-action-border); }
 .tbe-path-node.is-current { background: var(--tbe-action); color: var(--tbe-text-on-action); border-color: var(--tbe-action); }
-.tbe-path-node.is-locked::before { content: '🔒'; font-size: 0.85em; }
-.tbe-path-arrow { color: var(--tbe-text-subtle); }  /* 3.1:1 — săgeata arată ordinea, deci are nevoie de min. 3:1 */
+.tbe-path-node.is-locked::before {
+  content: ''; width: 1.1em; height: 1.1em; background-color: currentColor;
+  -webkit-mask: var(--icon-lock) center / contain no-repeat; mask: var(--icon-lock) center / contain no-repeat;
+}
+.tbe-path-arrow { display: inline-flex; color: var(--tbe-text-subtle); }  /* 3.1:1 — săgeata arată ordinea, deci are nevoie de min. 3:1 */
 
 /* ==========================================================================
    PATTERNURI HARTA COAFEZELOR
@@ -802,7 +971,7 @@ code, .tbe-code {
   flex: 1 1 auto; min-width: 0;
   display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
   font-family: var(--font-body); font-size: var(--fs-sm); font-weight: var(--fw-medium);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: var(--ls-normal);
   min-height: 44px; padding: 0.7em 1.2em;
   background: var(--c-contact); color: #fff;
   border: 0; border-radius: var(--r-pill); cursor: pointer; text-decoration: none;
@@ -845,6 +1014,369 @@ code, .tbe-code {
 .tbe-score-max { font-size: var(--fs-sm); color: var(--tbe-text-muted); font-family: var(--font-body); }
 
 /* ==========================================================================
+   ICONIȚE
+   Un singur set: Lucide (licență ISC, assets/icons/LICENSE-lucide.txt), linie
+   de 1.5px, capete rotunjite. Plus patru simboluri proprii pentru niveluri
+   (tier-bronze, tier-silver, tier-gold, tier-diamond). Fișierele .svg, pentru
+   Figma/Canva și pentru <svg><use>: assets/icons/ și assets/icons/sprite.svg.
+
+   Folosire în pagină:
+     <span class="tbe-icon" data-icon="check" aria-hidden="true"></span>
+   Iconița ia culoarea textului (currentColor) și mărimea lui (1.25em).
+   Iconiță singură într-un buton → pune aria-label pe buton.
+   Nu folosi emoji sau caractere text (★ ✓ ⌕ →) în loc de iconițe.
+   ========================================================================== */
+.tbe-icon {
+  --_icon: none;
+  display: inline-block; flex: none;
+  width: 1.25em; height: 1.25em; vertical-align: -0.25em;
+  background-color: currentColor;
+  -webkit-mask: var(--_icon) center / contain no-repeat;
+          mask: var(--_icon) center / contain no-repeat;
+}
+/* Stea plină pentru evaluări: aceeași formă ca simbolul Gold. */
+:root { --icon-star-fill: var(--icon-tier-gold); }
+.tbe-icon[data-icon="star-fill"] { --_icon: var(--icon-star-fill); }
+.tbe-icon.is-sm { width: 1em; height: 1em; vertical-align: -0.15em; }
+.tbe-icon.is-lg { width: 1.5em; height: 1.5em; vertical-align: -0.35em; }
+/* Contrast forțat (Windows): fundalurile sunt înlocuite de sistem, deci
+   iconița primește explicit culoarea textului de sistem. */
+@media (forced-colors: active) { .tbe-icon { background-color: CanvasText; forced-color-adjust: none; } }
+
+:root {
+  --icon-arrow-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 19-7-7 7-7'/%3E%3Cpath d='M19 12H5'/%3E%3C/svg%3E");
+  --icon-arrow-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+  --icon-arrow-up-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10'/%3E%3Cpath d='M7 17 17 7'/%3E%3C/svg%3E");
+  --icon-award: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526'/%3E%3Ccircle cx='12' cy='8' r='6'/%3E%3C/svg%3E");
+  --icon-badge-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+  --icon-book-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 7v14'/%3E%3Cpath d='M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z'/%3E%3C/svg%3E");
+  --icon-brush: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08'/%3E%3Cpath d='M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z'/%3E%3C/svg%3E");
+  --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M16 2v4'/%3E%3Crect width='18' height='18' x='3' y='4' rx='2'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+  --icon-camera: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z'/%3E%3Ccircle cx='12' cy='13' r='3'/%3E%3C/svg%3E");
+  --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --icon-chevron-down: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  --icon-chevron-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 18-6-6 6-6'/%3E%3C/svg%3E");
+  --icon-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
+  --icon-chevron-up: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 15-6-6-6 6'/%3E%3C/svg%3E");
+  --icon-circle-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+  --icon-circle-help: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  --icon-circle-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m15 9-6 6'/%3E%3Cpath d='m9 9 6 6'/%3E%3C/svg%3E");
+  --icon-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+  --icon-credit-card: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='14' x='2' y='5' rx='2'/%3E%3Cline x1='2' x2='22' y1='10' y2='10'/%3E%3C/svg%3E");
+  --icon-download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' x2='12' y1='15' y2='3'/%3E%3C/svg%3E");
+  --icon-external-link: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6'/%3E%3Cpath d='M10 14 21 3'/%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3C/svg%3E");
+  --icon-eye: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+  --icon-file-text: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3Cpath d='M10 9H8'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3C/svg%3E");
+  --icon-gift: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='8' width='18' height='4' rx='1'/%3E%3Cpath d='M12 8v13'/%3E%3Cpath d='M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7'/%3E%3Cpath d='M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5'/%3E%3C/svg%3E");
+  --icon-graduation-cap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z'/%3E%3Cpath d='M22 10v6'/%3E%3Cpath d='M6 12.5V16a6 3 0 0 0 12 0v-3.5'/%3E%3C/svg%3E");
+  --icon-heart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/%3E%3C/svg%3E");
+  --icon-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='18' x='3' y='3' rx='2' ry='2'/%3E%3Ccircle cx='9' cy='9' r='2'/%3E%3Cpath d='m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21'/%3E%3C/svg%3E");
+  --icon-info: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
+  --icon-list-checks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 17 2 2 4-4'/%3E%3Cpath d='m3 7 2 2 4-4'/%3E%3Cpath d='M13 6h8'/%3E%3Cpath d='M13 12h8'/%3E%3Cpath d='M13 18h8'/%3E%3C/svg%3E");
+  --icon-lock-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='11' x='3' y='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 9.9-1'/%3E%3C/svg%3E");
+  --icon-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='11' x='3' y='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
+  --icon-log-in: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4'/%3E%3Cpolyline points='10 17 15 12 10 7'/%3E%3Cline x1='15' x2='3' y1='12' y2='12'/%3E%3C/svg%3E");
+  --icon-mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='20' height='16' x='2' y='4' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+  --icon-map-pin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+  --icon-menu: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='4' x2='20' y1='12' y2='12'/%3E%3Cline x1='4' x2='20' y1='6' y2='6'/%3E%3Cline x1='4' x2='20' y1='18' y2='18'/%3E%3C/svg%3E");
+  --icon-message-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.9 20A9 9 0 1 0 4 16.1L2 22Z'/%3E%3C/svg%3E");
+  --icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+  --icon-palette: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='13.5' cy='6.5' r='.5' fill='black'/%3E%3Ccircle cx='17.5' cy='10.5' r='.5' fill='black'/%3E%3Ccircle cx='8.5' cy='7.5' r='.5' fill='black'/%3E%3Ccircle cx='6.5' cy='12.5' r='.5' fill='black'/%3E%3Cpath d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z'/%3E%3C/svg%3E");
+  --icon-phone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  --icon-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='6 3 20 12 6 21 6 3'/%3E%3C/svg%3E");
+  --icon-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='M12 5v14'/%3E%3C/svg%3E");
+  --icon-quote: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3Cpath d='M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
+  --icon-scissors: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='6' cy='6' r='3'/%3E%3Cpath d='M8.12 8.12 12 12'/%3E%3Cpath d='M20 4 8.12 15.88'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Cpath d='M14.8 14.8 20 20'/%3E%3C/svg%3E");
+  --icon-search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+  --icon-share-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cline x1='8.59' x2='15.42' y1='13.51' y2='17.49'/%3E%3Cline x1='15.41' x2='8.59' y1='6.51' y2='10.49'/%3E%3C/svg%3E");
+  --icon-shield-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+  --icon-shopping-bag: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z'/%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E");
+  --icon-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z'/%3E%3C/svg%3E");
+  --icon-triangle-alert: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
+  --icon-trophy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'/%3E%3Cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'/%3E%3Cpath d='M4 22h16'/%3E%3Cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'/%3E%3Cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'/%3E%3Cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'/%3E%3C/svg%3E");
+  --icon-user: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+  --icon-users: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M22 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+  --icon-video: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5'/%3E%3Crect x='2' y='6' width='14' height='12' rx='2'/%3E%3C/svg%3E");
+  --icon-x: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 6 6 18'/%3E%3Cpath d='m6 6 12 12'/%3E%3C/svg%3E");
+  --icon-tier-bronze: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='7'/%3E%3C/svg%3E");
+  --icon-tier-silver: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black' fill-rule='evenodd'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z M12 5.5 5.5 12 12 18.5 18.5 12Z M12 8.5 15.5 12 12 15.5 8.5 12Z'/%3E%3C/svg%3E");
+  --icon-tier-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z'/%3E%3C/svg%3E");
+  --icon-tier-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z'/%3E%3C/svg%3E");
+}
+
+.tbe-icon[data-icon="arrow-left"] { --_icon: var(--icon-arrow-left); }
+.tbe-icon[data-icon="arrow-right"] { --_icon: var(--icon-arrow-right); }
+.tbe-icon[data-icon="arrow-up-right"] { --_icon: var(--icon-arrow-up-right); }
+.tbe-icon[data-icon="award"] { --_icon: var(--icon-award); }
+.tbe-icon[data-icon="badge-check"] { --_icon: var(--icon-badge-check); }
+.tbe-icon[data-icon="book-open"] { --_icon: var(--icon-book-open); }
+.tbe-icon[data-icon="brush"] { --_icon: var(--icon-brush); }
+.tbe-icon[data-icon="calendar"] { --_icon: var(--icon-calendar); }
+.tbe-icon[data-icon="camera"] { --_icon: var(--icon-camera); }
+.tbe-icon[data-icon="check"] { --_icon: var(--icon-check); }
+.tbe-icon[data-icon="chevron-down"] { --_icon: var(--icon-chevron-down); }
+.tbe-icon[data-icon="chevron-left"] { --_icon: var(--icon-chevron-left); }
+.tbe-icon[data-icon="chevron-right"] { --_icon: var(--icon-chevron-right); }
+.tbe-icon[data-icon="chevron-up"] { --_icon: var(--icon-chevron-up); }
+.tbe-icon[data-icon="circle-check"] { --_icon: var(--icon-circle-check); }
+.tbe-icon[data-icon="circle-help"] { --_icon: var(--icon-circle-help); }
+.tbe-icon[data-icon="circle-x"] { --_icon: var(--icon-circle-x); }
+.tbe-icon[data-icon="clock"] { --_icon: var(--icon-clock); }
+.tbe-icon[data-icon="credit-card"] { --_icon: var(--icon-credit-card); }
+.tbe-icon[data-icon="download"] { --_icon: var(--icon-download); }
+.tbe-icon[data-icon="external-link"] { --_icon: var(--icon-external-link); }
+.tbe-icon[data-icon="eye"] { --_icon: var(--icon-eye); }
+.tbe-icon[data-icon="file-text"] { --_icon: var(--icon-file-text); }
+.tbe-icon[data-icon="gift"] { --_icon: var(--icon-gift); }
+.tbe-icon[data-icon="graduation-cap"] { --_icon: var(--icon-graduation-cap); }
+.tbe-icon[data-icon="heart"] { --_icon: var(--icon-heart); }
+.tbe-icon[data-icon="image"] { --_icon: var(--icon-image); }
+.tbe-icon[data-icon="info"] { --_icon: var(--icon-info); }
+.tbe-icon[data-icon="list-checks"] { --_icon: var(--icon-list-checks); }
+.tbe-icon[data-icon="lock-open"] { --_icon: var(--icon-lock-open); }
+.tbe-icon[data-icon="lock"] { --_icon: var(--icon-lock); }
+.tbe-icon[data-icon="log-in"] { --_icon: var(--icon-log-in); }
+.tbe-icon[data-icon="mail"] { --_icon: var(--icon-mail); }
+.tbe-icon[data-icon="map-pin"] { --_icon: var(--icon-map-pin); }
+.tbe-icon[data-icon="menu"] { --_icon: var(--icon-menu); }
+.tbe-icon[data-icon="message-circle"] { --_icon: var(--icon-message-circle); }
+.tbe-icon[data-icon="minus"] { --_icon: var(--icon-minus); }
+.tbe-icon[data-icon="palette"] { --_icon: var(--icon-palette); }
+.tbe-icon[data-icon="phone"] { --_icon: var(--icon-phone); }
+.tbe-icon[data-icon="play"] { --_icon: var(--icon-play); }
+.tbe-icon[data-icon="plus"] { --_icon: var(--icon-plus); }
+.tbe-icon[data-icon="quote"] { --_icon: var(--icon-quote); }
+.tbe-icon[data-icon="scissors"] { --_icon: var(--icon-scissors); }
+.tbe-icon[data-icon="search"] { --_icon: var(--icon-search); }
+.tbe-icon[data-icon="share-2"] { --_icon: var(--icon-share-2); }
+.tbe-icon[data-icon="shield-check"] { --_icon: var(--icon-shield-check); }
+.tbe-icon[data-icon="shopping-bag"] { --_icon: var(--icon-shopping-bag); }
+.tbe-icon[data-icon="star"] { --_icon: var(--icon-star); }
+.tbe-icon[data-icon="triangle-alert"] { --_icon: var(--icon-triangle-alert); }
+.tbe-icon[data-icon="trophy"] { --_icon: var(--icon-trophy); }
+.tbe-icon[data-icon="user"] { --_icon: var(--icon-user); }
+.tbe-icon[data-icon="users"] { --_icon: var(--icon-users); }
+.tbe-icon[data-icon="video"] { --_icon: var(--icon-video); }
+.tbe-icon[data-icon="x"] { --_icon: var(--icon-x); }
+.tbe-icon[data-icon="tier-bronze"] { --_icon: var(--icon-tier-bronze); }
+.tbe-icon[data-icon="tier-silver"] { --_icon: var(--icon-tier-silver); }
+.tbe-icon[data-icon="tier-gold"] { --_icon: var(--icon-tier-gold); }
+.tbe-icon[data-icon="tier-diamond"] { --_icon: var(--icon-tier-diamond); }
+
+
+/* ==========================================================================
+   VÂNZARE — piesele unei pagini care vinde
+   Ordinea pe o pagină de curs: promisiunea (hero) → dovezi (cifre,
+   testimoniale) → ce primești (module, beneficii) → cine predă (trainer) →
+   oferta (preț + buton) → întrebări → închidere (bandă de final).
+   Magenta apare DOAR pe butoane. Prețul e negru moale, nu magenta: nu se
+   apasă. Economia, bifele și etichetele sunt prună (voce editorială).
+   Fără numărători inverse, fără „ultimele locuri" inventate.
+   ========================================================================== */
+
+/* --- Preț ----------------------------------------------------------------- */
+.tbe-price { display: flex; flex-direction: column; gap: var(--sp-2); }
+.tbe-price-label { font-size: var(--fs-xs); font-weight: var(--fw-medium); letter-spacing: var(--ls-small); color: var(--tbe-text-muted); }
+.tbe-price-row { display: flex; align-items: baseline; gap: var(--sp-2); }
+.tbe-price-value {
+  font-family: var(--font-display); font-size: clamp(2.25rem, 1.8rem + 2vw, 3rem);
+  font-weight: var(--fw-medium); line-height: 1; letter-spacing: var(--ls-h1);
+  font-variant-numeric: var(--num-tabular); color: var(--tbe-text);
+}
+.tbe-price-currency { font-size: var(--fs-lg); font-weight: var(--fw-medium); color: var(--tbe-text); }
+.tbe-price-meta { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); font-size: var(--fs-sm); }
+.tbe-price-old { color: var(--tbe-text-muted); text-decoration-thickness: 1px; font-variant-numeric: var(--num-tabular); }
+.tbe-price-save {
+  display: inline-flex; align-items: center; padding: 0.25em 0.7em; border-radius: var(--r-pill);
+  background: var(--tbe-editorial-soft); color: var(--tbe-editorial);
+  font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-small);
+}
+.tbe-price-note { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+.tbe-price.is-center { align-items: center; text-align: center; }
+.tbe-price.is-center .tbe-price-meta { justify-content: center; }
+
+/* --- Alegerea planului ------------------------------------------------------
+   Perioada de abonament sau plată integrală / în rate. Radio-uri reale, într-un
+   <fieldset>, deci merg cu tastatura și cu cititorul de ecran. */
+.tbe-plans { border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: var(--sp-4); }
+.tbe-plan {
+  position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--sp-3) var(--sp-4);
+  padding: var(--sp-4) var(--sp-5); min-height: 64px;
+  background: var(--tbe-surface); border: var(--bw-hair) solid var(--tbe-border); border-radius: var(--tbe-radius-card);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out), transform var(--dur-spring) var(--ease-spring);
+}
+.tbe-plan:hover { border-color: var(--tbe-border-strong); }
+.tbe-plan:active { transform: scale(0.99); transition-duration: var(--dur-base), var(--dur-base), var(--dur-base), var(--dur-press); }
+.tbe-plan input {
+  appearance: none; -webkit-appearance: none; margin: 0; flex: none;
+  width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--tbe-border-strong);
+  display: grid; place-content: center; background: var(--tbe-surface);
+  transition: border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.tbe-plan input::before {
+  content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--tbe-text-on-action);
+  transform: scale(0); transition: transform var(--dur-spring-bounce) var(--ease-spring-bounce);
+}
+.tbe-plan input:checked { border-color: var(--tbe-action); background: var(--tbe-action); }
+.tbe-plan input:checked::before { transform: scale(1); }
+.tbe-plan input:focus-visible { outline: var(--bw-thick) solid var(--tbe-ring); outline-offset: 3px; }
+.tbe-plan:has(input:checked) { border-color: var(--tbe-action); background: var(--tbe-action-soft); box-shadow: 0 0 0 1px var(--tbe-action); }
+.tbe-plan-name { display: block; font-size: var(--fs-base); font-weight: var(--fw-semibold); }
+.tbe-plan-note { display: block; font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+.tbe-plan-price {
+  text-align: right; font-family: var(--font-display); font-size: var(--fs-h3); font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-h3); font-variant-numeric: var(--num-tabular); white-space: nowrap;
+}
+.tbe-plan-price small { display: block; font-family: var(--font-body); font-size: var(--fs-xs); font-weight: var(--fw-regular); color: var(--tbe-text-muted); letter-spacing: var(--ls-small); }
+.tbe-plan-badge {   /* „Cel mai ales" — negru-prună: informează, nu se apasă */
+  position: absolute; top: 0; right: var(--sp-5); transform: translateY(-50%);
+  padding: 0.3em 0.8em; border-radius: var(--r-pill);
+  background: var(--tbe-surface-inverse); color: var(--tbe-text-inverse);
+  font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-small); white-space: nowrap;
+}
+
+/* --- Listă de beneficii ----------------------------------------------------
+   Bifă prună într-un cerc. .is-no = ce NU e inclus (x, text secundar). */
+.tbe-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.tbe-checklist li { position: relative; padding-left: 2.125rem; line-height: 1.5; text-wrap: pretty; }
+.tbe-checklist li::before, .tbe-checklist li::after { content: ''; position: absolute; left: 0; top: 0.05em; width: 1.375rem; height: 1.375rem; }
+.tbe-checklist li::before { border-radius: 50%; background: var(--tbe-editorial-soft); }
+.tbe-checklist li::after {
+  background-color: var(--tbe-editorial); transform: scale(0.62);
+  -webkit-mask: var(--icon-check) center / contain no-repeat; mask: var(--icon-check) center / contain no-repeat;
+}
+.tbe-checklist li.is-no { color: var(--tbe-text-muted); }
+.tbe-checklist li.is-no::before { background: var(--tbe-surface-sunk); }
+.tbe-checklist li.is-no::after { background-color: var(--tbe-text-muted); -webkit-mask-image: var(--icon-x); mask-image: var(--icon-x); }
+.tbe-checklist.is-compact { gap: var(--sp-2); font-size: var(--fs-sm); }
+
+/* --- Caseta de cumpărare (ofertă) ------------------------------------------
+   Imagine → preț → beneficii → buton → reasigurare. Pe desktop poate sta
+   lipită lângă conținut (.is-sticky). */
+.tbe-offer {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--tbe-surface); border: var(--bw-hair) solid var(--tbe-border-subtle);
+  border-radius: var(--r-xl); box-shadow: var(--shadow-lg);
+}
+.tbe-offer.is-sticky { position: sticky; top: calc(72px + var(--sp-5)); }
+.tbe-offer-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--tbe-decor); }   /* overflow: altfel, în coloana flex, poza își impune înălțimea */
+.tbe-offer-media img { width: 100%; height: 100%; object-fit: cover; }
+.tbe-offer-media .tbe-badge { position: absolute; top: var(--sp-4); left: var(--sp-4); }
+.tbe-offer-body { display: flex; flex-direction: column; gap: var(--sp-5); padding: var(--sp-6); }
+.tbe-offer-body > hr { border: 0; border-top: 1px solid var(--tbe-border-subtle); margin: 0; }
+.tbe-offer-assure {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--sp-2);
+  margin: calc(var(--sp-3) * -1) 0 0; font-size: var(--fs-xs); letter-spacing: var(--ls-small); color: var(--tbe-text-muted);
+}
+.tbe-offer-assure .tbe-icon { width: 1rem; height: 1rem; color: var(--tbe-editorial); }
+
+/* --- Testimonial -----------------------------------------------------------
+   Citatul real al cursantei, cu rezultatul concret, numele și orașul.
+   Fără citate inventate. */
+.tbe-testimonial {
+  margin: 0; display: flex; flex-direction: column; gap: var(--sp-5); padding: var(--sp-6);
+  background: var(--tbe-surface); border: var(--bw-hair) solid var(--tbe-border-subtle); border-radius: var(--tbe-radius-card);
+}
+.tbe-testimonial-media { margin: calc(var(--sp-6) * -1) calc(var(--sp-6) * -1) 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--tbe-decor); }
+.tbe-testimonial-media img { width: 100%; height: 100%; object-fit: cover; }
+.tbe-testimonial blockquote {
+  margin: 0; font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.4;
+  letter-spacing: var(--ls-h3); color: var(--tbe-text); text-wrap: pretty;
+}
+.tbe-testimonial blockquote::before {
+  content: ''; display: block; width: 1.75rem; height: 1.75rem; margin-bottom: var(--sp-3);
+  background-color: var(--tbe-editorial-line);
+  -webkit-mask: var(--icon-quote) center / contain no-repeat; mask: var(--icon-quote) center / contain no-repeat;
+}
+.tbe-testimonial figcaption { display: flex; align-items: center; gap: var(--sp-3); margin-top: auto; }
+.tbe-testimonial-name { display: block; font-size: var(--fs-sm); font-weight: var(--fw-semibold); color: var(--tbe-text); }
+.tbe-testimonial-meta { display: block; font-size: var(--fs-xs); letter-spacing: var(--ls-small); color: var(--tbe-text-muted); }
+.tbe-testimonial figcaption .tbe-badge { margin-left: auto; }
+.tbe-testimonial.is-quiet { background: transparent; border: 0; padding: 0; }
+
+/* --- Trainer ------------------------------------------------------------- */
+.tbe-trainer { display: grid; grid-template-columns: minmax(0, 260px) 1fr; gap: var(--sp-6); align-items: center; }
+.tbe-trainer-photo { aspect-ratio: 4 / 5; border-radius: var(--tbe-radius-media); overflow: hidden; background: var(--tbe-decor); }
+.tbe-trainer-photo img { width: 100%; height: 100%; object-fit: cover; }
+.tbe-trainer-name { margin: 0; font-family: var(--font-display); font-size: var(--fs-h2); font-weight: var(--fw-medium); letter-spacing: var(--ls-h2); line-height: 1.15; }
+.tbe-trainer .tbe-role { margin: var(--sp-1) 0 0; }
+.tbe-trainer-facts { list-style: none; margin: var(--sp-5) 0 0; padding: 0; display: grid; gap: var(--sp-3); }
+.tbe-trainer-facts li { display: flex; align-items: flex-start; gap: var(--sp-3); font-size: var(--fs-sm); line-height: 1.5; }
+.tbe-trainer-facts .tbe-icon { color: var(--tbe-editorial); margin-top: 0.05em; }
+@media (max-width: 640px) { .tbe-trainer { grid-template-columns: 1fr; } .tbe-trainer-photo { max-width: 320px; } }
+
+/* --- Programa (module) ---------------------------------------------------- */
+.tbe-curriculum { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--tbe-border-subtle); counter-reset: tbe-modul; }
+.tbe-curriculum li {
+  display: grid; grid-template-columns: 2.75rem 1fr auto; align-items: center; gap: var(--sp-4);
+  padding: var(--sp-4) 0; border-bottom: 1px solid var(--tbe-border-subtle); counter-increment: tbe-modul;
+}
+.tbe-curriculum li::before {
+  content: counter(tbe-modul, decimal-leading-zero);
+  font-family: var(--font-display); font-size: var(--fs-h3); color: var(--tbe-editorial); font-variant-numeric: var(--num-tabular);
+}
+.tbe-curriculum-title { display: block; font-weight: var(--fw-semibold); }
+.tbe-curriculum-meta { display: block; font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+.tbe-curriculum-state { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--tbe-text-muted); white-space: nowrap; }
+a.tbe-curriculum-state { color: var(--tbe-action); text-decoration: none; min-height: 44px; }
+a.tbe-curriculum-state:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* --- Rând de încredere ----------------------------------------------------
+   Fapte scurte care scot frica dinainte de plată. Doar fapte adevărate. */
+.tbe-trust { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-3) var(--sp-6); }
+.tbe-trust li { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+.tbe-trust .tbe-icon { width: 1.15rem; height: 1.15rem; color: var(--tbe-editorial); }
+.tbe-trust.is-center { justify-content: center; }
+
+/* --- Cifre (dovadă socială) ---------------------------------------------- */
+.tbe-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--sp-5); }
+.tbe-stats > div { display: flex; flex-direction: column; gap: var(--sp-1); padding-left: var(--sp-5); border-left: 1px solid var(--tbe-border-subtle); }
+.tbe-stats-value { font-family: var(--font-display); font-size: var(--fs-h1); font-weight: var(--fw-medium); letter-spacing: var(--ls-h1); line-height: 1; font-variant-numeric: var(--num-tabular); color: var(--tbe-text); }
+.tbe-stats-label { font-size: var(--fs-sm); color: var(--tbe-text-muted); }
+
+/* --- Bara fixă de cumpărare (doar pe telefon) -----------------------------
+   Apare când butonul principal iese din ecran (adaugă .is-visible din JS, cu
+   IntersectionObserver; vezi docs/instalare.md). Urcă și coboară pe același drum. */
+.tbe-stickybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-sticky);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
+  padding: var(--sp-3) var(--gutter) calc(var(--sp-3) + env(safe-area-inset-bottom));
+  background: var(--tbe-glass); -webkit-backdrop-filter: var(--tbe-glass-blur); backdrop-filter: var(--tbe-glass-blur);
+  border-top: 1px solid var(--tbe-border-subtle);
+  box-shadow: 0 -12px 32px -20px rgba(42, 21, 32, 0.35);
+  transform: translateY(110%); visibility: hidden;
+  transition: transform var(--dur-spring-bounce) var(--ease-spring-bounce), visibility 0s linear var(--dur-spring-bounce);
+}
+.tbe-stickybar.is-visible { transform: none; visibility: visible; transition: transform var(--dur-spring-bounce) var(--ease-spring-bounce), visibility 0s; }
+.tbe-stickybar-info { min-width: 0; display: flex; flex-direction: column; }
+.tbe-stickybar-name { font-size: var(--fs-sm); font-weight: var(--fw-semibold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tbe-stickybar-price { font-family: var(--font-display); font-size: var(--fs-h4); font-variant-numeric: var(--num-tabular); }
+.tbe-stickybar .tbe-btn { flex: none; }
+@media (min-width: 900px) { .tbe-stickybar { display: none; } }
+.tbe-stickybar.is-demo { position: relative; transform: none; visibility: visible; display: flex; }   /* doar în documentație */
+
+/* --- Bandă de final -------------------------------------------------------
+   Ultimul ecran al paginii: promisiunea, încă o dată, și butonul. Se pune într-un
+   .tbe-section.is-inverse (negru-prună); butonul principal devine Magenta 50. */
+.tbe-cta-band { text-align: center; }
+.tbe-cta-band > :is(h2, .tbe-h1, .tbe-h2, .tbe-display) { max-width: 20ch; margin-inline: auto; }
+.tbe-cta-band .tbe-lead { margin-inline: auto; }
+.tbe-cta-band .tbe-btn-group { justify-content: center; }
+.tbe-cta-band .tbe-trust { justify-content: center; margin-top: var(--sp-6); }
+.tbe-section.is-inverse .tbe-trust li { color: var(--tbe-text-muted-on-inverse); }
+.tbe-section.is-inverse .tbe-trust .tbe-icon,
+.tbe-section.is-inverse .tbe-checklist li::after { color: var(--tbe-editorial-on-inverse); background-color: var(--tbe-editorial-on-inverse); }
+.tbe-section.is-inverse .tbe-checklist li::before { background: rgba(255, 255, 255, 0.1); }
+.tbe-section.is-inverse .tbe-checklist li.is-no { color: var(--tbe-text-muted-on-inverse); }
+.tbe-section.is-inverse .tbe-checklist li.is-no::after { background-color: var(--tbe-text-muted-on-inverse); }
+
+/* --- Întrebări frecvente: acordeoane într-o coloană de citit ---------------- */
+.tbe-faq { max-width: var(--measure); border-top: 1px solid var(--tbe-border-subtle); }
+.tbe-faq.is-center { margin-inline: auto; }
+
+/* ==========================================================================
    UTILITARE
    ========================================================================== */
 .tbe-sr-only {
@@ -857,3 +1389,34 @@ code, .tbe-code {
 .tbe-mt-0 { margin-top: 0; } .tbe-mb-0 { margin-bottom: 0; }
 .tbe-nowrap { white-space: nowrap; }
 .tbe-tabular { font-variant-numeric: var(--num-tabular); }
+
+/* ==========================================================================
+   MIȘCARE REDUSĂ — completare la tokens § 09
+   Tokenii opresc deja deplasările. Aici componentele care intră și ies din
+   ecran primesc echivalentul lor fără mișcare: o estompare scurtă, pe loc.
+   Apăsarea nu mai micșorează butonul; se estompează puțin.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .tbe-modal, .tbe-modal.is-sheet, .tbe-modal[open], .tbe-popover, .tbe-toast,
+  .tbe-tooltip::after, .tbe-stickybar { transform: none !important; }
+  .tbe-tooltip::after { translate: -50% 0; }
+
+  .tbe-modal, .tbe-popover {
+    transition-property: opacity, overlay, display !important;
+    transition-behavior: allow-discrete !important;
+  }
+  .tbe-modal::backdrop {
+    transition-property: background-color, overlay, display !important;
+    transition-behavior: allow-discrete !important;
+  }
+  .tbe-modal.is-sheet { opacity: 0; }
+  .tbe-modal.is-sheet[open] { opacity: 1; }
+  @starting-style { .tbe-modal.is-sheet[open] { opacity: 0; } }
+
+  .tbe-stickybar { opacity: 0; transition-property: opacity, visibility !important; transition-delay: 0s !important; }
+  .tbe-stickybar.is-visible { opacity: 1; }
+
+  .tbe-btn:active, .tbe-chip:active, .tbe-plan:active,
+  .tbe-card.is-interactive:hover, .tbe-card.is-interactive:active { transform: none; }
+  .tbe-btn:active, .tbe-chip:active { opacity: 0.82; }
+}

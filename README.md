@@ -1,7 +1,7 @@
 # Design System — The Beauty Education
 
-**v1.0 · 2026** · Sursa unică de adevăr pentru tot ce se vede: site, bannere, materiale promoționale, aplicații.
-Acoperă **The Beauty Education** și sub-brandul **Harta Coafezelor**.
+**v2.0 · octombrie 2026** · Sursa unică de adevăr pentru tot ce se vede: site, bannere, materiale promoționale, aplicații.
+Acoperă **The Beauty Education** și sub-brandul **Harta Coafezelor**. Ce s-a schimbat față de v1.0: [`docs/changelog.md`](docs/changelog.md).
 
 ---
 
@@ -13,12 +13,12 @@ Dă dublu-click pe `index.html`. Se deschide în browser, fără instalare, făr
 |---|---|
 | [`index.html`](index.html) | Intrarea. Prezentare generală + cum se instalează. |
 | [`brand-book.html`](brand-book.html) | Identitatea: esență, voce, culoare, tipografie, logo, formă, fotografie, semnale, Harta Coafezelor, guvernanță. |
-| [`ui.html`](ui.html) | Biblioteca de componente. 18 secțiuni, 80+ controale, fiecare cu exemplu viu și clasele de folosit. |
+| [`ui.html`](ui.html) | Biblioteca de componente. 21 de secțiuni, fiecare cu exemplu viu și clasele de folosit: controale, carduri, navigație, overlays, iconițe, mișcare și componentele paginilor care vând. |
 | [`bannere.html`](bannere.html) | Formate, zone sigure, 6 rețete de layout, variante cromatice, print, specificația **Revistei Coafezelor** (lunar, ~22 pagini), checklist. |
 
 În antetul fiecărei pagini ai două comutatoare:
-- **◐ Temă** — light / dark. Vezi cum arată totul pe fundal închis.
-- **Brand: TBE / Harta** — comută sub-brandul. Nici o clasă nu se schimbă, doar tokenii.
+- **Temă**: light / dark. Vezi cum arată totul pe fundal închis.
+- **Brand: TBE / Harta**: comută sub-brandul. Nici o clasă nu se schimbă, doar tokenii.
 
 > **De reținut:** paginile de documentație stau pe **alb**, deliberat — o suprafață neutră pe care culorile brandului se judecă corect. Fundalul **site-ului TBE** rămâne **crem `#FAF4EF`** (`--tbe-bg`), pentru că pe crem cardurile albe ies în relief. Diferența e vizibilă în [`ui.html` § Carduri → „Pe fundalul real de brand"](ui.html).
 
@@ -45,17 +45,20 @@ design-system/
 │
 ├── components.css          ← toate componentele
 ├── site.css                ← doar „ambalajul" paginilor de documentație
-├── ds.js                   ← doar comutatoarele de temă/brand
+├── ds.js                   ← doar comutatoarele și demo-urile din documentație
 │
 ├── assets/
 │   ├── fonturi/            ← Fraunces + Inter (.woff2, subseturi latin / latin-ext) + Source Code Pro + licența OFL
-│   └── logo/               ← logo-urile în .svg și .png (color / black / white)
+│   ├── logo/               ← logo-urile în .svg și .png (color / black / white)
+│   ├── icons/              ← 59 de iconițe .svg (Lucide 1.5px + niveluri) + sprite.svg + licența ISC
+│   └── foto/               ← fotografii reale pentru paginile de documentație
 │
 └── docs/
     ├── instalare.md        ← cum îl pui în WordPress, Shopify, Lovable
     ├── culoare.md          ← paleta + accesibilitate, în text
     ├── tipografie.md       ← scara tipografică, în text
-    └── decizii.md          ← ce am decis și de ce
+    ├── decizii.md          ← ce am decis și de ce
+    └── changelog.md        ← ce s-a schimbat de la o versiune la alta
 ```
 
 ---
@@ -73,6 +76,12 @@ Apoi scrii HTML cu clasele din `ui.html`:
 
 ```html
 <button class="tbe-btn is-primary is-lg">Intră în comunitate</button>
+```
+
+Iconițele vin tot din `components.css`:
+
+```html
+<span class="tbe-icon" data-icon="check" aria-hidden="true"></span>
 ```
 
 Pentru Harta Coafezelor, un singur atribut pe `<body>`:

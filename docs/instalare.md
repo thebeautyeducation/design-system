@@ -139,7 +139,7 @@ Apoi scrii `bg-action`, `text-muted`, `rounded-card` — și dark mode + sub-bra
 
 Când ceri o pagină nouă, dă-i contextul:
 
-> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Fraunces (cuvântul accentuat în italic, prună `var(--tbe-editorial)`), text Inter, cifre aliniate (`lining-nums`), kickere Source Code Pro majuscule cu tracking 0.14em, în prună. Fundalurile închise sunt negru-prună `var(--tbe-surface-inverse)`, nu negru. Logo-ul are mereu o singură culoare. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`.
+> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Fraunces (cuvântul accentuat în italic, prună `var(--tbe-editorial)`), text Inter, cifre aliniate (`lining-nums`), kickere Source Code Pro majuscule cu tracking 0.14em, în prună. Fundalurile închise sunt negru-prună `var(--tbe-surface-inverse)`, nu negru. Logo-ul are mereu o singură culoare. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`. Iconițe: doar `lucide-react`, cu `strokeWidth={1.5}`, în culoarea textului; fără emoji. Butoanele se strâng la `scale(0.97)` la apăsare; ferestrele și foile intră și ies pe același drum, cu `var(--ease-spring)`.
 
 ---
 
@@ -183,10 +183,60 @@ document.documentElement.setAttribute('data-theme', 'dark');
 
 ---
 
-## 7 · Verificare finală
+## 7 · Iconițe
+
+Un singur set: **Lucide**, linie de 1.5px (licență ISC, în `assets/icons/LICENSE-lucide.txt`). Trei feluri de a le folosi, după platformă:
+
+**a) În HTML, cu clasa din `components.css`** (site, WordPress, Shopify). Nu ai nevoie de niciun fișier în plus:
+
+```html
+<span class="tbe-icon" data-icon="check" aria-hidden="true"></span>
+<button class="tbe-btn is-secondary is-icon" aria-label="Caută"><span class="tbe-icon" data-icon="search" aria-hidden="true"></span></button>
+```
+
+Iconița ia culoarea și mărimea textului (1.25em). Mărimi: `.is-sm`, `.is-lg`. Lista completă, cu numele: [`ui.html` § 19](../ui.html#iconite).
+
+**b) Ca fișiere SVG** (Figma, Canva, bannere, e-mail): `assets/icons/nume.svg`. Sau tot setul într-un singur fișier, `assets/icons/sprite.svg`:
+
+```html
+<svg width="24" height="24" aria-hidden="true"><use href="assets/icons/sprite.svg#check"/></svg>
+```
+
+**c) În React (Lovable)**: pachetul `lucide-react`, cu linia la 1.5px:
+
+```jsx
+import { Check } from 'lucide-react';
+<Check size={20} strokeWidth={1.5} aria-hidden="true" />
+```
+
+Simbolurile de nivel (`tier-bronze`, `tier-silver`, `tier-gold`, `tier-diamond`) și steaua plină (`star-fill`) nu sunt în Lucide: se iau din `assets/icons/`.
+
+---
+
+## 8 · Bara fixă de cumpărare (telefon)
+
+`.tbe-stickybar` apare când butonul principal al paginii iese din ecran. CSS-ul face animația; JavaScript-ul doar adaugă clasa:
+
+```html
+<div class="tbe-stickybar" id="bara">…</div>
+<script>
+  const cta = document.querySelector('#cumpara');        // butonul principal din pagină
+  const bara = document.querySelector('#bara');
+  new IntersectionObserver(([e]) => bara.classList.toggle('is-visible', !e.isIntersecting && e.boundingClientRect.top < 0))
+    .observe(cta);
+</script>
+```
+
+Bara nu apare pe ecrane de peste 900px. Fereastra modală, foaia de jos și meniul nu au nevoie de JavaScript pentru animație: se folosesc `<dialog>` cu `showModal()` și `<div popover>` cu `popovertarget`.
+
+---
+
+## 9 · Verificare finală
 
 - [ ] Fonturile se încarcă (titlurile arată serif, nu Times New Roman)
 - [ ] `tokens.css` e încărcat înaintea lui `components.css`
 - [ ] Un buton `.tbe-btn.is-primary` e magenta
 - [ ] Comutarea în dark mode nu sparge nimic
 - [ ] Focus-ul se vede la navigarea cu Tab
+- [ ] Iconițele apar (o `.tbe-icon` goală înseamnă că `components.css` nu e încărcat sau numele e greșit)
+- [ ] Cu „Reducere mișcare” pornit în telefon, nimic nu mai alunecă

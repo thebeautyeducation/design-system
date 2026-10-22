@@ -232,10 +232,27 @@ Soluția: un accent și un negru **din aceeași nuanță cu magenta**. Prună 70
 
 ---
 
+## 17 · v2.0: iconițe, mișcare, tipografie pe mărimi, vânzare (octombrie 2026)
+
+Auditul din 22 octombrie 2026 a pus o întrebare: arată sistemul modern, premium, curat, și vinde? Răspunsul sincer a fost „curat da, restul nu încă". Cinci goluri, cinci decizii, aprobate de Marius Dobre.
+
+**1. Iconițe: un singur set, Lucide la 1.5px.** Înainte nu exista niciun set. Componentele foloseau caractere text (⌕, 🔒, ● ◈ ★ ◆, „+", „/"), care arată diferit pe fiecare telefon și nu se aliniază cu textul. Lucide are linia și capetele rotunjite care se potrivesc cu Inter, e gratuit (licență ISC) și are versiune pentru React (`lucide-react`), deci aplicațiile din Lovable pot folosi exact aceleași desene. Linia e coborâtă de la 2px la 1.5px ca să stea lângă Inter fără să pară îngroșată. Simbolurile de nivel sunt desenate de noi, pline, ca să se vadă de la distanță.
+
+**2. Mișcare pe arc.** O curbă clasică (`ease-out`) are o durată fixă: dacă închizi o fereastră la jumătatea deschiderii, sare. Un arc pornește mereu din poziția curentă. Am ales două: unul fără depășire, pentru tot ce se mișcă, și unul cu o mică depășire, doar pentru ce vine din afara ecranului (foaia de jos, bara fixă), unde depășirea spune „a ajuns". Butoanele răspund la apăsare, nu la eliberare: întârzierea dintre deget și reacție e primul lucru care face o aplicație să pară ieftină.
+
+**3. Tracking pe mărimi.** O singură valoare de spațiere între litere e greșită undeva: la 72px literele par depărtate, la 12px par înghesuite. Titlurile mari se strâng, textul mic se lărgește puțin, butoanele rămân la 0 (spațierea pe butoane în litere mici arăta a șablon). Lead-ul trece de la 300 la 400: 300 se rupe pe ecranele obișnuite.
+
+**4. Kickerele doar unde spun ceva.** Un supratitlu deasupra fiecărui titlu („Fișier", „Pe crem", „Confirmare") nu mai e o informație, e un tic. Rămân unde dau context real: categoria unui curs, numărul rubricii, pasul unui traseu.
+
+**5. Stratul de vânzare.** Sistemul avea tot ce trebuie pentru o aplicație și nimic pentru o pagină care vinde un curs. Acum are prețul, alegerea planului, caseta de cumpărare, lista de beneficii, testimonialul, trainerul, programa, rândul de încredere, bara fixă de pe telefon și banda de final. Reguli: magenta doar pe butoane; prețul în negru (nu se apasă); fără numărători inverse, fără „ultimele locuri", fără testimoniale inventate.
+
+**Ce nu s-a schimbat:** culorile, fonturile, raza colțurilor, numele claselor. Clasele vechi funcționează. Lista completă: [`changelog.md`](changelog.md).
+
+---
+
 ## Ce NU am decis (rămâne pentru tine)
 
-- **Iconițele.** Sistemul nu include un set de iconițe. Recomand un set cu linie subțire (1.5px), colțuri rotunjite — Lucide sau Phosphor Light se potrivesc cu Inter. De stabilit înainte să înceapă designul site-ului.
 - **Ilustrațiile.** Dacă vrei ilustrații (stări goale, onboarding), au nevoie de un stil propriu definit.
-- **Animațiile de pagină.** Tokenii de durată și easing există; coregrafia (ce intră când, în ce ordine) nu e definită.
+- **Coregrafia paginilor.** Componentele știu acum să intre și să iasă; ordinea în care apar secțiunile unei pagini la derulare nu e definită și, deocamdată, nu e nevoie.
 - **Beautifier.** Nu e inclus — mi-ai cerut TBE și Harta. Ecommerce-ul are nevoi proprii (carduri de produs, variante, coș, checkout). Se adaugă ca al treilea `data-brand` când vrei.
 - **Rootine Plus.** La fel — e orientat spre clientul final, nu spre coafeză, deci probabil are nevoie de o temperatură vizuală mai caldă și mai puțin „profesională".
