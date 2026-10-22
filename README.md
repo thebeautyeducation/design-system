@@ -102,8 +102,8 @@ De ce contează diferența: `--tbe-action` se schimbă singur în dark mode și 
 
 1. **Nici un HEX în cod.** Orice culoare vine din `var(--tbe-…)`. Nu există în tokens → nu se folosește.
 2. **Magenta înseamnă acțiune.** Cere click → magenta. Nu cere click → nu e magenta. Un singur buton primar per ecran. Singura excepție: butoanele de contact de pe Hartă, care poartă culoarea platformei externe către care duc.
-3. **Mauve înseamnă voce editorială.** Tot ce e expresiv dar nu se dă click: supratitluri, citate, roluri, etichete, linii decorative. Mauve există tocmai ca magenta să rămână curat al acțiunii.
-4. **60 / 30 / 10.** 60% neutre, 30% magenta, 10% mauve+nude. Asta face diferența între premium și țipător.
+3. **Prună înseamnă voce editorială.** Tot ce e expresiv dar nu se dă click: cuvântul-accent din titluri, supratitluri, citate, roluri, etichete, linii decorative. Prună (din aceeași familie cu magenta, dar mai stinsă) există tocmai ca magenta să rămână curat al acțiunii. Varianta aproape neagră, negru-prună `#2A1520`, e fundalul închis.
+4. **60 / 30 / 10.** 60% neutre, 30% magenta, 10% prună, mauve și nude. Asta face diferența între premium și țipător.
 5. **Contrast minim 4.5:1** pentru text normal, 3:1 pentru text mare. Mauve `#A98192` și gri cald `#9E9086` arată bine dar **nu se citesc** — pentru text folosește `--tbe-editorial` și `--tbe-text-muted`.
 
 ---

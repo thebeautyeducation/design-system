@@ -16,12 +16,12 @@
   --ds-panel: #FAF8F6;   /* panourile de demo — abia perceptibil, ca albul cardurilor să iasă */
 }
 [data-theme="dark"] {
-  --ds-page:  var(--c-neutral-950);
+  --ds-page:  var(--c-pruna-950);
   --ds-panel: var(--tbe-surface);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ds-page:  var(--c-neutral-950);
+    --ds-page:  var(--c-pruna-950);
     --ds-panel: var(--tbe-surface);
   }
 }
@@ -126,7 +126,7 @@
 .ds-demo.is-stack { flex-direction: column; align-items: stretch; }
 .ds-demo.is-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; }
 .ds-demo.is-sunk { background: var(--tbe-bg-alt); }
-.ds-demo.is-dark { background: var(--c-neutral-900); }
+.ds-demo.is-dark { background: var(--c-pruna-900); }
 /* Demo-urile care arată componente pe fundalul REAL de brand (crem) */
 .ds-demo.is-brand-bg { background: var(--c-neutral-50); }
 

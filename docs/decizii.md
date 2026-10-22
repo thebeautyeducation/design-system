@@ -2,7 +2,7 @@
 
 Mini Brand Book-ul definește 3 culori de brand, 5 neutre, 3 fonturi și o scară tipografică. Un design system funcțional are nevoie de mai mult: stări de hover, dark mode, semnale, sub-brand. Mai jos e fiecare decizie pe care am luat-o, ca să știi ce e oficial și ce e adăugat — și ca să poți schimba ușor ce nu-ți place.
 
-**Nimic din brand book nu s-a schimbat.** Toate culorile marcate cu ★ sunt exact cele validate.
+**Nimic din brand book nu s-a schimbat.** Toate culorile marcate cu ★ din brand book sunt exact cele validate. Singurele adăugate ulterior ca oficiale sunt prună 700 și negru-prună 900 (§ 16, octombrie 2026).
 
 ---
 
@@ -32,11 +32,11 @@ Mini Brand Book-ul definește 3 culori de brand, 5 neutre, 3 fonturi și o scar�
 
 **Problema:** gri cald `#9E9086` are 3.1:1 contrast pe alb. Sub pragul de 4.5:1 pentru text normal. Textul secundar scris cu el nu se citește de o parte din utilizatori — și pe telefon, în lumină de zi, de nimeni.
 
-**Soluția:** o treaptă mai închisă din aceeași familie caldă, `#7A6A5E`, la 4.8:1. Vizual e aproape identică; funcțional e diferența dintre lizibil și nu.
+**Soluția:** o treaptă mai închisă din aceeași familie caldă, `#7A6A5E`, la 4.8:1 (închisă din nou în octombrie 2026 la `#6B5C51`, ca să treacă și pe benzile bej și roz — § 16). Vizual e aproape identică; funcțional e diferența dintre lizibil și nu.
 
 **Gri cald rămâne oficial** — doar că îl folosim pentru ce e făcut: borduri, iconițe decorative, blocuri de culoare.
 
-Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pentru text mauve există `#6E5361`.
+Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pentru text mauve exista `#6E5361`. Din octombrie 2026 textul editorial e prună `#6B2A4A` (vezi § 16).
 
 ---
 
@@ -46,11 +46,11 @@ Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pe
 
 **De ce:** un site cu abonamente, teste și niveluri blocate are nevoie să comunice stări. Verdele și roșul standard de browser (`#008000`, `#FF0000`) sunt reci și saturate — lângă crem și nude arată ca o eroare de design.
 
-**Info-ul e mauve adânc** `#6E5361`, ca să rămână în familie.
+**Info-ul e prună** `#6B2A4A` (inițial mauve adânc `#6E5361`; schimbat în octombrie 2026, § 16), ca să rămână în familie.
 
 ---
 
-## 5 · Verde Hartă `#2E6F5E` — singura culoare nouă din sistem
+## 5 · Verde Hartă `#2E6F5E` — prima culoare nouă din sistem (a doua e prună, § 16)
 
 **Ce am făcut:** am adăugat o culoare pentru Harta Coafezelor.
 
@@ -125,6 +125,8 @@ Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pe
 
 ## 12 · Mauve = vocea editorială
 
+> **Actualizat în octombrie 2026:** rolul descris mai jos a rămas, dar culoarea lui s-a schimbat din mauve 700 în prună 700. Vezi § 16.
+
 **Problema observată:** după prima versiune, mauve-ul aproape nu se folosea nicăieri. Era în paletă ca „accent secundar", dar nimic concret nu i se atribuia — deci nu apărea.
 
 **Cauza reală:** magenta făcea două munci deodată. Era și culoarea acțiunii (butoane, linkuri), și culoarea decorului (supratitluri, borduri de citat, etichete). Asta slăbea regula centrală: dacă supratitlul e magenta și butonul e magenta, magenta nu mai *înseamnă* nimic.
@@ -192,6 +194,40 @@ Așa Gold poate fi `#F0B72A` în glifă și `#8A6300` în text (5.4:1). Arată v
 **Performanță:** fonturile sunt în `.woff2`, împărțite pe subseturile `latin` și `latin-ext`. O pagină în română descarcă ~330 KB pentru toate grosimile, față de ~1,3 MB cu fonturile vechi (Cormorant singur avea 1,2 MB).
 
 **Ce nu s-a schimbat:** mărimile, line-height-urile și tracking-ul din scară, culorile, regulile de kicker. Componentele citesc fonturile din tokeni, deci au trecut automat pe noile familii.
+
+---
+
+## 16 · Prună: vocea editorială și fundalul închis (octombrie 2026)
+
+**Ce am făcut:** am adăugat familia **Prună** (`--c-pruna-50` … `--c-pruna-950`) și i-am dat două roluri:
+
+| Rol | Înainte | Acum |
+|---|---|---|
+| Voce editorială: cuvântul-accent din titluri, kickere, citate, roluri, etichete (`--tbe-editorial`) | mauve 700 `#6E5361` | **prună 700 `#6B2A4A`** |
+| Fundal închis: blocuri inverse, footer, story, coperți, toast, tooltip (`--tbe-surface-inverse`) | negru moale `#2C2521` | **negru-prună `#2A1520`** |
+| Fundalurile din dark mode | maro (`#1A1513`, `#241E1B`) | **prună închis** (`#211018`, `#2A1A21`) |
+| Accent pe fundal închis | mauve 200 | **Magenta 200** `#E9B6CC` (9.8:1) |
+| Text secundar pe fundal închis | bej `#B9A99C` / `#C0B1A5` | **Prună 200** `#D9C2CB` (10.2:1) |
+| Cuvântul-accent din titluri | culoarea titlului (site-ul îl făcea magenta) | **prună** — magenta înseamnă „se dă click" |
+| Info | mauve 700 | prună 700 |
+
+**De ce:** am testat pe pânză o paletă de inspirație (Wine, Blush, Cocoa) față de paleta noastră, pe 12 machete reale (Account, carduri, social, revistă). Paleta străină pierdea la produs și la brand — Wine lângă magenta arăta ca două roșii care nu se potrivesc, iar logo-ul ar fi trebuit mutat. Dar a scos la iveală două slăbiciuni ale paletei noastre:
+- **Mauve 700 arăta gri.** Cuvântul-accent din titluri („5 *rezolvări*") nu ieșea în evidență, iar etichetele mauve păreau dezactivate.
+- **Negrul moale e maro.** Pe story-uri și coperți, maro cu roz arăta tern.
+
+Soluția: un accent și un negru **din aceeași nuanță cu magenta**. Prună 700 e la 9° de magenta pe roata culorilor și are jumătate din saturația ei — se citește ca accent puternic (10.2:1 pe alb), dar nu ca link. Negru-prună face ca roz-ul și magenta de pe fundalul închis să pară din aceeași familie. Am comparat trei variante (prună, prună intensă, doar magenta existentă); a câștigat prună, aleasă de Marius Dobre.
+
+**Corecturi de contrast adoptate odată cu prună:**
+- **Textul secundar s-a închis puțin:** `--c-neutral-600` trece de la `#7A6A5E` la `#6B5C51`. Cel vechi trecea pe alb și crem, dar pica pe benzile bej (3.9:1) și roz (4.0:1) — și pe site, și în documentație. Cel nou: 5.9:1 pe crem, 4.9:1 pe bej și roz.
+- `--tbe-text-muted-strong` (`#5A4D44`, 7.5:1 pe crem) — text secundar mic pe fundaluri colorate, unde vrei marjă mai mare.
+- `--tbe-action-muted` (Magenta 400, 4.2:1 pe alb) — progres secundar, cercul unui pas neînceput.
+- Magenta 50 nu se mai folosește ca bandă sau etichetă pe alb (1.1:1); pe alb, Magenta 100.
+- Pasul viitor din `.tbe-steps` și steaua goală din `.tbe-rating` folosesc `--tbe-text-subtle` (3.1:1) în loc de bordură (1.9:1).
+- Elementul activ dintr-un meniu închis e o pastilă Magenta 200, nu doar text mai gros.
+
+**Ce nu s-a schimbat:** magenta `#A71257` (acțiune, logo), Magenta 700 ca suprafață de brand, negrul moale pentru text, crem, nude, culorile nivelurilor de loialitate, regula 60/30/10. Mauve rămâne în paletă ca accent decorativ. Clasa `.tbe-card.is-mauve` funcționează în continuare (alias pentru noul `.is-editorial`).
+
+**Logo-ul:** simbolul și textul au mereu aceeași culoare. Logo-ul nu e niciodată bicolor.
 
 ---
 

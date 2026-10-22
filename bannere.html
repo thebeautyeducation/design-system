@@ -37,15 +37,15 @@
 
   /* Variante cromatice */
   .bn.v-crem    { background: var(--c-neutral-50); }
-  .bn.v-crem    .k { color: var(--c-magenta-500); } .bn.v-crem .c { background: var(--c-magenta-500); color: #fff; }
+  .bn.v-crem    .k { color: var(--c-pruna-700); } .bn.v-crem .c { background: var(--c-magenta-500); color: #fff; }
   .bn.v-magenta { background: var(--c-magenta-500); color: #fff; }
   .bn.v-magenta .k { color: var(--c-nude-200); } .bn.v-magenta .s { opacity: 0.85; } .bn.v-magenta .c { background: #fff; color: var(--c-magenta-500); }
   .bn.v-nude    { background: var(--c-nude-200); }
-  .bn.v-nude    .k { color: var(--c-magenta-500); } .bn.v-nude .c { background: var(--c-magenta-500); color: #fff; }
-  .bn.v-inchis  { background: var(--c-neutral-900); color: var(--c-neutral-50); }
-  .bn.v-inchis  .k { color: var(--c-magenta-light); } .bn.v-inchis .c { background: var(--c-magenta-light); color: var(--c-neutral-900); }
+  .bn.v-nude    .k { color: var(--c-pruna-700); } .bn.v-nude .c { background: var(--c-magenta-500); color: #fff; }
+  .bn.v-inchis  { background: var(--c-pruna-900); color: var(--c-neutral-50); }
+  .bn.v-inchis  .k { color: var(--c-magenta-200); } .bn.v-inchis .s { color: var(--c-pruna-200); opacity: 1; } .bn.v-inchis .c { background: var(--c-magenta-50); color: var(--c-magenta-700); }
   .bn.v-foto    { background: linear-gradient(135deg, #DCC4B4, #A98192 55%, #8E6879); color: #fff; }
-  .bn.v-foto::before { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(44,37,33,.78) 0%, rgba(44,37,33,.25) 50%, rgba(44,37,33,0) 78%); }
+  .bn.v-foto::before { content:''; position:absolute; inset:0; background: linear-gradient(to top, rgba(42,21,32,.78) 0%, rgba(42,21,32,.25) 50%, rgba(42,21,32,0) 78%); }
   .bn.v-foto > * { position: relative; z-index: 1; }
   .bn.v-foto .k { color: var(--c-nude-200); } .bn.v-foto .c { background: var(--c-magenta-500); color: #fff; }
 
@@ -146,8 +146,8 @@
             <thead><tr><th>Element</th><th>Font</th><th>Regulă</th></tr></thead>
             <tbody>
               <tr><td><b>Logo</b></td><td class="tbe-muted">—</td><td class="tbe-muted">Colț stânga-sus. Mereu prezent.</td></tr>
-              <tr><td><b>Kicker</b></td><td class="tbe-muted">Source Code Pro</td><td class="tbe-muted">Majuscule, tracking larg. Categoria sau contextul.</td></tr>
-              <tr><td><b>Titlu</b></td><td class="tbe-muted">Fraunces 500 (accent: italic 400)</td><td class="tbe-muted">Max. 5 cuvinte. Elementul cel mai mare din compoziție.</td></tr>
+              <tr><td><b>Kicker</b></td><td class="tbe-muted">Source Code Pro</td><td class="tbe-muted">Majuscule, tracking larg, prună (pe închis: Magenta 200). Categoria sau contextul.</td></tr>
+              <tr><td><b>Titlu</b></td><td class="tbe-muted">Fraunces 500 (accent: italic 400, prună)</td><td class="tbe-muted">Max. 5 cuvinte. Elementul cel mai mare din compoziție.</td></tr>
               <tr><td><b>Suport</b></td><td class="tbe-muted">Inter 300</td><td class="tbe-muted">O linie. Data, prețul, locul — faptul concret.</td></tr>
               <tr><td><b>CTA</b></td><td class="tbe-muted">Inter 600</td><td class="tbe-muted">Un verb. Magenta plin sau alb pe magenta.</td></tr>
             </tbody>
@@ -197,7 +197,7 @@
       <div class="ds-sub"><h3 class="tbe-h4">D · Cifră / dovadă socială</h3><p>O singură cifră, uriașă. Restul e context.</p></div>
       <div class="ds-demo">
         <div class="bn-wrap"><div class="bn bn-sq v-crem" style="justify-content:center;text-align:center;align-items:center"><span class="mark">TBE</span><span class="k">Comunitatea</span><h3 class="t" style="font-size:64px;color:var(--c-magenta-500)">3.618</h3><p class="s">coafeze active, într-un singur loc</p></div><span class="bn-cap">1080 × 1080</span></div>
-        <div class="bn-wrap"><div class="bn bn-sq v-inchis" style="justify-content:center;text-align:center;align-items:center"><span class="mark">TBE</span><span class="k">Educație</span><h3 class="t" style="font-size:64px;color:var(--c-magenta-light)">400</h3><p class="s">de ore de tutoriale în abonament</p></div><span class="bn-cap">variantă închisă</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-inchis" style="justify-content:center;text-align:center;align-items:center"><span class="mark">TBE</span><span class="k">Educație</span><h3 class="t" style="font-size:64px;color:var(--c-magenta-200)">400</h3><p class="s">de ore de tutoriale în abonament</p></div><span class="bn-cap">variantă închisă</span></div>
       </div>
 
       <div class="ds-sub"><h3 class="tbe-h4">E · Hero de site</h3></div>
@@ -219,7 +219,7 @@
         <div class="bn-wrap"><div class="bn bn-sq v-crem"><span class="mark">TBE</span><span class="k">Crem</span><h3 class="t">Implicit</h3><p class="s">Cel mai des folosit</p><span class="c">Acțiune</span></div><span class="bn-cap">#FAF4EF · editorial, calm</span></div>
         <div class="bn-wrap"><div class="bn bn-sq v-nude"><span class="mark">TBE</span><span class="k">Nude</span><h3 class="t">Cald</h3><p class="s">Conținut de brand</p><span class="c">Acțiune</span></div><span class="bn-cap">#DCC4B4 · blând, tactil</span></div>
         <div class="bn-wrap"><div class="bn bn-sq v-magenta"><span class="mark">TBE</span><span class="k">Magenta</span><h3 class="t">Impact</h3><p class="s">Oferte, lansări</p><span class="c">Acțiune</span></div><span class="bn-cap">#A71257 · max. 30% din campanie</span></div>
-        <div class="bn-wrap"><div class="bn bn-sq v-inchis"><span class="mark">TBE</span><span class="k">Închis</span><h3 class="t">Premium</h3><p class="s">Mastery, evenimente</p><span class="c">Acțiune</span></div><span class="bn-cap">#2C2521 · rar, pentru gravitate</span></div>
+        <div class="bn-wrap"><div class="bn bn-sq v-inchis"><span class="mark">TBE</span><span class="k">Închis</span><h3 class="t">Premium</h3><p class="s">Mastery, evenimente</p><span class="c">Acțiune</span></div><span class="bn-cap">#2A1520 negru-prună · rar, pentru gravitate</span></div>
         <div class="bn-wrap"><div class="bn bn-sq v-foto"><span class="mark">TBE</span><span class="k">Foto</span><h3 class="t">Real</h3><p class="s">Cursuri, rezultate</p><span class="c">Acțiune</span></div><span class="bn-cap">foto + scrim obligatoriu</span></div>
       </div>
     </section>
@@ -257,7 +257,8 @@
           <h3 class="tbe-h4">Ce variantă, unde</h3>
           <ul class="tbe-small tbe-muted tbe-mb-0">
             <li>Fundal <b>crem / nude / alb</b> → logo <b>color</b> sau <b>negru</b>.</li>
-            <li>Fundal <b>magenta / închis / foto</b> → logo <b>alb</b>.</li>
+            <li>Fundal <b>magenta / închis (negru-prună) / foto</b> → logo <b>alb</b>.</li>
+            <li>Simbolul și textul au <b>mereu aceeași culoare</b> — logo-ul nu e niciodată bicolor.</li>
             <li>Format <b>lat</b> (hero, leaderboard, OG) → orizontal.</li>
             <li>Format <b>pătrat / vertical</b> → vertical sau iconiță.</li>
             <li>Sub 200px lățime → doar iconița.</li>
@@ -275,7 +276,7 @@
         </div>
       </div>
       <div class="tbe-callout is-danger">
-        <div><strong>Niciodată</strong>Logo rotit · deformat · recolorat · cu umbră sau contur · cu text lipit de el · pe fundal cu contrast sub 3:1.</div>
+        <div><strong>Niciodată</strong>Logo rotit · deformat · recolorat · bicolor (simbolul în altă culoare decât textul) · cu umbră sau contur · cu text lipit de el · pe fundal cu contrast sub 3:1.</div>
       </div>
     </section>
 
@@ -333,24 +334,24 @@
       <div class="ds-sub"><h3 class="tbe-h4">Arhitectura unei pagini</h3><p>Aceeași ierarhie ca pe site — numărul rubricii înlocuiește kickerul.</p></div>
       <div class="ds-demo">
         <div class="bn bn-wrap" style="width:100%;max-width:230px;aspect-ratio:210/297;background:var(--c-neutral-50);padding:7%;justify-content:flex-start;color:var(--c-neutral-900)">
-          <span class="k" style="color:#6E5361">Rubrica 06</span>
+          <span class="k" style="color:var(--c-pruna-700)">Rubrica 06</span>
           <h3 class="t" style="font-size:22px;margin-bottom:8px">Moodboardul<br>Lunii</h3>
-          <hr style="border:0;height:2px;width:40px;background:#C9A6B4;margin:0 0 10px">
+          <hr style="border:0;height:2px;width:40px;background:var(--c-pruna-300);margin:0 0 10px">
           <p class="s" style="font-size:9px;margin-bottom:auto">Textul introductiv, Inter 300, două-trei rânduri maximum.</p>
           <div style="display:flex;align-items:center;gap:6px;margin-top:10px">
             <div style="width:26px;height:26px;background:var(--c-neutral-900);border-radius:3px;flex:none"></div>
-            <span style="font-family:var(--font-mono);font-size:7px;color:#6E5361;letter-spacing:.06em">SCANEAZĂ · 45 MIN · MEDIU</span>
+            <span style="font-family:var(--font-mono);font-size:7px;color:var(--c-pruna-700);letter-spacing:.06em">SCANEAZĂ · 45 MIN · MEDIU</span>
           </div>
         </div>
         <div style="flex:1;min-width:250px">
           <ol class="tbe-small tbe-muted">
-            <li><b>Numărul rubricii</b> — Source Code Pro, mauve, sus. Ține locul kickerului.</li>
+            <li><b>Numărul rubricii</b> — Source Code Pro, prună, sus. Ține locul kickerului.</li>
             <li><b>Titlul rubricii</b> — Fraunces 500, rupt manual la sens.</li>
-            <li><b>Linie mauve scurtă</b> (<code>.tbe-rule.is-short</code>) — separă titlul de conținut.</li>
+            <li><b>Linie prună scurtă</b> (<code>.tbe-rule.is-short</code>) — separă titlul de conținut.</li>
             <li><b>Corpul</b> — Inter 300/400, minim 10pt la A4; bold 700 doar pe fragmente.</li>
             <li><b>Piciorul de pagină</b> — cod QR + metadate în mono („45 min · dificultate medie").</li>
           </ol>
-          <p class="ds-note">Magenta apare pe pagină <b>doar</b> unde e o acțiune: linkul, codul QR, butonul de „citește mai mult". Restul e mauve și neutre.</p>
+          <p class="ds-note">Magenta apare pe pagină <b>doar</b> unde e o acțiune: linkul, codul QR, butonul de „citește mai mult". Restul e prună și neutre.</p>
         </div>
       </div>
 

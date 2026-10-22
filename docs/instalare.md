@@ -47,7 +47,7 @@ add_action('wp_enqueue_scripts', function () {
 
 Constructoarele vizuale au propriile setări de culoare. Ca să nu se bată cap în cap:
 
-1. În setările globale de culoare ale constructorului, introdu **manual** culorile din paletă (`#A71257`, `#A98192`, `#DCC4B4`, `#FAF4EF`, `#EDDDD3`, `#9E9086`, `#2C2521`).
+1. În setările globale de culoare ale constructorului, introdu **manual** culorile din paletă (`#A71257` magenta, `#6B2A4A` prună, `#2A1520` negru-prună, `#A98192`, `#DCC4B4`, `#FAF4EF`, `#EDDDD3`, `#9E9086`, `#2C2521` negru moale pentru text).
 2. În setările globale de tipografie, setează **Fraunces** pentru titluri, **Inter** pentru text (ambele sunt și în lista de Google Fonts a constructorului, dacă nu vrei fișiere locale).
 3. Folosește clasele `.tbe-*` pentru butoane și carduri în loc de stilurile implicite ale constructorului.
 
@@ -139,7 +139,7 @@ Apoi scrii `bg-action`, `text-muted`, `rounded-card` — și dark mode + sub-bra
 
 Când ceri o pagină nouă, dă-i contextul:
 
-> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Fraunces (cuvântul accentuat în italic), text Inter, cifre aliniate (`lining-nums`), kickere Source Code Pro majuscule cu tracking 0.14em. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`.
+> Folosește exclusiv tokenii CSS din `index.css` (`--tbe-*`). Nu scrie HEX-uri. Titluri Fraunces (cuvântul accentuat în italic, prună `var(--tbe-editorial)`), text Inter, cifre aliniate (`lining-nums`), kickere Source Code Pro majuscule cu tracking 0.14em, în prună. Fundalurile închise sunt negru-prună `var(--tbe-surface-inverse)`, nu negru. Logo-ul are mereu o singură culoare. Butonul principal e magenta plin, unul singur per ecran. Fundalul paginii e crem `var(--tbe-bg)`, cardurile albe cu radius `var(--tbe-radius-card)`.
 
 ---
 
