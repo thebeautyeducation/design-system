@@ -222,7 +222,8 @@ Soluția: un accent și un negru **din aceeași nuanță cu magenta**. Prună 70
 - `--tbe-text-muted-strong` (`#5A4D44`, 7.5:1 pe crem) — text secundar mic pe fundaluri colorate, unde vrei marjă mai mare.
 - `--tbe-action-muted` (Magenta 400, 4.2:1 pe alb) — progres secundar, cercul unui pas neînceput.
 - Magenta 50 nu se mai folosește ca bandă sau etichetă pe alb (1.1:1); pe alb, Magenta 100.
-- Pasul viitor din `.tbe-steps` și steaua goală din `.tbe-rating` folosesc `--tbe-text-subtle` (3.1:1) în loc de bordură (1.9:1).
+- Pasul viitor din `.tbe-steps`, steaua goală din `.tbe-rating` și săgeata din `.tbe-path` folosesc `--tbe-text-subtle` (3.1:1) în loc de bordură (1.9:1).
+- **Gri cald scos din textul mic.** `--tbe-text-subtle` (`#9E9086`, 3.1:1) era folosit ca text în ~35 de locuri pe site (etichete, meta, prețul tăiat, beneficiile „nu", numerotări) și în documentație. Toate au trecut pe `--tbe-text-muted`. Gri cald rămâne doar pe separatori („·", „/"), săgeți și iconițe decorative, stele goale, pași viitori și text dezactivat — iar pentru acestea `--tbe-text-subtle` e acum `#897B71`, o treaptă sub gri cald oficial `#9E9086`, care pe crem ajungea la 2.8:1 (sub minimul de 3:1 pentru grafice).
 - Elementul activ dintr-un meniu închis e o pastilă Magenta 200, nu doar text mai gros.
 
 **Ce nu s-a schimbat:** magenta `#A71257` (acțiune, logo), Magenta 700 ca suprafață de brand, negrul moale pentru text, crem, nude, culorile nivelurilor de loialitate, regula 60/30/10. Mauve rămâne în paletă ca accent decorativ. Clasa `.tbe-card.is-mauve` funcționează în continuare (alias pentru noul `.is-editorial`).

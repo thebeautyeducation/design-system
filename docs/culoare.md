@@ -107,7 +107,7 @@ Până în octombrie 2026, mauve 700 era vocea editorială. Lângă magenta ară
 | 200 ★ | `#EDDDD3` | fundal cald |
 | 300 | `#DCCFC4` | **borduri implicite** |
 | 400 | `#C0B1A5` | borduri accentuate |
-| 500 ★ | `#9E9086` | **decorativ / iconițe — NU text mic**; pasul viitor dintr-un indicator (3.1:1) |
+| 500 ★ | `#9E9086` | **decorativ — NU text.** Pe crem are doar 2.8:1, așa că pentru grafice care trebuie să se vadă (săgeți, stele goale, pași viitori, separatori) tokenul `--tbe-text-subtle` folosește o treaptă mai închisă, `#897B71` (min. 3:1 pe alb, crem și bej) |
 | 600 | `#6B5C51` | **text secundar** — 6.4:1 pe alb, 5.9:1 pe crem, 4.9:1 pe benzile bej și roz — `--tbe-text-muted` |
 | 700 | `#5A4D44` | **text secundar mic pe fundal colorat** (roz, crem, gri) — 7.5:1 pe crem — `--tbe-text-muted-strong` |
 | 800 | `#3D342E` | — |

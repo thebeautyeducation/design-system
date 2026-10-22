@@ -83,7 +83,7 @@
 }
 .ds-toc-title {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--tbe-text-subtle); margin-bottom: var(--sp-3);
+  color: var(--tbe-text-muted); margin-bottom: var(--sp-3);
 }
 .ds-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
 .ds-toc a {
@@ -127,12 +127,13 @@
 .ds-demo.is-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: stretch; }
 .ds-demo.is-sunk { background: var(--tbe-bg-alt); }
 .ds-demo.is-dark { background: var(--c-pruna-900); }
+.ds-demo.is-dark .ds-note { color: var(--c-pruna-200); }  /* notele de pe fundal închis — 10.2:1 */
 /* Demo-urile care arată componente pe fundalul REAL de brand (crem) */
 .ds-demo.is-brand-bg { background: var(--c-neutral-50); }
 
 .ds-note {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--tbe-text-subtle); margin-top: var(--sp-2);
+  color: var(--tbe-text-muted); margin-top: var(--sp-2);
 }
 .ds-classlist {
   font-family: var(--font-mono); font-size: 11px; color: var(--tbe-text-muted);
@@ -199,7 +200,7 @@
   border-top: 1px solid var(--tbe-border-subtle); margin-top: var(--sp-8);
   padding-block: var(--sp-6);
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--tbe-text-subtle); text-align: center;
+  color: var(--tbe-text-muted); text-align: center;
 }
 
 /* --- Card de intrare (index) --- */
