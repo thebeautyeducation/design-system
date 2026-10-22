@@ -42,6 +42,25 @@ Toate sunt Google Fonts gratuite, licențiate OFL (inclusiv pentru uz comercial)
 
 **Fluid** înseamnă că mărimea se adaptează singură între mobil și desktop, cu `clamp()`. Nu trebuie să scrii media queries pentru tipografie.
 
+### Scara aplicațiilor (Account)
+
+Site-ul folosește scara fluidă de mai sus. Aplicațiile (Contul meu) trăiesc pe telefon, unde lățimea nu variază mult, dar **mărimea de text aleasă de membru** variază. De aceea au o scară fixă, în rem, care urmează setarea telefonului (inclusiv mărimea textului din iPhone):
+
+| Treaptă | rem | px (la 16) | Unde |
+|---|---|---|---|
+| `--t-2xs` | 0.6875 | 11 | etichete foarte mici |
+| `--t-xs` | 0.75 | 12 | caption, pastile de stare |
+| `--t-sm` | 0.8125 | 13 | text secundar |
+| `--t-base` | 0.875 | 14 | rânduri de listă |
+| `--t-md` | 0.9375 | 15 | butoane, titluri de rând |
+| `--t-lg` | 1 | 16 | câmpuri (minimul ca iPhone-ul să nu mărească pagina) |
+| `--t-xl` | 1.125 | 18 | titluri mici |
+| `--t-2xl` | 1.375 | 22 | titlurile secțiunilor |
+| `--t-3xl` | 1.75 | 28 | titluri mari |
+| `--t-4xl` | 2.125 | 34 | titlul paginii |
+
+Cifrele mari (30–56px) au mărimea lor exactă, în rem. Tracking-ul urmează aceleași reguli ca mai sus. Bara de jos a aplicației rămâne în px (numele filelor trebuie să încapă).
+
 ---
 
 ## Grosimi — tokeni
@@ -83,6 +102,7 @@ Toate sunt Google Fonts gratuite, licențiate OFL (inclusiv pentru uz comercial)
 - **Cifrele sunt aliniate pe rând peste tot** (`lining-nums`, setat pe `body` prin `--num-default`). Asta a fost problema principală cu Cormorant: cifrele lui „săreau" sub rând.
 - Folosește `.tbe-tabular` (`--num-tabular`: cifre aliniate **și** de lățime egală) oriunde cifrele se aliniază pe verticală: tabele, prețuri, statistici, procente. Componentele `.tbe-stat-value`, `.tbe-score-value` și `.tbe-table .is-num` o au deja.
 - Fără lățime egală, „1.111" și „8.888" au lățimi diferite și coloana arată strâmb.
+- **Fraunces nu are cifre de lățime egală** (fontul complet are doar `case`, `liga`, `ss01`), deci `.tbe-tabular` nu face nimic pe el. Cifrele care se schimbă sub ochi (scorul pe care îl notezi, numărătoarea care se actualizează, prețul care se recalculează) se scriu cu **Inter** + `.tbe-tabular`. Cifrele mari care stau pe loc (statistici, prețul unui plan) pot rămâne în Fraunces.
 
 ---
 

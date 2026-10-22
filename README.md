@@ -1,6 +1,6 @@
 # Design System — The Beauty Education
 
-**v2.0 · octombrie 2026** · Sursa unică de adevăr pentru tot ce se vede: site, bannere, materiale promoționale, aplicații.
+**v2.1 · 23 octombrie 2026** · Sursa unică de adevăr pentru tot ce se vede: site, bannere, materiale promoționale, aplicații.
 Acoperă **The Beauty Education** și sub-brandul **Harta Coafezelor**. Ce s-a schimbat față de v1.0: [`docs/changelog.md`](docs/changelog.md).
 
 ---

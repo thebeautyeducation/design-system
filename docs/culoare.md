@@ -102,7 +102,7 @@ Până în octombrie 2026, mauve 700 era vocea editorială. Lângă magenta ară
 | Treaptă | HEX | Se folosește pentru |
 |---|---|---|
 | 0 ★ | `#FFFFFF` | carduri, suprafețe |
-| **50 ★** | `#FAF4EF` | **fundalul paginii (TBE)** |
+| **50 ★** | `#FAF4EF` | **fundalul paginii (TBE)**; aplicațiile (Account) au fundalul Mauve 50 `#F7F1F3` — `--tbe-bg-app` |
 | 100 | `#F2E9E2` | secțiune alternantă, input-uri |
 | 200 ★ | `#EDDDD3` | fundal cald |
 | 300 | `#DCCFC4` | **borduri implicite** |

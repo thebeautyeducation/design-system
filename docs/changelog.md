@@ -1,5 +1,18 @@
 # Ce s-a schimbat
 
+## v2.1 · 23 octombrie 2026
+
+Ce a adus aplicația Account în sistem (auditul Account față de v2.0, `core/AUDIT-ACCOUNT-DS2-2026-10.md` § 5):
+- **`--tbe-bg-app`**: fundalul aplicațiilor, Mauve 50 `#F7F1F3` (negru-prună pe tema închisă).
+- **Fraunces nu are cifre de lățime egală.** Cifrele care se schimbă sub ochi se scriu cu Inter + `.tbe-tabular` ([`tipografie.md`](tipografie.md) § Cifre).
+- **Scara aplicațiilor**: 10 trepte fixe în rem, care urmează mărimea de text aleasă în telefon ([`tipografie.md`](tipografie.md) § Scara aplicațiilor).
+- **`.tbe-error-inline`**: eroarea lângă butonul care a dat-o, cu „Reîncearcă"; notificarea rămâne pentru reușite.
+- **`.tbe-status`**: pastila de stare din aplicații, cu Inter și punct colorat.
+
+Account folosește acum culorile, arcurile, apăsarea, simbolurile de nivel, iconițele la 1.5px și tema închisă din v2.0.
+
+---
+
 ## v2.0 · octombrie 2026
 
 Prima versiune după auditul de design din 22 octombrie 2026. Clasele vechi funcționează în continuare; nimic din ce era construit pe v1.0 nu trebuie rescris.

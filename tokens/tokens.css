@@ -1,6 +1,6 @@
 /* ==========================================================================
    THE BEAUTY EDUCATION — DESIGN TOKENS
-   v2.0 · octombrie 2026 · Sursa unică de adevăr pentru culoare, tipografie, spațiere, mișcare.
+   v2.1 · 23 octombrie 2026 · Sursa unică de adevăr pentru culoare, tipografie, spațiere, mișcare.
    Ce s-a schimbat față de v1.0: docs/changelog.md.
    --------------------------------------------------------------------------
    Cum se folosește:
@@ -265,6 +265,9 @@
      pentru coloane, prețuri și statistici care se aliniază vertical. */
   --num-default: lining-nums proportional-nums;
   --num-tabular: lining-nums tabular-nums;
+  /* ATENȚIE: Fraunces NU are cifre de lățime egală (fontul complet are doar case, liga, ss01), deci --num-tabular
+     nu face nimic pe el. Cifrele care se schimbă sub ochi (scoruri, numărători, prețuri care se actualizează) se scriu
+     cu Inter: --font-body + --num-tabular. Cifrele mari care stau pe loc pot rămâne în Fraunces. */
 
   --lh-tight:   1.08;  /* display */
   --lh-snug:    1.25;  /* titluri */
@@ -396,6 +399,7 @@
   /* Suprafețe. În dark mode, fundalurile sunt negru-prună (aceeași nuanță ca
      brandul), nu maro: textul și accentele roz nu mai par terne pe ele. */
   --tbe-bg:            light-dark(var(--c-neutral-50),  var(--c-pruna-950));    /* fundalul paginii */
+  --tbe-bg-app:        light-dark(var(--c-mauve-50),    var(--c-pruna-950));    /* fundalul aplicațiilor (Account): mauve deschis, ca în macheta din 14 oct 2026 */
   --tbe-bg-alt:        light-dark(var(--c-neutral-100), #27171E);               /* secțiune alternantă */
   --tbe-surface:       light-dark(var(--c-neutral-0),   #2A1A21);               /* carduri, panouri */
   --tbe-surface-sunk:  light-dark(var(--c-neutral-100), #25151C);               /* input-uri, zone „adâncite" */

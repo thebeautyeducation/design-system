@@ -352,6 +352,24 @@ code, .tbe-code {
 
 .tbe-help  { font-size: var(--fs-xs); color: var(--tbe-text-muted); }
 .tbe-error { font-size: var(--fs-xs); color: var(--tbe-danger); font-weight: var(--fw-medium); }
+
+/* Eroarea lângă butonul care a dat-o (din Account, oct. 2026). Într-o foaie de jos sau sub un buton de acțiune,
+   eroarea nu mai apare ca notificare sus, departe de deget: stă aici până la următoarea încercare, cu „Reîncearcă".
+   Notificarea (.tbe-toast) rămâne doar pentru reușite.
+   <p class="tbe-error-inline" role="alert"><span class="tbe-icon" data-icon="circle-x"></span><span>Mesajul</span><button>Reîncearcă</button></p> */
+.tbe-error-inline {
+  display: flex; align-items: flex-start; gap: var(--sp-2); margin: var(--sp-3) 0 0;
+  padding: 0.65em 0.8em; border-radius: var(--r-md);
+  background: var(--tbe-danger-bg); color: var(--tbe-danger);
+  font-size: var(--fs-sm); line-height: 1.4; letter-spacing: var(--ls-small);
+}
+.tbe-error-inline > span:not(.tbe-icon) { flex: 1; min-width: 0; }
+.tbe-error-inline > .tbe-icon { flex: none; margin-top: 0.1em; }
+.tbe-error-inline button {
+  position: relative; flex: none; border: 0; background: none; color: inherit; cursor: pointer;
+  font: inherit; font-weight: var(--fw-semibold); padding: 0 var(--sp-2); margin: -0.35em -0.25em -0.35em 0; min-height: 32px;
+}
+.tbe-error-inline button::before { content: ''; position: absolute; inset: -6px -4px; } /* 44px de apăsat */
 .tbe-field.is-invalid .tbe-input,
 .tbe-field.is-invalid .tbe-textarea,
 .tbe-field.is-invalid .tbe-select { border-color: var(--tbe-danger); }
@@ -451,6 +469,19 @@ code, .tbe-code {
 /* ==========================================================================
    BADGES · CHIPS · AVATAR
    ========================================================================== */
+/* Pastila de stare din aplicații (din Account, oct. 2026): Inter, nu mono-majuscule. Într-o listă, starea se citește
+   dintr-o privire („În evaluare", „Validată", „De refăcut"); majusculele mono rămân pentru kickere și .tbe-badge.
+   <span class="tbe-status is-success">Validată</span> */
+.tbe-status {
+  display: inline-flex; align-items: center; gap: 0.4em; padding: 0.3em 0.8em; border-radius: var(--r-pill);
+  font-family: var(--font-body); font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: var(--ls-small);
+  white-space: nowrap; background: var(--tbe-accent-soft); color: var(--tbe-accent-text);
+}
+.tbe-status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.tbe-status.is-success { background: var(--tbe-success-bg); color: var(--tbe-success); }
+.tbe-status.is-warning { background: var(--tbe-warning-bg); color: var(--tbe-warning); }
+.tbe-status.is-danger  { background: var(--tbe-danger-bg);  color: var(--tbe-danger); }
+
 .tbe-badge {
   display: inline-flex; align-items: center; gap: var(--sp-1);
   font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: var(--fw-medium);
