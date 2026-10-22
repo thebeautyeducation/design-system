@@ -58,7 +58,7 @@ Același raționament pentru mauve: `#A98192` rămâne culoarea de brand, dar pe
 
 **Limita strictă:** verde **nu** e culoare de brand. Nu se folosește pentru butoane, titluri sau fundaluri de secțiune. Doar pentru: disponibil, verificat, pin pe hartă.
 
-**Dacă nu-ți place:** șterge `--c-harta-*` din `tokens.css` și folosește semnalul de succes `#2E7D5B` în loc. Sunt aproape identice — l-am separat doar ca să poți schimba unul fără celălalt.
+**Dacă nu-ți place:** șterge `--c-harta-*` din `tokens.css` și folosește semnalul de succes `#2A7454` în loc. Sunt aproape identice — l-am separat doar ca să poți schimba unul fără celălalt.
 
 ---
 
@@ -163,7 +163,7 @@ Se folosește `--tbe-editorial` (mauve 700, 6.9:1), nu mauve-ul oficial 400 — 
 
 Așa Gold poate fi `#F0B72A` în glifă și `#8A6300` în text (5.4:1). Arată viu și rămâne accesibil.
 
-**Progresia e intenționată:** Bronze și Silver rămân calme, Gold și Diamond strălucesc, iar varianta `.is-tier-solid` (cu gradient) e rezervată profilului și certificatelor. Nivelul se recunoaște de la distanță — ceea ce e tot rostul unui program de meritocrație.
+**Progresia e intenționată:** Bronze și Silver rămân calme, Gold și Diamond strălucesc, iar varianta `.is-tier-solid` (cu gradient) e rezervată profilului și certificatelor. Din octombrie 2026, pe varianta plină textul e închis, din aceeași nuanță (`--c-*-ink`), ca la Gold: textul alb pica la 3.1–3.2:1 pe Bronze, Silver și Diamond. Gradientul Bronze pornește acum de la `#D99B6A`, ca să aibă loc un text închis lizibil. Nivelul se recunoaște de la distanță — ceea ce e tot rostul unui program de meritocrație.
 
 ---
 

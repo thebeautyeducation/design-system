@@ -170,7 +170,7 @@
   --c-neutral-950: #1A1513;
 
   /* --- Semnale · derivate din temperatura caldă a brandului -------------- */
-  --c-success:       #2E7D5B;  /* 5.0:1 pe alb */
+  --c-success:       #2A7454;  /* 5.6:1 pe alb, 4.9:1 pe fundalul soft (era #2E7D5B: 4.3:1 pe soft) */
   --c-success-soft:  #E4F1EA;
   --c-warning:       #9C5C00;  /* 5.3:1 pe alb */
   --c-warning-soft:  #FBEEDC;
@@ -197,21 +197,26 @@
   --c-bronze-vivid: #C97F45;
   --c-bronze-text:  light-dark(#8A5228, #D99B6A);
   --c-bronze-soft:  light-dark(#F7EBE1, rgba(201, 127, 69, 0.16));
+  --c-bronze-light: #D99B6A;  /* capătul luminos al insignei pline */
+  --c-bronze-ink:   #35190A;  /* text pe insigna plină: 5.1:1 */
 
   --c-silver:       #8A93A3;
   --c-silver-vivid: #9BA5B5;
   --c-silver-text:  light-dark(#5D6675, #B4BDCC);
   --c-silver-soft:  light-dark(#EEF1F5, rgba(155, 165, 181, 0.16));
+  --c-silver-ink:   #1F2630;  /* text pe insigna plină: 4.9:1 */
 
   --c-gold:         #D9A520;
   --c-gold-vivid:   #F0B72A;
   --c-gold-text:    light-dark(#8A6300, #F5C542);
   --c-gold-soft:    light-dark(#FDF3D9, rgba(240, 183, 42, 0.16));
+  --c-gold-ink:     #4A3400;  /* text pe insigna plină: 5.3:1 */
 
   --c-diamond:       #2E9BC9;
   --c-diamond-vivid: #3FB6E8;
   --c-diamond-text:  light-dark(#1A6E92, #5FC8F5);
   --c-diamond-soft:  light-dark(#E2F3FB, rgba(63, 182, 232, 0.16));
+  --c-diamond-ink:   #082436;  /* text pe insigna plină: 5.1:1 */
 
   /* --- Canale de contact (Harta Coafezelor) ------------------------------
      Excepție documentată de la regula „magenta = acțiune": pe Harta

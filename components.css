@@ -512,13 +512,14 @@ code, .tbe-code {
 .tbe-badge.is-diamond { --_tier: var(--c-diamond-vivid); --_tier-icon: var(--icon-tier-diamond); }
 
 /* Varianta plină — pentru profil, certificat, header de cont */
-.tbe-badge.is-tier-solid { border-color: transparent; color: #fff; }
-.tbe-badge.is-tier-solid { --_tier: rgba(255, 255, 255, 0.92); }
-.tbe-badge.is-bronze.is-tier-solid  { background: linear-gradient(135deg, var(--c-bronze-vivid), var(--c-bronze)); }
-.tbe-badge.is-silver.is-tier-solid  { background: linear-gradient(135deg, var(--c-silver-vivid), var(--c-silver)); }
-.tbe-badge.is-gold.is-tier-solid    { background: linear-gradient(135deg, var(--c-gold-vivid), var(--c-gold)); color: #4A3400; }
-.tbe-badge.is-gold.is-tier-solid { --_tier: #fff; }
-.tbe-badge.is-diamond.is-tier-solid { background: linear-gradient(135deg, var(--c-diamond-vivid), var(--c-diamond)); }
+/* Insigna plină: metalul nivelului, cu text închis din aceeași nuanță.
+   Textul alb avea 3.2:1 pe Bronze, 3.1:1 pe Silver și Diamond; textul închis
+   trece de 4.9:1 pe tot gradientul, la toate patru. Simbolul ia culoarea textului. */
+.tbe-badge.is-tier-solid { border-color: transparent; --_tier: currentColor; }
+.tbe-badge.is-bronze.is-tier-solid  { background: linear-gradient(135deg, var(--c-bronze-light), var(--c-bronze-vivid)); color: var(--c-bronze-ink); }
+.tbe-badge.is-silver.is-tier-solid  { background: linear-gradient(135deg, var(--c-silver-vivid), var(--c-silver)); color: var(--c-silver-ink); }
+.tbe-badge.is-gold.is-tier-solid    { background: linear-gradient(135deg, var(--c-gold-vivid), var(--c-gold)); color: var(--c-gold-ink); }
+.tbe-badge.is-diamond.is-tier-solid { background: linear-gradient(135deg, var(--c-diamond-vivid), var(--c-diamond)); color: var(--c-diamond-ink); }
 
 .tbe-chip {
   display: inline-flex; align-items: center; gap: var(--sp-2);

@@ -12,6 +12,9 @@ Prima versiune după auditul de design din 22 octombrie 2026. Clasele vechi func
 - **Logo-ul are mereu o singură culoare.** Simbolul și textul nu mai apar niciodată în culori diferite.
 - **Contrast reparat pe textul mic.** Gri cald nu mai e folosit ca text. `--c-neutral-600` s-a închis la `#6B5C51`, `--tbe-text-subtle` la `#897B71` (doar grafice și decor).
 - Stelele de evaluare sunt prună, nu magenta: informează, nu se apasă.
+- **Insignele pline de nivel** (`.is-tier-solid`) au text închis din nuanța metalului, ca Gold. Textul alb avea 3.1–3.2:1 pe Bronze, Silver și Diamond; acum minimum 4.9:1. Tokeni noi: `--c-bronze-ink`, `--c-silver-ink`, `--c-gold-ink`, `--c-diamond-ink`, `--c-bronze-light`.
+- **Verdele de succes** e mai închis: `#2A7454` în loc de `#2E7D5B`. Pe fundalul lui soft avea 4.3:1, acum 4.9:1 (5.6:1 pe alb).
+- Verdele de contact al Hărții e același pe ambele teme; textul magenta pe fundal soft folosește `--tbe-action-on-soft` (tema închisă trecea la limită).
 
 ### Iconițe (nou)
 - **Un singur set:** Lucide, linie de 1.5px, plus patru simboluri proprii pentru niveluri și o stea plină pentru evaluări. 59 de iconițe în `assets/icons/` (SVG + `sprite.svg`), în CSS ca `.tbe-icon[data-icon="nume"]`.

@@ -122,7 +122,7 @@ Derivate în aceeași temperatură caldă. Nu folosi verde/roșu standard de sis
 
 | Semnal | HEX | Fundal soft | Contrast pe alb |
 |---|---|---|---|
-| Reușit | `#2E7D5B` | `#E4F1EA` | 5.0:1 ✓ |
+| Reușit | `#2A7454` | `#E4F1EA` | 5.6:1 ✓ (4.9:1 pe fundalul soft) |
 | Atenție | `#9C5C00` | `#FBEEDC` | 5.3:1 ✓ |
 | Eroare | `#B3261E` | `#FBE7E5` | 6.6:1 ✓ |
 | Info | `#6B2A4A` | `#F3E7ED` | 10.2:1 ✓ |
@@ -131,18 +131,25 @@ Derivate în aceeași temperatură caldă. Nu folosi verde/roșu standard de sis
 
 Doar pentru badge-uri de status. Nu ca fundal de secțiune sau culoare de buton.
 
-Fiecare nivel are trei valori, ca să poată fi viu **și** lizibil: glifa poartă culoarea saturată (e un simbol, nu are nevoie de 4.5:1), textul poartă lizibilitatea.
+Fiecare nivel are trei valori, ca să poată fi viu **și** lizibil: simbolul poartă culoarea saturată (e un simbol, nu are nevoie de 4.5:1), textul poartă lizibilitatea.
 
-| Nivel | Glifă | Vivid (glifă) | Text | Fundal | Contrast text |
+| Nivel | Simbol | Vivid (simbol) | Text | Fundal | Contrast text |
 |---|---|---|---|---|---|
-| Bronze | ● | `#C97F45` | `#8A5228` | `#F7EBE1` | 6.4:1 ✓ |
-| Silver | ◈ | `#9BA5B5` | `#5D6675` | `#EEF1F5` | 5.9:1 ✓ |
-| Gold | ★ | `#F0B72A` | `#8A6300` | `#FDF3D9` | 5.4:1 ✓ |
-| Diamond | ◆ | `#3FB6E8` | `#1A6E92` | `#E2F3FB` | 5.8:1 ✓ |
+| Bronze | `tier-bronze` | `#C97F45` | `#8A5228` | `#F7EBE1` | 6.4:1 ✓ |
+| Silver | `tier-silver` | `#9BA5B5` | `#5D6675` | `#EEF1F5` | 5.9:1 ✓ |
+| Gold | `tier-gold` | `#F0B72A` | `#8A6300` | `#FDF3D9` | 5.4:1 ✓ |
+| Diamond | `tier-diamond` | `#3FB6E8` | `#1A6E92` | `#E2F3FB` | 5.8:1 ✓ |
 
 Progresia e intenționată: Bronze și Silver rămân calme, Gold și Diamond strălucesc. Nivelul se recunoaște de la distanță — asta e tot rostul meritocrației. Culorile nivelurilor sunt aceleași în toate produsele TBE (Circle, Account, Hartă); nu le înlocui cu tonuri din paletă.
 
-Varianta `.is-tier-solid` (gradient plin) e rezervată profilului, certificatelor și antetului de cont.
+Varianta `.is-tier-solid` (gradient plin) e rezervată profilului, certificatelor și antetului de cont. Pe ea textul e **închis**, din aceeași nuanță cu metalul, nu alb: textul alb avea doar 3.1–3.2:1 pe Bronze, Silver și Diamond.
+
+| Nivel | Gradient | Text (`--c-*-ink`) | Contrast minim |
+|---|---|---|---|
+| Bronze | `#D99B6A` → `#C97F45` | `#35190A` | 5.1:1 ✓ |
+| Silver | `#9BA5B5` → `#8A93A3` | `#1F2630` | 4.9:1 ✓ |
+| Gold | `#F0B72A` → `#D9A520` | `#4A3400` | 5.3:1 ✓ |
+| Diamond | `#3FB6E8` → `#2E9BC9` | `#082436` | 5.1:1 ✓ |
 
 ## Harta Coafezelor
 
